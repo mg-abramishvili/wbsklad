@@ -1,0 +1,2325 @@
+@font-face {
+  font-family: 'Proxima Nova Bl';
+  src: url('../fonts/ProximaNova-Black.eot');
+  src: local('Proxima Nova Black'), local('ProximaNova-Black'), url('../fonts/ProximaNova-Black.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Black.woff2') format('woff2'), url('../fonts/ProximaNova-Black.woff') format('woff'), url('../fonts/ProximaNova-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova Th';
+  src: url('../fonts/ProximaNova-Extrabld.eot');
+  src: local('Proxima Nova Extrabold'), local('ProximaNova-Extrabld'), url('../fonts/ProximaNova-Extrabld.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Extrabld.woff2') format('woff2'), url('../fonts/ProximaNova-Extrabld.woff') format('woff'), url('../fonts/ProximaNova-Extrabld.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova Lt';
+  src: url('../fonts/ProximaNova-SemiboldIt.eot');
+  src: local('Proxima Nova Semibold Italic'), local('ProximaNova-SemiboldIt'), url('../fonts/ProximaNova-SemiboldIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-SemiboldIt.woff2') format('woff2'), url('../fonts/ProximaNova-SemiboldIt.woff') format('woff'), url('../fonts/ProximaNova-SemiboldIt.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Th';
+  src: url('../fonts/ProximaNovaT-Thin.eot');
+  src: local('Proxima Nova Thin'), local('ProximaNovaT-Thin'), url('../fonts/ProximaNovaT-Thin.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNovaT-Thin.woff2') format('woff2'), url('../fonts/ProximaNovaT-Thin.woff') format('woff'), url('../fonts/ProximaNovaT-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova Lt';
+  src: url('../fonts/ProximaNova-Light.eot');
+  src: local('Proxima Nova Light'), local('ProximaNova-Light'), url('../fonts/ProximaNova-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Light.woff2') format('woff2'), url('../fonts/ProximaNova-Light.woff') format('woff'), url('../fonts/ProximaNova-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova Bl';
+  src: url('../fonts/ProximaNova-BlackIt.eot');
+  src: local('Proxima Nova Black Italic'), local('ProximaNova-BlackIt'), url('../fonts/ProximaNova-BlackIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-BlackIt.woff2') format('woff2'), url('../fonts/ProximaNova-BlackIt.woff') format('woff'), url('../fonts/ProximaNova-BlackIt.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Rg';
+  src: url('../fonts/ProximaNova-BoldIt.eot');
+  src: local('Proxima Nova Bold Italic'), local('ProximaNova-BoldIt'), url('../fonts/ProximaNova-BoldIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-BoldIt.woff2') format('woff2'), url('../fonts/ProximaNova-BoldIt.woff') format('woff'), url('../fonts/ProximaNova-BoldIt.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Th';
+  src: url('../fonts/ProximaNova-ThinIt.eot');
+  src: local('Proxima Nova Thin Italic'), local('ProximaNova-ThinIt'), url('../fonts/ProximaNova-ThinIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-ThinIt.woff2') format('woff2'), url('../fonts/ProximaNova-ThinIt.woff') format('woff'), url('../fonts/ProximaNova-ThinIt.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Rg';
+  src: url('../fonts/ProximaNova-Bold.eot');
+  src: local('Proxima Nova Bold'), local('ProximaNova-Bold'), url('../fonts/ProximaNova-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Bold.woff2') format('woff2'), url('../fonts/ProximaNova-Bold.woff') format('woff'), url('../fonts/ProximaNova-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova Rg';
+  src: url('../fonts/ProximaNova-RegularIt.eot');
+  src: local('Proxima Nova Regular Italic'), local('ProximaNova-RegularIt'), url('../fonts/ProximaNova-RegularIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-RegularIt.woff2') format('woff2'), url('../fonts/ProximaNova-RegularIt.woff') format('woff'), url('../fonts/ProximaNova-RegularIt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Th';
+  src: url('../fonts/ProximaNova-ExtrabldIt.eot');
+  src: local('Proxima Nova Extrabold Italic'), local('ProximaNova-ExtrabldIt'), url('../fonts/ProximaNova-ExtrabldIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-ExtrabldIt.woff2') format('woff2'), url('../fonts/ProximaNova-ExtrabldIt.woff') format('woff'), url('../fonts/ProximaNova-ExtrabldIt.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Rg';
+  src: url('../fonts/ProximaNova-Regular.eot');
+  src: local('Proxima Nova Regular'), local('ProximaNova-Regular'), url('../fonts/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Regular.woff2') format('woff2'), url('../fonts/ProximaNova-Regular.woff') format('woff'), url('../fonts/ProximaNova-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Proxima Nova Lt';
+  src: url('../fonts/ProximaNova-LightIt.eot');
+  src: local('Proxima Nova Light Italic'), local('ProximaNova-LightIt'), url('../fonts/ProximaNova-LightIt.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-LightIt.woff2') format('woff2'), url('../fonts/ProximaNova-LightIt.woff') format('woff'), url('../fonts/ProximaNova-LightIt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Proxima Nova Lt';
+  src: url('../fonts/ProximaNova-Semibold.eot');
+  src: local('Proxima Nova Semibold'), local('ProximaNova-Semibold'), url('../fonts/ProximaNova-Semibold.eot?#iefix') format('embedded-opentype'), url('../fonts/ProximaNova-Semibold.woff2') format('woff2'), url('../fonts/ProximaNova-Semibold.woff') format('woff'), url('../fonts/ProximaNova-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+.up {
+  text-transform: uppercase;
+}
+.none {
+  text-decoration: none;
+}
+.th {
+  font-weight: 100;
+}
+.el {
+  font-weight: 200;
+}
+.l {
+  font-family: 'Proxima Nova Lt';
+}
+.reg {
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+}
+.med {
+  font-weight: 500;
+}
+.sb {
+  font-weight: 600;
+}
+.bold {
+  font-weight: 700;
+}
+.eb {
+  font-weight: 800;
+}
+.black {
+  font-weight: 900;
+}
+.un {
+  text-decoration: underline;
+}
+.in {
+  display: inline-block;
+}
+.vam {
+  vertical-align: middle;
+}
+.rel {
+  position: relative;
+}
+.bl {
+  display: block;
+}
+.abs {
+  position: absolute;
+}
+.tr {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.try {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.trx {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tc {
+  display: table-cell;
+  vertical-align: middle;
+}
+.dn {
+  display: none;
+}
+.tac {
+  text-align: center;
+}
+.tal {
+  text-align: left;
+}
+.tar {
+  text-align: right;
+}
+.taj {
+  text-align: justify;
+}
+.it {
+  font-style: italic;
+}
+.sn {
+  font-style: normal;
+}
+.popup {
+  position: fixed;
+  width: 120%;
+  height: 100%;
+  left: -10%;
+  top: 0;
+  overflow-y: scroll;
+  background: rgba(1, 1, 1, 0.7);
+  z-index: 11;
+  display: none;
+}
+.b0 {
+  border: 0;
+}
+.bn {
+  background: none;
+}
+.w100 {
+  width: 100%;
+}
+.h100 {
+  height: 100%;
+}
+.wa {
+  width: auto;
+}
+.p0 {
+  padding: 0;
+}
+.m0 {
+  margin: 0;
+}
+.poi {
+  cursor: pointer;
+}
+.auto {
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+}
+.noup {
+  text-transform: none;
+}
+.fix {
+  position: fixed;
+}
+.tn {
+  transform: none;
+}
+.bf {
+  background: #fff;
+}
+.cf {
+  color: #fff;
+}
+.c0 {
+  color: #495057;
+}
+.ap {
+  -webkit-appearance: none;
+          appearance: none;
+}
+.nw {
+  white-space: nowrap;
+}
+.ma {
+  margin: 0 auto;
+}
+.oh {
+  overflow: hidden;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #f6f6f9;
+  overflow-x: hidden;
+}
+body,
+th,
+td {
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  font-size: 14px;
+  color: #495057;
+}
+body,
+form,
+object,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+img,
+table {
+  border: none;
+}
+table {
+  border-collapse: collapse;
+}
+table td {
+  padding: 0;
+}
+a {
+  color: #495057;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+a:hover {
+  text-decoration: none;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  border: 0;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+}
+button,
+input[type='submit'] {
+  transition: all 200ms ease;
+  cursor: pointer;
+  border: 0;
+}
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+.an {
+  transition: all 200ms ease;
+}
+.box {
+  box-sizing: border-box;
+}
+section,
+header,
+footer,
+nav,
+main {
+  display: block;
+}
+.wrap {
+  padding: 0 20px 0 270px;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.flex2 {
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+}
+* {
+  outline: none!important;
+}
+.left-menu {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #2a3042;
+}
+.left-menu .logo {
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  background: #24293a;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+.left-menu .logo img {
+  vertical-align: middle;
+}
+.left-menu ul {
+  padding: 0 20px;
+}
+.left-menu ul li {
+  border-bottom: 1px solid #323950;
+}
+.left-menu ul li:last-child {
+  border-bottom: 0;
+}
+.left-menu ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 20px 0;
+  font-size: 16px;
+  color: #a6b0cf;
+}
+.left-menu ul li a.active,
+.left-menu ul li a:hover {
+  color: #fff;
+}
+.left-menu ul li a span {
+  vertical-align: middle;
+  display: inline-block;
+  color: #ffa800;
+  margin: -6px 5px 0 0;
+}
+.left-menu ul li a .fa {
+  float: right;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.header {
+  padding: 17px 0;
+  margin-bottom: 20px;
+  background: #fff;
+}
+.header .wrap {
+  position: relative;
+}
+.header .menu-button {
+  width: 14px;
+  height: 12px;
+  background: url('/img/menu-button.png');
+  cursor: pointer;
+  display: none;
+  z-index: 3;
+  margin-top: 11px;
+}
+.header h1 {
+  margin: 8px 0 0 0;
+}
+.header .user-block * {
+  vertical-align: middle;
+}
+.header .user-block .alerts {
+  display: inline-block;
+  border-right: 1px solid #ebedf3;
+  padding-right: 16px;
+  margin-right: 20px;
+}
+.header .user-block .alerts:nth-child(1) a {
+  background: url('/img/header-icon1.png') no-repeat center;
+}
+.header .user-block .alerts:nth-child(2) a {
+  background: url('/img/header-icon2.png') no-repeat center;
+}
+.header .user-block .alerts.other {
+  margin-right: 10px;
+}
+.header .user-block .notifications {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: url('/img/notification.svg') center / cover;
+}
+.header .user-block .notifications span {
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 12px;
+  background: #f46a6a;
+  padding: 0 6px;
+  right: -5px;
+  top: -5px;
+}
+.header .user-block .user {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 16px;
+  color: #555b6d;
+}
+.header .user-block .user img {
+  margin-right: 5px;
+}
+.header .user-block .user .fa {
+  margin-left: 5px;
+}
+h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  color: #495057;
+  margin-bottom: 20px;
+}
+.navi {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #75818c;
+  background: #fff;
+  margin: -20px -20px 20px -20px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(1, 1, 1, 0.1);
+  border-top: 1px solid rgba(1, 1, 1, 0.05);
+}
+.navi a {
+  color: #75818c;
+  text-decoration: none;
+}
+.sites-list .top-buttons {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+}
+.sites-list .top-buttons p {
+  font-size: 18px;
+  color: #495057;
+  margin-top: 10px;
+}
+.sites-list .top-buttons .buttons button {
+  font-size: 16px;
+  color: #495057;
+  padding: 10px 18px;
+  border-radius: 4px;
+  background: #e4e6ef;
+  margin-right: 15px;
+}
+.sites-list .top-buttons .buttons button:hover {
+  background: #d1d3e0;
+}
+.sites-list .top-buttons .buttons button:last-child {
+  margin-right: 0;
+  color: #fff;
+  background: #3699ff;
+}
+.sites-list .top-buttons .buttons button:last-child:hover {
+  background: #556ee6;
+}
+.sites-list .site-item {
+  padding-bottom: 5px;
+}
+.sites-list .site-item .info {
+  width: 62%;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.sites-list .site-item .info .name {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.sites-list .site-item .info .name span {
+  display: inline-block;
+  width: 140px;
+}
+.sites-list .site-item .info .name a {
+  font-size: 18px;
+  text-decoration: none;
+  color: #3699ff;
+}
+.sites-list .site-item .info .name a:hover {
+  color: #495057;
+}
+.sites-list .site-item .info .phone {
+  font-size: 16px;
+  margin-bottom: 20px;
+  margin-top: 3px;
+}
+.sites-list .site-item .info .phone a {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  background: url('/img/sett.svg') center / cover;
+  margin: -2px 0 0 15px;
+  opacity: 0.5;
+}
+.sites-list .site-item .info .phone a:hover {
+  opacity: 1;
+  transform: rotate(180deg);
+}
+.sites-list .site-item .info .line {
+  height: 1px;
+  background: #eff2f7;
+  margin-bottom: 20px;
+}
+.sites-list .site-item .info .data .data-item {
+  font-family: 'Proxima Nova Lt';
+  color: #74788d;
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 75px;
+}
+.sites-list .site-item .info .data .data-item:last-child {
+  margin-right: 0;
+}
+.sites-list .site-item .info .data .data-item span {
+  display: block;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  font-size: 18px;
+  color: #495057;
+  margin-top: 8px;
+}
+.sites-list .site-item .info .status {
+  font-size: 16px;
+  padding: 0 15px;
+  height: 32px;
+  margin-top: 10px;
+  line-height: 32px;
+  border-radius: 4px;
+}
+.sites-list .site-item .info .status.ok {
+  color: #34c38f;
+  border: 1px solid #34c38f;
+}
+.sites-list .site-item .info .status.ok:hover {
+  background: #34c38f;
+  color: #fff;
+}
+.sites-list .site-item .info .status.ok:hover span {
+  background: #fff;
+}
+.sites-list .site-item .info .status.ok span {
+  background: #34c38f;
+}
+.sites-list .site-item .info .status.bad {
+  color: #f64e60;
+  border: 1px solid #f64e60;
+}
+.sites-list .site-item .info .status.bad:hover {
+  background: #f64e60;
+  color: #fff;
+}
+.sites-list .site-item .info .status.bad:hover span {
+  background: #fff;
+}
+.sites-list .site-item .info .status.bad span {
+  background: #f64e60;
+}
+.sites-list .site-item .info .status span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: -2px 2px 0 0;
+}
+.sites-list .site-item .graph {
+  width: 37%;
+  margin-bottom: 10px;
+  background: #fff;
+  border-radius: 4px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 0;
+}
+.sites-list .pages {
+  padding: 20px 0 35px;
+  text-align: center;
+}
+.sites-list .pages a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Proxima Nova Lt';
+  border-radius: 50%;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.sites-list .pages a.active,
+.sites-list .pages a:hover {
+  color: #fff;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  background: #556ee6;
+}
+.sites-list .pages a.active .fa,
+.sites-list .pages a:hover .fa {
+  color: #fff;
+}
+.sites-list .pages a .fa {
+  color: #556ee6;
+}
+.footer {
+  background: #fff;
+  padding: 20px 0;
+  font-size: 16px;
+  color: #7e8299;
+  text-align: right;
+  margin-top: -60px;
+}
+.footer ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.footer ul li:last-child {
+  margin-right: 0;
+}
+.footer ul li a {
+  color: #7e8299;
+  text-decoration: none;
+}
+.add-site-form {
+  background: #fff;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+.add-site-form.small {
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+}
+.add-site-form.small2 {
+  max-width: 610px;
+  margin: 0 auto 20px auto;
+}
+.add-site-form .top-block {
+  padding: 20px 30px;
+  border-bottom: 1px solid #eff2f7;
+  margin-bottom: 30px;
+}
+.add-site-form .top-block p {
+  font-weight: 600;
+  font-size: 18px;
+  color: #495057;
+  margin-top: 10px;
+}
+.add-site-form .top-block button {
+  font-size: 16px;
+  color: #495057;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: 'Proxima Nova Lt';
+  background: #e4e6ef;
+}
+.add-site-form .top-block button:hover {
+  background: #d1d3e0;
+}
+.add-site-form .top-block .buttons button {
+  margin-right: 12px;
+}
+.add-site-form .top-block .buttons button:last-child {
+  margin-right: 0;
+}
+.add-site-form form {
+  max-width: 550px;
+  margin: 0 auto;
+}
+.add-site-form form.big {
+  max-width: 835px;
+}
+.add-site-form form.big .col {
+  width: 32%;
+}
+.add-site-form form.very-big {
+  max-width: 100%;
+  padding: 0 30px;
+}
+.add-site-form form.very-big .block {
+  width: 46%;
+}
+.add-site-form form.very-big .vline {
+  width: 1px;
+  background: #eff2f7;
+}
+.add-site-form form .top-text {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+.add-site-form form .top-text span {
+  font-family: 'Proxima Nova Lt';
+  font-weight: 300;
+}
+.add-site-form form .field-name {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #3f4254;
+}
+.add-site-form form .field-name span {
+  color: red;
+}
+.add-site-form form input[type='text']:disabled {
+  background: #f1f5f8 url('/img/disabled.png') no-repeat right 10px top 50%;
+}
+.add-site-form form input[type='text'] {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.add-site-form form input[type='text'].mail {
+  background: url('/img/inp1.png') no-repeat right 10px top 50%;
+}
+.add-site-form form input[type='text']:focus {
+  border: 1px solid #999;
+}
+.add-site-form form input[type='password'] {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.add-site-form form input[type='password'].bg {
+  background: url('/img/inp1.png') no-repeat right 10px top 50%;
+}
+.add-site-form form input[type='password']:focus {
+  border: 1px solid #999;
+}
+.add-site-form form select {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #9aa3b5;
+  -webkit-appearance: none;
+          appearance: none;
+  background: url('/img/select.png') no-repeat right 10px top 50%;
+}
+.add-site-form form select:hover {
+  border: 1px solid #999;
+}
+.add-site-form form textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+.add-site-form form textarea:focus {
+  border: 1px solid #999;
+}
+.add-site-form form .phone-number {
+  position: relative;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  padding-left: 66px;
+  margin-bottom: 15px;
+}
+.add-site-form form .phone-number span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  color: #9aa3b5;
+  padding: 0 10px;
+  border-right: 1px solid #ced4da;
+}
+.add-site-form form .phone-number span img {
+  width: 23px;
+  vertical-align: middle;
+  margin: -2px 2px 0 0;
+}
+.add-site-form form .phone-number input[type='text'] {
+  border: 0;
+  margin-bottom: 0;
+}
+.add-site-form form .done {
+  display: block;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 4px;
+  background: #1bc5bd;
+  height: 36px;
+  line-height: 36px;
+}
+.add-site-form form .checkbox {
+  display: none;
+}
+.add-site-form form .checkbox + label {
+  display: block;
+  cursor: pointer;
+  font-size: 16px;
+  background: url('/img/checkbox.png') no-repeat 0 2px;
+  color: #484848;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  transition: all 200ms ease;
+}
+.add-site-form form .checkbox:checked + label {
+  background: url('/img/checkbox2.png') no-repeat 0 2px;
+  color: #3699ff;
+}
+.add-site-form form .col {
+  width: 48%;
+}
+.add-site-form form .col.small {
+  width: 31%;
+}
+.add-site-form form .col.big {
+  width: 65%;
+}
+.add-site-form form button {
+  font-size: 16px;
+  padding: 10px 40px;
+  border-radius: 4px;
+  color: #fff;
+  background: #3699ff;
+}
+.add-site-form form button.other {
+  background: #ffa800;
+}
+.add-site-form form button.confirm {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.add-site-form form button.confirm span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  background: url('/img/confirm.png');
+  margin: -2px 2px 0 0;
+}
+.add-site-form form button.finish {
+  width: 100%;
+  padding: 8px 10px;
+  background: #fff;
+  margin: 30px 0 40px 0;
+  color: #74788d;
+  border: 1px solid #74788d;
+}
+.add-site-form form button.finish:hover {
+  color: #fff;
+  background: #74788d;
+}
+.add-site-form form button:hover {
+  background: #556ee6;
+}
+.add-site-form form .radio {
+  display: none;
+}
+.add-site-form form .radio + label {
+  display: block;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Proxima Nova Lt';
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  padding: 7px 10px;
+  margin-bottom: 15px;
+}
+.add-site-form form .radio + label span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  background: url('/img/radio.png');
+  margin: -2px 2px 0 0;
+}
+.add-site-form form .radio:checked + label {
+  color: #566ee6;
+  border: 1px solid #566ee6;
+}
+.add-site-form form .radio:checked + label span {
+  background: url('/img/radio2.png');
+}
+.add-site-form form .line {
+  border-top: 1px dashed #ced4da;
+  opacity: 0.5;
+  margin: 15px 0 30px;
+}
+.add-site-form form .upload {
+  cursor: pointer;
+  border: 1px dashed #ced4da;
+  border-radius: 6px;
+  padding: 60px 20px 20px 20px;
+  text-align: center;
+  background: url('/img/upload.png') no-repeat top 20px left 50%;
+  font-family: 'Proxima Nova Lt';
+  font-size: 16px;
+  color: #9aa3b5;
+  margin-bottom: 30px;
+}
+.add-site-form form .select {
+  padding-bottom: 20px;
+}
+.add-site-form form .select .radio + label {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  padding: 7px 20px;
+}
+.add-site-form form .show-on-map {
+  display: block;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 15px;
+  color: #3699ff;
+}
+.add-site-form form .add-link {
+  display: block;
+  margin-bottom: 15px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #3699ff;
+  background: #e1f0ff;
+}
+.add-site-form form .add-link:hover span {
+  transform: rotate(180deg);
+}
+.add-site-form form .add-link span {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 200ms ease;
+  width: 16px;
+  height: 16px;
+  background: url('/img/add.png');
+  margin: -2px 2px 0 0;
+}
+.add-site-form form .tg-link {
+  display: inline-block;
+  padding: 0 20px;
+  margin-bottom: 15px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #3699ff;
+  background: #e1f0ff;
+  border: 2px solid #e1f0ff;
+}
+.add-site-form form .tg-link:hover {
+  background: #fff;
+}
+.add-site-form form .tg-link span {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all 200ms ease;
+  width: 16px;
+  height: 14px;
+  background: url('/img/tg.png');
+  margin: -2px 2px 0 0;
+}
+.add-site-form form .bottom-text {
+  width: 60%;
+  color: #b5b5c3;
+  margin-bottom: 30px;
+}
+.add-site-form form .bottom-text2 {
+  padding-left: 30px;
+  border-left: 3px solid #e1f0ff;
+}
+.add-site-form form .bottom-text2 p {
+  margin-bottom: 30px;
+  color: #b5b5c3;
+}
+.add-site-form form .bottom-text2 p:last-child {
+  margin-bottom: 0;
+}
+.add-site-form form .bottom-text2 p a {
+  text-decoration: none;
+  color: #3699ff;
+}
+.orders-list {
+  padding-bottom: 80px;
+}
+.orders-list .sort {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px 30px;
+}
+.orders-list .sort p {
+  font-weight: 600;
+  font-size: 18px;
+  color: #495057;
+  margin-top: 5px;
+}
+.orders-list .sort .filter {
+  font-size: 16px;
+  font-family: 'Proxima Nova Lt';
+  color: #495057;
+}
+.orders-list .sort .filter select {
+  height: 36px;
+  padding: 0 20px;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  padding: 0 30px 0 10px;
+  font-size: 16px;
+  margin-left: 15px;
+  color: #9aa3b5;
+  -webkit-appearance: none;
+          appearance: none;
+  background: url('/img/select.png') no-repeat right 10px top 50%;
+}
+.orders-list .sort .filter select:hover {
+  border: 1px solid #999;
+}
+.orders-list .sort .filter button {
+  font-size: 16px;
+  color: #495057;
+  padding: 0 18px;
+  height: 36px;
+  border-radius: 4px;
+  background: #e4e6ef;
+  margin-left: 15px;
+}
+.orders-list .sort .filter button:hover {
+  background: #d1d3e0;
+}
+.orders-list .sort .filter button:last-child {
+  margin-right: 0;
+  color: #fff;
+  background: #3699ff;
+}
+.orders-list .sort .filter button:last-child:hover {
+  background: #556ee6;
+}
+.orders-list .order-item {
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px 30px;
+  margin-top: 10px;
+}
+.orders-list .order-item .info .item {
+  font-family: 'Proxima Nova Lt';
+  color: #b5b5c3;
+  font-size: 16px;
+  width: 15%;
+  margin-bottom: 20px;
+}
+.orders-list .order-item .info .item:last-child {
+  width: 10%;
+}
+.orders-list .order-item .info .item span {
+  display: block;
+  color: #495057;
+  margin-top: 10px;
+}
+.orders-list .order-item .info .item span.date {
+  font-size: 14px;
+  color: #b5b5c3;
+  margin-top: 0;
+}
+.orders-list .order-item .info .item span.price {
+  margin-top: 15px;
+}
+.orders-list .order-item .info .item span a {
+  display: inline-block;
+  margin-top: 5px;
+  border-bottom: 1px solid #b5b5c3;
+  text-decoration: none;
+}
+.orders-list .order-item .info .item span .status {
+  display: inline-block;
+  font-style: normal;
+  font-size: 16px;
+  padding: 0 15px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+}
+.orders-list .order-item .info .item span .status.ok {
+  color: #34c38f;
+  border: 1px solid #34c38f;
+}
+.orders-list .order-item .info .item span .status.ok:hover {
+  background: #34c38f;
+  color: #fff;
+}
+.orders-list .order-item .info .item span .status.ok:hover b {
+  background: #fff;
+}
+.orders-list .order-item .info .item span .status.ok b {
+  background: #34c38f;
+}
+.orders-list .order-item .info .item span .status.bad {
+  color: #f64e60;
+  border: 1px solid #f64e60;
+}
+.orders-list .order-item .info .item span .status.bad:hover {
+  background: #f64e60;
+  color: #fff;
+}
+.orders-list .order-item .info .item span .status.bad:hover b {
+  background: #fff;
+}
+.orders-list .order-item .info .item span .status.bad b {
+  background: #f64e60;
+}
+.orders-list .order-item .info .item span .status b {
+  display: inline-block;
+  vertical-align: middle;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: -2px 2px 0 0;
+}
+.orders-list .order-item .bottom-info {
+  padding-top: 20px;
+  border-top: 1px solid #eff2f7;
+  font-size: 16px;
+  color: #b5b5c3;
+}
+.orders-list .order-item .bottom-info .site a {
+  font-family: 'Proxima Nova Lt';
+  color: #3699ff;
+  text-decoration: none;
+}
+.orders-list .order-item .bottom-info .shop {
+  width: 70%;
+}
+.orders-list .order-item .bottom-info .shop span {
+  color: #495057;
+}
+.orders-list .order-item .bottom-info .shop span a {
+  font-family: 'Proxima Nova Lt';
+  color: #3699ff;
+  text-decoration: none;
+}
+.orders-list .pages {
+  padding: 20px 0 35px;
+  text-align: center;
+}
+.orders-list .pages a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Proxima Nova Lt';
+  border-radius: 50%;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.orders-list .pages a.active,
+.orders-list .pages a:hover {
+  color: #fff;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  background: #556ee6;
+}
+.orders-list .pages a.active .fa,
+.orders-list .pages a:hover .fa {
+  color: #fff;
+}
+.orders-list .pages a .fa {
+  color: #556ee6;
+}
+.orders-list .order-info {
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 4px;
+  padding: 0 30px;
+}
+.orders-list .order-info table {
+  width: 100%;
+}
+.orders-list .order-info table thead tr {
+  border-bottom: 1px solid #eff2f7;
+}
+.orders-list .order-info table thead tr td {
+  font-size: 16px;
+  color: #b5b5c3;
+  padding: 20px 20px 20px 0;
+  white-space: nowrap;
+}
+.orders-list .order-info table thead tr td:last-child {
+  padding-right: 0;
+}
+.orders-list .order-info table tbody tr {
+  border-bottom: 1px solid #eff2f7;
+  font-weight: 400;
+}
+.orders-list .order-info table tbody tr:last-child {
+  border-bottom: 0;
+}
+.orders-list .order-info table tbody tr td {
+  font-family: 'Proxima Nova Lt';
+  font-size: 16px;
+  padding: 20px 20px 20px 0;
+}
+.orders-list .order-info table tbody tr td:last-child {
+  padding-right: 0;
+}
+.orders-list .order-info table tbody tr td .n {
+  display: none;
+}
+.orders-list .order-info table tbody tr td .name div {
+  display: table-cell;
+  vertical-align: middle;
+}
+.orders-list .order-info table tbody tr td .name div img {
+  max-width: 100000px;
+  margin-right: 20px;
+}
+.orders-list .order-info table tbody tr td .name div a {
+  color: #3699ff;
+}
+.orders-list .order-info table tbody tr td .price {
+  white-space: nowrap;
+}
+.orders-list .order-comment {
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 6px;
+  padding: 0 30px;
+}
+.orders-list .order-comment .name {
+  padding: 20px 0;
+  font-size: 16px;
+  color: #b5b5c3;
+  border-bottom: 1px solid #eff2f7;
+  margin-bottom: 30px;
+}
+.orders-list .order-comment textarea {
+  width: 100%;
+  font-size: 16px;
+}
+.orders-list .order-form {
+  width: 49%;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 6px;
+  padding: 0 30px 10px 30px;
+}
+.orders-list .order-form .name {
+  padding: 20px 0;
+  font-size: 16px;
+  color: #b5b5c3;
+  border-bottom: 1px solid #eff2f7;
+  margin-bottom: 20px;
+}
+.orders-list .order-form .field {
+  margin-bottom: 12px;
+  position: relative;
+  text-align: right;
+}
+.orders-list .order-form .field:after {
+  content: "";
+  position: absolute;
+  width: 45%;
+  height: 1px;
+  background: #eff2f7;
+  left: 0;
+  bottom: -6px;
+}
+.orders-list .order-form .field p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  font-family: 'Proxima Nova Lt';
+  font-size: 16px;
+}
+.orders-list .order-form .field input[type='text'] {
+  width: 48%;
+  height: 36px;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  padding: 0 15px;
+  font-size: 16px;
+  font-family: 'Proxima Nova Lt';
+  color: #3699ff;
+}
+.orders-list .order-form .field input[type='text'].other {
+  color: #9aa3b5;
+}
+.orders-list .order-form .field input[type='text']:focus {
+  border: 1px solid #999;
+}
+.orders-list .order-form .field select {
+  width: 48%;
+  height: 36px;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  padding: 0 40px 0 15px;
+  font-size: 16px;
+  color: #9aa3b5;
+  -webkit-appearance: none;
+          appearance: none;
+  font-family: 'Proxima Nova Lt';
+  color: #3699ff;
+  background: url('/img/select.png') no-repeat right 10px top 50%;
+}
+.orders-list .order-form .field select:hover {
+  border: 1px solid #999;
+}
+.prices-list {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: rgba(1, 1, 1, 0.05) 0 0 10px;
+  padding: 0 30px 40px 30px;
+  margin-bottom: 100px;
+}
+.prices-list .top-block {
+  padding: 20px 0;
+}
+.prices-list .top-block p {
+  font-weight: 600;
+  font-size: 18px;
+  color: #495057;
+  margin-top: 10px;
+}
+.prices-list .top-block .buttons form {
+  display: inline-block;
+  position: relative;
+  margin-right: 15px;
+}
+.prices-list .top-block .buttons form input[type='text'] {
+  font-size: 16px;
+  color: #74788d;
+  font-family: 'Proxima Nova Lt';
+  width: 180px;
+  height: 40px;
+  background: url('/img/search.png') no-repeat left 15px top 50%;
+  padding: 0 20px 0 40px;
+  border-radius: 36px;
+  border: 1px solid #ced4da;
+}
+.prices-list .top-block .buttons form input[type='text']:focus {
+  border: 1px solid #999;
+}
+.prices-list .top-block .buttons select {
+  width: 160px;
+  height: 40px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding: 0 10px;
+  font-size: 16px;
+  margin-right: 15px;
+  color: #9aa3b5;
+  -webkit-appearance: none;
+          appearance: none;
+  background: url('/img/select.png') no-repeat right 10px top 50%;
+}
+.prices-list .top-block .buttons select:hover {
+  border: 1px solid #999;
+}
+.prices-list .top-block .buttons button {
+  font-size: 16px;
+  color: #495057;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: 'Proxima Nova Lt';
+  background: #e4e6ef;
+  margin-right: 15px;
+}
+.prices-list .top-block .buttons button:last-child {
+  margin-right: 0;
+  color: #fff;
+  background: #3699ff;
+}
+.prices-list .top-block .buttons button:last-child:hover {
+  background: #556ee6;
+}
+.prices-list .top-block .buttons button:hover {
+  background: #d1d3e0;
+}
+.prices-list table {
+  width: 100%;
+}
+.prices-list table thead {
+  background: #f8f9fa;
+  border-top: 1px solid #eff2f7;
+  border-bottom: 1px solid #eff2f7;
+}
+.prices-list table thead tr td {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 15px 10px;
+}
+.prices-list table tbody tr {
+  border-bottom: 1px solid #eff2f7;
+}
+.prices-list table tbody tr td {
+  padding: 20px 10px;
+  font-weight: 400;
+  font-size: 18px;
+}
+.prices-list table tbody tr td .n {
+  display: none;
+}
+.prices-list table tbody tr td .status {
+  display: inline-block;
+  font-size: 16px;
+  padding: 0 15px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.prices-list table tbody tr td .status.ok {
+  color: #34c38f;
+  border: 1px solid #34c38f;
+}
+.prices-list table tbody tr td .status.ok:hover {
+  background: #34c38f;
+  color: #fff;
+}
+.prices-list table tbody tr td .status.ok:hover span {
+  background: #fff;
+}
+.prices-list table tbody tr td .status.ok span {
+  background: #34c38f;
+}
+.prices-list table tbody tr td .status.bad {
+  color: #f64e60;
+  border: 1px solid #f64e60;
+}
+.prices-list table tbody tr td .status.bad:hover {
+  background: #f64e60;
+  color: #fff;
+}
+.prices-list table tbody tr td .status.bad:hover span {
+  background: #fff;
+}
+.prices-list table tbody tr td .status.bad span {
+  background: #f64e60;
+}
+.prices-list table tbody tr td .status span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: -2px 2px 0 0;
+}
+.prices-list table tbody tr td .sett {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url('/img/sett.svg') center / cover;
+  opacity: 0.5;
+}
+.prices-list table tbody tr td .sett:hover {
+  opacity: 1;
+  transform: rotate(180deg);
+}
+.prices-list table tbody tr td .phone {
+  white-space: nowrap;
+}
+.prices-list table tbody tr td .price {
+  white-space: nowrap;
+}
+.prices-list .pages {
+  padding-top: 30px;
+  text-align: center;
+}
+.prices-list .pages a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Proxima Nova Lt';
+  border-radius: 50%;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.prices-list .pages a.active,
+.prices-list .pages a:hover {
+  color: #fff;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  background: #556ee6;
+}
+.prices-list .pages a.active .fa,
+.prices-list .pages a:hover .fa {
+  color: #fff;
+}
+.prices-list .pages a .fa {
+  color: #556ee6;
+}
+.shops-list {
+  border-radius: 6px;
+  padding-bottom: 40px;
+  margin-bottom: 100px;
+}
+.shops-list .top-block {
+  background: #fff;
+  padding: 20px 30px;
+  margin-bottom: 10px;
+}
+.shops-list .top-block p {
+  font-weight: 600;
+  font-size: 18px;
+  color: #495057;
+  margin-top: 10px;
+}
+.shops-list .top-block .buttons button {
+  font-size: 16px;
+  color: #495057;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: 'Proxima Nova Lt';
+  background: #e4e6ef;
+  margin-right: 15px;
+}
+.shops-list .top-block .buttons button:last-child {
+  margin-right: 0;
+  color: #fff;
+  background: #3699ff;
+}
+.shops-list .top-block .buttons button:last-child:hover {
+  background: #556ee6;
+}
+.shops-list .top-block .buttons button:hover {
+  background: #d1d3e0;
+}
+.shops-list table {
+  width: 100%;
+  background: #fff;
+}
+.shops-list table thead tr td {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 30px;
+}
+.shops-list table tbody tr {
+  border-top: 10px solid #f3f3f8;
+}
+.shops-list table tbody tr td {
+  padding: 12px 30px;
+  font-weight: 400;
+  font-size: 16px;
+}
+.shops-list table tbody tr td .n {
+  display: none;
+}
+.shops-list table tbody tr td img {
+  width: 80px;
+  max-width: 80px;
+}
+.shops-list table tbody tr td .name {
+  font-size: 14px;
+}
+.shops-list table tbody tr td .name span {
+  display: block;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+.shops-list table tbody tr td .status {
+  display: inline-block;
+  font-size: 16px;
+  padding: 0 15px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.shops-list table tbody tr td .status.ok {
+  color: #34c38f;
+  border: 1px solid #34c38f;
+}
+.shops-list table tbody tr td .status.ok:hover {
+  background: #34c38f;
+  color: #fff;
+}
+.shops-list table tbody tr td .status.ok:hover span {
+  background: #fff;
+}
+.shops-list table tbody tr td .status.ok span {
+  background: #34c38f;
+}
+.shops-list table tbody tr td .status.bad {
+  color: #f64e60;
+  border: 1px solid #f64e60;
+}
+.shops-list table tbody tr td .status.bad:hover {
+  background: #f64e60;
+  color: #fff;
+}
+.shops-list table tbody tr td .status.bad:hover span {
+  background: #fff;
+}
+.shops-list table tbody tr td .status.bad span {
+  background: #f64e60;
+}
+.shops-list table tbody tr td .status span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: -2px 2px 0 0;
+}
+.shops-list table tbody tr td .phone {
+  white-space: nowrap;
+}
+.shops-list table tbody tr td .sett {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url('/img/sett.svg') center / cover;
+  opacity: 0.5;
+}
+.shops-list table tbody tr td .sett:hover {
+  opacity: 1;
+  transform: rotate(180deg);
+}
+.shops-list .pages {
+  padding-top: 30px;
+  text-align: center;
+}
+.shops-list .pages a {
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Proxima Nova Lt';
+  border-radius: 50%;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+.shops-list .pages a.active,
+.shops-list .pages a:hover {
+  color: #fff;
+  font-family: 'Proxima Nova Lt';
+  font-weight: 600;
+  background: #556ee6;
+}
+.shops-list .pages a.active .fa,
+.shops-list .pages a:hover .fa {
+  color: #fff;
+}
+.shops-list .pages a .fa {
+  color: #556ee6;
+}
+.site-content {
+  min-height: 100%;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+}
+@media (max-width: 1500px) {
+  .orders-list .sort .filter select {
+    margin-left: 10px;
+  }
+  .orders-list .sort .filter button {
+    margin-left: 10px;
+  }
+  .orders-list .order-comment textarea {
+    height: 60px;
+  }
+}
+@media (max-width: 1400px) {
+  .orders-list .sort p {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .orders-list .sort.other p {
+    width: auto;
+    margin-bottom: 0;
+  }
+  .orders-list .order-item .info .item,
+  .orders-list .order-item .info .item:last-child {
+    width: 31%;
+  }
+  .orders-list .order-item .bottom-info .shop {
+    width: 66%;
+  }
+  .add-site-form form .col.big.other,
+  .add-site-form form .col.small.other {
+    width: 100%;
+  }
+  .add-site-form form .bottom-text {
+    width: auto;
+  }
+}
+@media (max-width: 1200px) {
+  .left-menu {
+    width: 200px;
+  }
+  .wrap {
+    padding: 0 20px 0 220px;
+  }
+  .orders-list .sort .filter {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .orders-list .sort .filter span {
+    width: 100%;
+  }
+  .orders-list .sort .filter select {
+    width: 32%;
+    margin: 10px 0 0 0;
+  }
+  .orders-list .sort .filter button {
+    width: 32%;
+    margin: 10px 0 0 0;
+  }
+  .orders-list .sort.other p {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .orders-list .sort.other .filter select {
+    width: 49%;
+  }
+  .orders-list .sort.other .filter button {
+    width: 49%;
+  }
+  .shops-list table thead tr td {
+    padding: 10px;
+  }
+  .shops-list table tbody tr td {
+    padding: 10px;
+  }
+}
+@media (max-width: 1100px) {
+  .sites-list .site-item .info {
+    width: 100%;
+  }
+  .sites-list .site-item .graph {
+    width: 100%;
+  }
+  .prices-list .top-block .buttons button {
+    padding: 10px 15px;
+  }
+  .add-site-form form.big {
+    width: auto;
+    max-width: 100%;
+    padding: 0 30px;
+  }
+  .shops-list .top-block .buttons button {
+    padding: 10px 15px;
+  }
+}
+@media (max-width: 1000px) {
+  .header form input[type="text"] {
+    width: 150px;
+  }
+  .sites-list .top-buttons p {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .sites-list .top-buttons .buttons button {
+    padding: 10px;
+    margin-right: 5px;
+  }
+  .header .user-block button {
+    padding: 0 10px;
+    margin-right: 10px;
+  }
+  .left-menu {
+    width: 180px;
+  }
+  .wrap {
+    padding: 0 15px 0 195px;
+  }
+  .left-menu ul {
+    padding: 0 15px;
+  }
+  .orders-list .order-item .bottom-info .site {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .orders-list .order-item .bottom-info .shop {
+    width: 100%;
+  }
+  .orders-list .order-comment textarea {
+    height: 100px;
+  }
+  .orders-list .order-form {
+    width: 100%;
+  }
+  .prices-list table tbody tr td {
+    font-size: 16px;
+  }
+  .prices-list table.other thead {
+    display: none;
+  }
+  .prices-list table.other tbody tr {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0 10px 0;
+    position: relative;
+  }
+  .prices-list table.other tbody tr td {
+    padding: 0 0 10px 0;
+  }
+  .prices-list table.other tbody tr td .n {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .prices-list table.other tbody tr td:nth-child(1) {
+    display: none;
+  }
+  .prices-list table.other tbody tr td:nth-child(2) {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 40px;
+  }
+  .prices-list table.other tbody tr td:last-child {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    width: auto;
+  }
+  .shops-list .top-block p {
+    width: 100%;
+    margin: 0;
+  }
+  .shops-list .top-block .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .shops-list .top-block .buttons button {
+    box-sizing: border-box;
+    width: 24%;
+    margin: 10px 0 0 0;
+    padding: 5px;
+  }
+  .prices-list .top-block .buttons form input[type="text"] {
+    width: 140px;
+  }
+}
+@media (max-width: 900px) {
+  .header form input[type="text"] {
+    width: 120px;
+    padding: 0 10px 0 35px;
+  }
+  .header .user-block .alerts {
+    padding: 0;
+    border: 0 !important;
+  }
+  .orders-list .order-info table thead tr td {
+    padding: 20px 10px 20px 0;
+  }
+  .orders-list .order-info table tbody tr td {
+    padding: 20px 10px 20px 0;
+  }
+  .orders-list .order-info table tbody tr td .name div img {
+    margin-right: 10px;
+  }
+  .shops-list table thead {
+    display: none;
+  }
+  .shops-list table tbody tr {
+    display: block;
+    padding: 20px 20px 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+  }
+  .shops-list table tbody tr td {
+    display: block;
+    padding: 0 0 10px 0;
+    width: 32%;
+  }
+  .shops-list table tbody tr td .n {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .shops-list table tbody tr td:last-child {
+    width: auto;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .add-site-form form.very-big.other .block {
+    width: 100%;
+  }
+  .add-site-form form.very-big.other .block.or0 {
+    order: 0;
+  }
+  .add-site-form form.very-big.other .block.or1 {
+    order: 1;
+  }
+  .prices-list .top-block .buttons.other {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .prices-list .top-block .buttons.other form {
+    width: 32%;
+    margin: 10px 0 0 0;
+  }
+  .prices-list .top-block .buttons.other form input[type='text'] {
+    width: 100%;
+  }
+  .prices-list .top-block .buttons.other select {
+    width: 32%;
+    margin: 10px 0 0 0;
+  }
+  .prices-list .top-block .buttons.other button {
+    width: 32%;
+    margin: 10px 0 0 0;
+  }
+}
+@media (max-width: 800px) {
+  .wrap {
+    padding: 0 20px;
+  }
+  .menubg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(1, 1, 1, 0.7);
+    z-index: 11;
+    display: none;
+  }
+  .left-menu {
+    width: 260px;
+    z-index: 12;
+    transition: all 200ms ease;
+    left: -260px;
+  }
+  .left-menu.opened {
+    left: 0;
+  }
+  .header form input[type="text"] {
+    width: 150px;
+  }
+  .header form {
+    margin-left: 35px;
+  }
+  .header .menu-button {
+    display: block;
+  }
+}
+@media (max-width: 700px) {
+  .header form {
+    display: none;
+  }
+  .orders-list .order-info {
+    padding: 0 20px;
+  }
+  .orders-list .order-form {
+    padding: 0 20px 10px 20px;
+  }
+  .prices-list {
+    padding: 0 20px 35px 20px;
+  }
+  .add-site-form form.big .col {
+    width: 48%;
+  }
+}
+@media (max-width: 600px) {
+  .sites-list .site-item .info .data .data-item {
+    margin-right: 20px;
+  }
+  .sites-list .site-item .info .name span {
+    width: auto;
+    margin-right: 10px;
+  }
+  .add-site-form form {
+    margin: 0 20px;
+  }
+  .add-site-form .top-block {
+    padding: 20px;
+  }
+  .orders-list .sort {
+    padding: 20px;
+  }
+  .orders-list .order-item {
+    padding: 20px;
+  }
+  .orders-list .order-info table thead {
+    display: none;
+  }
+  .orders-list .order-info table tbody tr {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0 10px 0;
+  }
+  .orders-list .order-info table tbody tr td {
+    padding: 0 0 10px 0;
+    width: 24%;
+  }
+  .orders-list .order-info table tbody tr td:first-child {
+    display: none;
+  }
+  .orders-list .order-info table tbody tr td:nth-child(2) {
+    width: 64%;
+  }
+  .orders-list .order-info table tbody tr td .n {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .orders-list .order-comment {
+    padding: 0 20px;
+  }
+  .prices-list table tbody tr td {
+    width: 48%;
+  }
+  .add-site-form form.big {
+    padding: 0;
+  }
+  .shops-list .top-block {
+    padding: 20px;
+  }
+  .shops-list .top-block .buttons button {
+    width: 48%;
+  }
+  .add-site-form form.very-big {
+    padding: 0;
+  }
+  .add-site-form form.very-big .block {
+    width: 100%;
+  }
+  .add-site-form form.very-big .block.or0 {
+    order: 0;
+  }
+  .add-site-form form.very-big .block.or1 {
+    order: 1;
+  }
+  .add-site-form form.very-big .vline {
+    display: none;
+  }
+  .add-site-form form button.other {
+    margin-bottom: 30px;
+  }
+  .prices-list .top-block .buttons.other form {
+    width: 48%;
+  }
+  .prices-list .top-block .buttons.other select {
+    width: 48%;
+  }
+  .prices-list .top-block .buttons.other button {
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .wrap {
+    padding: 0 10px;
+  }
+  .header .user-block button {
+    display: none;
+  }
+  .sites-list .top-buttons {
+    padding: 15px 20px;
+  }
+  .sites-list .top-buttons .buttons button {
+    margin: 0 5px 10px 0;
+  }
+  .sites-list .site-item .info {
+    padding: 20px;
+  }
+  .footer .copy {
+    width: 100%;
+    text-align: center;
+  }
+  .footer ul {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .orders-list .sort .filter select {
+    width: 48%;
+  }
+  .orders-list .sort .filter button {
+    width: 48%;
+  }
+  .orders-list .order-item .info .item,
+  .orders-list .order-item .info .item:last-child {
+    width: 48%;
+  }
+  .orders-list .order-comment {
+    padding-bottom: 20px;
+  }
+  .shops-list table tbody tr td {
+    width: 48%;
+  }
+  .add-site-form form .col.big,
+  .add-site-form form .col.small {
+    width: 48%;
+  }
+  .add-site-form .top-block .buttons.other button {
+    margin: 0 5px 10px 0;
+    padding: 10px;
+  }
+  .prices-list .top-block p {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+@media (max-width: 460px) {
+  .add-site-form form .col {
+    width: 100%;
+  }
+  .add-site-form form .col .col {
+    width: 48%;
+  }
+  .add-site-form .top-block p {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .orders-list .sort .filter select {
+    width: 100%;
+  }
+  .orders-list .sort .filter button {
+    width: 100%;
+  }
+  .orders-list .order-item .info .item,
+  .orders-list .order-item .info .item:last-child {
+    width: 100%;
+  }
+  .orders-list .order-info table tbody tr td:nth-child(2) {
+    width: 100%;
+  }
+  .orders-list .order-info table tbody tr td {
+    width: 48%;
+  }
+  .orders-list .order-form .field p {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .orders-list .order-form .field input[type="text"] {
+    width: 100%;
+  }
+  .orders-list .order-form .field select {
+    width: 100%;
+  }
+  .orders-list .order-form .field::after {
+    display: none;
+  }
+  .prices-list .top-block .buttons button {
+    width: 100%;
+  }
+  .prices-list table tbody tr td {
+    width: 100%;
+  }
+  .add-site-form form .select .radio + label {
+    padding: 7px 10px;
+  }
+  .add-site-form form.big .col {
+    width: 100%;
+  }
+  .shops-list .top-block .buttons button {
+    width: 100%;
+  }
+  .add-site-form form .col.big,
+  .add-site-form form .col.small {
+    width: 100%;
+  }
+  .add-site-form form .bottom-text2 {
+    padding-left: 20px;
+  }
+  .prices-list .top-block .buttons.other {
+    margin-top: -10px;
+  }
+  .prices-list .top-block .buttons.other form {
+    width: 100%;
+  }
+  .prices-list .top-block .buttons.other select {
+    width: 100%;
+  }
+  .prices-list table thead {
+    display: none;
+  }
+  .prices-list table tbody tr {
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0 10px 0;
+    position: relative;
+  }
+  .prices-list table tbody tr td {
+    padding: 0 0 10px 0;
+    width: 48%;
+  }
+  .prices-list table tbody tr td .n {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .prices-list table tbody tr td:nth-child(1) {
+    display: none;
+  }
+  .prices-list table tbody tr td:nth-child(2) {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 40px;
+  }
+  .prices-list table tbody tr td:last-child {
+    position: absolute;
+    right: 0;
+    top: 22px;
+    width: auto;
+  }
+  .prices-list table.other tbody tr td {
+    width: 100%;
+  }
+  .header .user-block .alerts.other {
+    display: none;
+  }
+}

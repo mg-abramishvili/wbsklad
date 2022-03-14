@@ -26,6 +26,8 @@
             return {
                 reports: [],
 
+                token: 'ODE5NTA1ZjItNDJkYi00NGM0LWJkZjMtYTg4NGZhMzFjMzU0',
+
                 views: {
                     loading: false,
                 }
@@ -37,7 +39,7 @@
         methods: {
             loadReports() {
                 axios
-                .get(`https://suppliers-stats.wildberries.ru/api/v1/supplier/reportDetailByPeriod?dateFrom=2022-02-01&key=ODE5NTA1ZjItNDJkYi00NGM0LWJkZjMtYTg4NGZhMzFjMzU0&limit=1000&rrdid=0&dateto=2022-03-01`)
+                .get(` https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=${this.token}`)
                 .then(response => (
                     this.reports = response.data,
                     this.views.loading = false

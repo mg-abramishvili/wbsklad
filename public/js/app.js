@@ -2261,6 +2261,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       reports: [],
+      token: 'ODE5NTA1ZjItNDJkYi00NGM0LWJkZjMtYTg4NGZhMzFjMzU0',
       views: {
         loading: false
       }
@@ -2273,7 +2274,7 @@ __webpack_require__.r(__webpack_exports__);
     loadReports: function loadReports() {
       var _this = this;
 
-      axios.get("https://suppliers-stats.wildberries.ru/api/v1/supplier/reportDetailByPeriod?dateFrom=2022-02-01&key=ODE5NTA1ZjItNDJkYi00NGM0LWJkZjMtYTg4NGZhMzFjMzU0&limit=1000&rrdid=0&dateto=2022-03-01").then(function (response) {
+      axios.get(" https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=".concat(this.token)).then(function (response) {
         return _this.reports = response.data, _this.views.loading = false;
       });
     }

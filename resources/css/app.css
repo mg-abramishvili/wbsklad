@@ -349,6 +349,10 @@ nav,
 main {
   display: block;
 }
+.app {
+  min-height: 100%;
+  position: relative;
+}
 .wrap {
   padding: 0 20px 0 270px;
 }
@@ -421,6 +425,7 @@ main {
   padding: 17px 0;
   margin-bottom: 20px;
   background: #fff;
+  box-shadow: 0 6px 12px rgb(1 1 1 / 10%);
 }
 .header .wrap {
   position: relative;
@@ -718,6 +723,9 @@ h1 {
   max-width: 610px;
   margin: 0 auto 20px auto;
 }
+.add-site-form.login-form {
+  margin-top: 30px;
+}
 .add-site-form .top-block {
   padding: 20px 30px;
   border-bottom: 1px solid #eff2f7;
@@ -784,10 +792,12 @@ h1 {
 .add-site-form form .field-name span {
   color: red;
 }
-.add-site-form form input[type='text']:disabled {
+.add-site-form form input[type='text']:disabled,
+.add-site-form form input[type='email']:disabled {
   background: #f1f5f8 url('/img/disabled.png') no-repeat right 10px top 50%;
 }
-.add-site-form form input[type='text'] {
+.add-site-form form input[type='text'],
+.add-site-form form input[type='email'] {
   width: 100%;
   height: 36px;
   border: 1px solid #ced4da;
@@ -796,10 +806,12 @@ h1 {
   font-size: 16px;
   margin-bottom: 15px;
 }
-.add-site-form form input[type='text'].mail {
+.add-site-form form input[type='text'].mail,
+.add-site-form form input[type='email'].mail {
   background: url('/img/inp1.png') no-repeat right 10px top 50%;
 }
-.add-site-form form input[type='text']:focus {
+.add-site-form form input[type='text']:focus,
+.add-site-form form input[type='email']:focus {
   border: 1px solid #999;
 }
 .add-site-form form input[type='password'] {
@@ -913,6 +925,9 @@ h1 {
   border-radius: 4px;
   color: #fff;
   background: #3699ff;
+}
+.add-site-form form button:disabled {
+  opacity: 0.35;
 }
 .add-site-form form button.other {
   background: #ffa800;
@@ -1075,6 +1090,17 @@ h1 {
 .add-site-form form .bottom-text2 p a {
   text-decoration: none;
   color: #3699ff;
+}
+.errors {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 20px;
+}
+.errors li {
+  margin-bottom: 5px;
+  color: #f46a6a;
+  font-weight: 500;
 }
 .orders-list {
   padding-bottom: 80px;

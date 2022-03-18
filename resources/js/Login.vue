@@ -1,0 +1,66 @@
+<template>
+    <div class="add-site-form small2 login-form">
+        <div class="top-block flex">
+            <p>WBSklad</p>
+        </div>
+        <form @submit.prevent="handleLogin">
+            <ul v-if="errors.length" class="errors">
+                <li v-for="error in errors" class="error-message">
+                    {{ error }}
+                </li>
+            </ul>
+            <div class="flex">
+                <div class="col">
+                    <div class="field-name">
+                        Логин
+                    </div>
+                    <input type="email" v-model="formData.email">
+                </div>
+                <div class="col">
+                    <div class="field-name">
+                        Пароль
+                    </div>
+                    <input type="password" v-model="formData.password">
+                </div>
+            </div>
+            <button type="submit" :disabled="views.submitButton == false">
+                Войти
+            </button>
+        </form>
+    </div>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+				formData: {
+                    email: '',
+                    password: ''
+                },
+                
+				errors: [],
+
+                views: {
+					submitButton: true,
+                }				
+            }
+        },
+		methods: {
+			handleLogin() {
+				this.views.submitButton = false
+                axios.get('/sanctum/csrf-cookie').then(response => {
+                    axios.post('/api/login', this.formData).then(response => {
+						if(response.data === 'bad_login') {
+                            this.errors = []
+							this.errors.push('Неверный E-mail или пароль')
+							this.views.submitButton = true
+						} else {
+							this.$parent.checkMe()
+						}
+                    })
+                });
+            },
+		},
+    }
+</script>

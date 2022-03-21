@@ -2280,12 +2280,97 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      reports: [],
-      token: 'ODE5NTA1ZjItNDJkYi00NGM0LWJkZjMtYTg4NGZhMzFjMzU0',
+      items: [],
       views: {
         loading: true
       }
@@ -2298,8 +2383,15 @@ __webpack_require__.r(__webpack_exports__);
     loadReports: function loadReports() {
       var _this = this;
 
-      axios.get(" https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=".concat(this.token)).then(function (response) {
-        return _this.reports = response.data, _this.views.loading = false;
+      var token = this.$parent.user.wbtoken;
+
+      if (!token) {
+        alert('API-ключ не найден');
+        return;
+      }
+
+      axios.get(" https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=".concat(token)).then(function (response) {
+        return _this.items = response.data, _this.views.loading = false;
       });
     }
   },
@@ -24802,7 +24894,7 @@ var render = function () {
     [
       _c("h1", [_vm._v("Home page")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "Reports" } } }, [
+      _c("router-link", { attrs: { to: { name: "Warehouse" } } }, [
         _vm._v("Отчеты"),
       ]),
     ],
@@ -24832,7 +24924,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    Загрузка...\n")])
+  return _c("div", { staticClass: "spinner" })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -24859,42 +24951,247 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "prices-list reports-page" },
+    { staticClass: "prices-list warehouse-page" },
     [
+      _vm._m(0),
+      _vm._v(" "),
       _vm.views.loading ? _c("Loader") : _vm._e(),
       _vm._v(" "),
       !_vm.views.loading
-        ? _c("table", [
-            _c(
-              "tbody",
-              _vm._l(_vm.reports, function (reportItem, index) {
-                return _c("tr", { key: reportItem.nm_id }, [
-                  _c("td", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(index + 1) +
-                        "\n                "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _vm._v(
-                      "\n                    " +
-                        _vm._s(reportItem) +
-                        "\n                "
-                    ),
-                  ]),
-                ])
-              }),
-              0
-            ),
+        ? _c("div", { staticClass: "table-wrapper" }, [
+            _c("table", { staticClass: "other" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.items, function (item, index) {
+                  return _c("tr", { key: item.nm_id }, [
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(index + 1) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.nmId) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.subject) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.category) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.brand) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.supplierArticle) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.techSize) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.barcode) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.quantity) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.quantityFull) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.quantityNotInOrders) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.isSupply) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.isRealization) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.SCCode) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.warehouseName) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.inWayToClient) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.inWayFromClient) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.daysOnSite) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(item.lastChangeDate) +
+                          "\n                    "
+                      ),
+                    ]),
+                  ])
+                }),
+                0
+              ),
+            ]),
           ])
         : _vm._e(),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "top-block flex" }, [
+      _c("p", [_vm._v("Список товаров")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "buttons other" }, [
+        _c("form", [
+          _c("input", { attrs: { type: "text", placeholder: "Поиск" } }),
+        ]),
+        _vm._v(" "),
+        _c("button", [_vm._v("Добавить товар")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Код WB")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Предмет")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Категория")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Бренд")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Артикул")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Размер")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Штрихкод")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Кол-во для продажи")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Кол-во полное")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Кол-во не в заказе")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Договор поставки")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Договор реализации")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Код контракта")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Название склада")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("В пути к клиенту")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("В пути от клиента")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Дней на сайте")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Обновлено")]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

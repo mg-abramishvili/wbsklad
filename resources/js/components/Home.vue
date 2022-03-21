@@ -2,7 +2,7 @@
     <div class="home-page">
         <h1>Home page</h1>
 
-        <router-link :to="{name: 'Reports'}">Отчеты</router-link>
+        <router-link :to="{name: 'Warehouse'}">Отчеты</router-link>
     </div>
 </template>
 <script>

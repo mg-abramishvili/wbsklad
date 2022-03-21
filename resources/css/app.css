@@ -275,8 +275,11 @@ th,
 td {
   font-family: 'Proxima Nova Lt';
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   color: #495057;
+  min-width: 50px;
+  text-align: left;
+  padding: 5px 10px;
 }
 body,
 form,
@@ -1515,9 +1518,9 @@ h1 {
   border-bottom: 1px solid #eff2f7;
 }
 .prices-list table tbody tr td {
-  padding: 20px 10px;
+  padding: 5px 10px;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
 }
 .prices-list table tbody tr td .n {
   display: none;
@@ -2348,4 +2351,43 @@ h1 {
   .header .user-block .alerts.other {
     display: none;
   }
+}
+
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: conic-gradient(rgba(255, 168, 0, 0.25), #ffa800);
+  position: relative;
+  animation: spin 1.4s linear infinite;
+  transform: translateZ(0);
+}
+.spinner::after {
+  background: #fff;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  content: "";
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
 }

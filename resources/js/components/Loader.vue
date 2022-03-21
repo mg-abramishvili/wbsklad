@@ -1,5 +1,3 @@
 <template>
-    <div>
-        Загрузка...
-    </div>
+    <div class="spinner"></div>
 </template>

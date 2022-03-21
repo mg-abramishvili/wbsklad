@@ -1,6 +1,6 @@
 import Home from './components/Home.vue';
 
-import Reports from './components/reports/Index.vue';
+import Warehouse from './components/warehouse/Index.vue';
 
 export const routes = [
     {
@@ -9,8 +9,8 @@ export const routes = [
         component: Home
     },
     {
-        path: '/reports',
-        name: 'Reports',
-        component: Reports
+        path: '/warehouse',
+        name: 'Warehouse',
+        component: Warehouse
     },
 ];

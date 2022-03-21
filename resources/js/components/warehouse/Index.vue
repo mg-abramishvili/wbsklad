@@ -1,14 +1,12 @@
 <template>
     <div class="prices-list reports-page">
-        <h1>Отчеты</h1>
+        <Loader v-if="views.loading" />
 
-        <router-link :to="{name: 'Home'}">Назад</router-link>
-
-        <table>
+        <table v-if="!views.loading">
             <tbody>
                 <tr v-for="(reportItem, index) in reports" :key="reportItem.nm_id">
                     <td>
-                        {{ index }}
+                        {{ index + 1 }}
                     </td>
                     <td>
                         {{ reportItem }}
@@ -29,7 +27,7 @@
                 token: 'ODE5NTA1ZjItNDJkYi00NGM0LWJkZjMtYTg4NGZhMzFjMzU0',
 
                 views: {
-                    loading: false,
+                    loading: true,
                 }
             }
         },

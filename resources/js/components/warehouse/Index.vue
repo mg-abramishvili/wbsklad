@@ -6,7 +6,7 @@
                 <form>
                     <input type="text" placeholder="Поиск">
                 </form>
-                <button>Добавить товар</button>
+                <button @click="loadFromWildberries()">Обновить</button>
             </div>
         </div>
 
@@ -27,74 +27,58 @@
                         <th>Кол-во для продажи</th>
                         <th>Кол-во полное</th>
                         <th>Кол-во не в заказе</th>
-                        <th>Договор поставки</th>
-                        <th>Договор реализации</th>
-                        <th>Код контракта</th>
                         <th>Название склада</th>
                         <th>В пути к клиенту</th>
                         <th>В пути от клиента</th>
                         <th>Дней на сайте</th>
-                        <th>Обновлено</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, index) in items" :key="item.nm_id">
+                    <tr v-for="(product, index) in products" :key="product.barcode">
                         <td>
                             {{ index + 1 }}
                         </td>
                         <td>
-                            {{ item.nmId }}
+                            {{ product.nm_id }}
                         </td>
                         <td>
-                            {{ item.subject }}
+                            {{ product.subject }}
                         </td>
                         <td>
-                            {{ item.category }}
+                            {{ product.category }}
                         </td>
                         <td>
-                            {{ item.brand }}
+                            {{ product.brand }}
                         </td>
                         <td>
-                            {{ item.supplierArticle }}
+                            {{ product.supplier_article }}
                         </td>
                         <td>
-                            {{ item.techSize }}
+                            {{ product.techSize }}
                         </td>
                         <td>
-                            {{ item.barcode }}
+                            {{ product.barcode }}
                         </td>
                         <td>
-                            {{ item.quantity }}
+                            {{ product.quantity }}
                         </td>
                         <td>
-                            {{ item.quantityFull }}
+                            {{ product.quantityFull }}
                         </td>
                         <td>
-                            {{ item.quantityNotInOrders }}
+                            {{ product.quantityNotInOrders }}
                         </td>
                         <td>
-                            {{ item.isSupply }}
+                            {{ product.warehouseName }}
                         </td>
                         <td>
-                            {{ item.isRealization }}
+                            {{ product.inWayToClient }}
                         </td>
                         <td>
-                            {{ item.SCCode }}
+                            {{ product.inWayFromClient }}
                         </td>
                         <td>
-                            {{ item.warehouseName }}
-                        </td>
-                        <td>
-                            {{ item.inWayToClient }}
-                        </td>
-                        <td>
-                            {{ item.inWayFromClient }}
-                        </td>
-                        <td>
-                            {{ item.daysOnSite }}
-                        </td>
-                        <td>
-                            {{ item.lastChangeDate }}
+                            {{ product.daysOnSite }}
                         </td>
                     </tr>
                 </tbody>
@@ -108,7 +92,7 @@
     export default {
         data() {
             return {
-                items: [],
+                products: [],
 
                 views: {
                     loading: true,
@@ -116,30 +100,42 @@
             }
         },
         created() {
-            this.loadReports()
+            this.loadProducts()
         },
         methods: {
-            loadReports() {
-                let key = this.$parent.user.settings.wb_api_key
+            loadProducts() {
+                let user = this.$parent.user
 
-                if(!key) {
-                    this.$swal({
-                        text: 'API-ключ не найден',
-                        icon: 'error',
-                    })
-                    this.views.loading = false
+                if(!user) {
                     return
                 }
 
-                axios
-                .get(` https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=${key}`)
+                axios.get(`/api/user/${user.uid}/products`)
                 .then(response => (
-                    this.items = response.data,
+                    this.products = response.data,
                     this.views.loading = false
                 ))
                 .catch(error => {
                     this.$swal({
                         text: error,
+                        icon: 'error',
+                    })
+                })
+            },
+            loadFromWildberries() {
+                let user = this.$parent.user
+
+                if(!user) {
+                    return
+                }
+
+                axios.get(`/api/user/${user.uid}/products/wildberries/load`)
+                .then(response => (
+                    this.loadProducts()
+                ))
+                .catch(error => {
+                    this.$swal({
+                        text: error.response,
                         icon: 'error',
                     })
                 })

@@ -2603,55 +2603,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      items: [],
+      products: [],
       views: {
         loading: true
       }
     };
   },
   created: function created() {
-    this.loadReports();
+    this.loadProducts();
   },
   methods: {
-    loadReports: function loadReports() {
+    loadProducts: function loadProducts() {
       var _this = this;
 
-      var key = this.$parent.user.settings.wb_api_key;
+      var user = this.$parent.user;
 
-      if (!key) {
-        this.$swal({
-          text: 'API-ключ не найден',
-          icon: 'error'
-        });
-        this.views.loading = false;
+      if (!user) {
         return;
       }
 
-      axios.get(" https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=".concat(key)).then(function (response) {
-        return _this.items = response.data, _this.views.loading = false;
+      axios.get("/api/user/".concat(user.uid, "/products")).then(function (response) {
+        return _this.products = response.data, _this.views.loading = false;
       })["catch"](function (error) {
         _this.$swal({
           text: error,
+          icon: 'error'
+        });
+      });
+    },
+    loadFromWildberries: function loadFromWildberries() {
+      var _this2 = this;
+
+      var user = this.$parent.user;
+
+      if (!user) {
+        return;
+      }
+
+      axios.get("/api/user/".concat(user.uid, "/products/wildberries/load")).then(function (response) {
+        return _this2.loadProducts();
+      })["catch"](function (error) {
+        _this2.$swal({
+          text: error.response,
           icon: 'error'
         });
       });
@@ -26179,7 +26176,25 @@ var render = function () {
     "div",
     { staticClass: "prices-list warehouse-page" },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "top-block flex" }, [
+        _c("p", [_vm._v("Список товаров")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "buttons other" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function ($event) {
+                  return _vm.loadFromWildberries()
+                },
+              },
+            },
+            [_vm._v("Обновить")]
+          ),
+        ]),
+      ]),
       _vm._v(" "),
       _vm.views.loading ? _c("Loader") : _vm._e(),
       _vm._v(" "),
@@ -26190,8 +26205,8 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.items, function (item, index) {
-                  return _c("tr", { key: item.nm_id }, [
+                _vm._l(_vm.products, function (product, index) {
+                  return _c("tr", { key: product.barcode }, [
                     _c("td", [
                       _vm._v(
                         "\n                        " +
@@ -26203,7 +26218,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.nmId) +
+                          _vm._s(product.nm_id) +
                           "\n                    "
                       ),
                     ]),
@@ -26211,7 +26226,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.subject) +
+                          _vm._s(product.subject) +
                           "\n                    "
                       ),
                     ]),
@@ -26219,7 +26234,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.category) +
+                          _vm._s(product.category) +
                           "\n                    "
                       ),
                     ]),
@@ -26227,7 +26242,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.brand) +
+                          _vm._s(product.brand) +
                           "\n                    "
                       ),
                     ]),
@@ -26235,7 +26250,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.supplierArticle) +
+                          _vm._s(product.supplier_article) +
                           "\n                    "
                       ),
                     ]),
@@ -26243,7 +26258,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.techSize) +
+                          _vm._s(product.techSize) +
                           "\n                    "
                       ),
                     ]),
@@ -26251,7 +26266,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.barcode) +
+                          _vm._s(product.barcode) +
                           "\n                    "
                       ),
                     ]),
@@ -26259,7 +26274,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.quantity) +
+                          _vm._s(product.quantity) +
                           "\n                    "
                       ),
                     ]),
@@ -26267,7 +26282,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.quantityFull) +
+                          _vm._s(product.quantityFull) +
                           "\n                    "
                       ),
                     ]),
@@ -26275,7 +26290,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.quantityNotInOrders) +
+                          _vm._s(product.quantityNotInOrders) +
                           "\n                    "
                       ),
                     ]),
@@ -26283,7 +26298,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.isSupply) +
+                          _vm._s(product.warehouseName) +
                           "\n                    "
                       ),
                     ]),
@@ -26291,7 +26306,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.isRealization) +
+                          _vm._s(product.inWayToClient) +
                           "\n                    "
                       ),
                     ]),
@@ -26299,7 +26314,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.SCCode) +
+                          _vm._s(product.inWayFromClient) +
                           "\n                    "
                       ),
                     ]),
@@ -26307,39 +26322,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(item.warehouseName) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.inWayToClient) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.inWayFromClient) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.daysOnSite) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(item.lastChangeDate) +
+                          _vm._s(product.daysOnSite) +
                           "\n                    "
                       ),
                     ]),
@@ -26359,16 +26342,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "top-block flex" }, [
-      _c("p", [_vm._v("Список товаров")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "buttons other" }, [
-        _c("form", [
-          _c("input", { attrs: { type: "text", placeholder: "Поиск" } }),
-        ]),
-        _vm._v(" "),
-        _c("button", [_vm._v("Добавить товар")]),
-      ]),
+    return _c("form", [
+      _c("input", { attrs: { type: "text", placeholder: "Поиск" } }),
     ])
   },
   function () {
@@ -26399,12 +26374,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Кол-во не в заказе")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Договор поставки")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Договор реализации")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Код контракта")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Название склада")]),
         _vm._v(" "),
         _c("th", [_vm._v("В пути к клиенту")]),
@@ -26412,8 +26381,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("В пути от клиента")]),
         _vm._v(" "),
         _c("th", [_vm._v("Дней на сайте")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Обновлено")]),
       ]),
     ])
   },

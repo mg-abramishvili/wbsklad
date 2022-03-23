@@ -2147,26 +2147,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Loader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader.vue */ "./resources/js/components/Loader.vue");
 //
 //
 //
 //
 //
-//
-//
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {//
     };
-  },
-  created: function created() {//
-  },
-  methods: {//
-  },
-  components: {
-    Loader: _Loader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -25557,20 +25546,18 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "home-page" },
-    [
-      _c("h1", [_vm._v("Home page")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: { name: "Warehouse" } } }, [
-        _vm._v("Отчеты"),
-      ]),
-    ],
-    1
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "home-page" }, [
+      _c("h1", [_vm._v("Добро пожаловать")]),
+    ])
+  },
+]
 render._withStripped = true
 
 

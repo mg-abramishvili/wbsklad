@@ -53,17 +53,18 @@
         },
 		methods: {
 			login() {
+                this.errors = []
+
 				this.views.submitButton = false
                 
                 axios.get('/sanctum/csrf-cookie').then(response => {
-                    axios.post('/api/login', this.formData).then(response => {
-						if(response.data === 'bad_login') {
-                            this.errors = []
-							this.errors.push('Неверный E-mail или пароль')
-							this.views.submitButton = true
-						} else {
-							window.location.href = "/"
-						}
+                    axios.post('/api/login', this.formData)
+                    .then(response => {
+						window.location.href = "/"
+                    })
+                    .catch((error) => {
+                        this.errors.push(error.response.data)
+                        this.views.submitButton = true
                     })
                 })
             },

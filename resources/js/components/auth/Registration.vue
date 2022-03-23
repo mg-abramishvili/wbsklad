@@ -98,8 +98,8 @@
                 .then(response => {
                     this.$router.push({name: 'Login'})
                 })
-                .catch(error => {
-                    this.errors.push(error)
+                .catch((error) => {
+                    this.errors.push(error.response.data)
                     this.views.submitButton = true
                 })
             },

@@ -2237,18 +2237,15 @@ __webpack_require__.r(__webpack_exports__);
     login: function login() {
       var _this = this;
 
+      this.errors = [];
       this.views.submitButton = false;
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         axios.post('/api/login', _this.formData).then(function (response) {
-          if (response.data === 'bad_login') {
-            _this.errors = [];
+          window.location.href = "/";
+        })["catch"](function (error) {
+          _this.errors.push(error.response.data);
 
-            _this.errors.push('Неверный E-mail или пароль');
-
-            _this.views.submitButton = true;
-          } else {
-            window.location.href = "/";
-          }
+          _this.views.submitButton = true;
         });
       });
     }
@@ -2369,7 +2366,7 @@ __webpack_require__.r(__webpack_exports__);
           name: 'Login'
         });
       })["catch"](function (error) {
-        _this.errors.push(error);
+        _this.errors.push(error.response.data);
 
         _this.views.submitButton = true;
       });

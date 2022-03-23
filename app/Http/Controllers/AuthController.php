@@ -15,7 +15,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
-            return 'bad_login';
+            return response('Ошибка авторизации', 500);
         }
             
         $user = User::where('email', $request['email'])->firstOrFail();
@@ -33,7 +33,7 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
         if($user) {
-            return response('Пользователь с таким E-mail уже зарегистрирован', 200);
+            return response('Пользователь с таким E-mail уже зарегистрирован', 500);
         }
 
         $newUser = new User();

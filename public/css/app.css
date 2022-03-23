@@ -727,8 +727,24 @@ h1 {
   max-width: 610px;
   margin: 0 auto 20px auto;
 }
-.add-site-form.login-form {
+.add-site-form.login-form,
+.add-site-form.registration-form {
   margin-top: 30px;
+}
+.add-site-form.login-form .buttons,
+.add-site-form.registration-form .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-site-form.login-form .buttons a {
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 8px 10px;
+  background: #fff;
+  color: #74788d;
+  border: 1px solid #74788d;
 }
 .add-site-form .top-block {
   padding: 20px 30px;

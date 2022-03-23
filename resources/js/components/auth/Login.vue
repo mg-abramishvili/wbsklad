@@ -1,9 +1,9 @@
 <template>
-    <div class="add-site-form small2 login-form">
+    <div class="add-site-form small2 registration-form">
         <div class="top-block flex">
             <p>WBSklad</p>
         </div>
-        <form @submit.prevent="handleLogin">
+        <form @submit.prevent="login">
             <ul v-if="errors.length" class="errors">
                 <li v-for="error in errors" class="error-message">
                     {{ error }}
@@ -23,9 +23,14 @@
                     <input type="password" v-model="formData.password">
                 </div>
             </div>
-            <button type="submit" :disabled="views.submitButton == false">
-                Войти
-            </button>
+            <div class="buttons">
+                <button type="submit" :disabled="views.submitButton == false">
+                    Войти
+                </button>
+                <router-link :to="{name: 'Registration'}">
+                    Регистрация
+                </router-link>
+            </div>
         </form>
     </div>
 </template>
@@ -47,8 +52,9 @@
             }
         },
 		methods: {
-			handleLogin() {
+			login() {
 				this.views.submitButton = false
+                
                 axios.get('/sanctum/csrf-cookie').then(response => {
                     axios.post('/api/login', this.formData).then(response => {
 						if(response.data === 'bad_login') {
@@ -56,10 +62,10 @@
 							this.errors.push('Неверный E-mail или пароль')
 							this.views.submitButton = true
 						} else {
-							this.$parent.checkMe()
+							window.location.href = "/"
 						}
                     })
-                });
+                })
             },
 		},
     }

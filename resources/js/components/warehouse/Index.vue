@@ -120,19 +120,29 @@
         },
         methods: {
             loadReports() {
-                let token = this.$parent.user.wbtoken
+                let key = this.$parent.user.settings.wb_api_key
 
-                if(!token) {
-                    alert('API-ключ не найден')
+                if(!key) {
+                    this.$swal({
+                        text: 'API-ключ не найден',
+                        icon: 'error',
+                    })
+                    this.views.loading = false
                     return
                 }
 
                 axios
-                .get(` https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=${token}`)
+                .get(` https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-02-01T21%3A00%3A00.000Z&key=${key}`)
                 .then(response => (
                     this.items = response.data,
                     this.views.loading = false
-                ));
+                ))
+                .catch(error => {
+                    this.$swal({
+                        text: error,
+                        icon: 'error',
+                    })
+                })
             },
         },
         components: {

@@ -1,6 +1,6 @@
 <template>
-	<div v-if="views.loading == false" class="app">
-		<template v-if="authenticated == true">
+	<div v-if="!views.loading" class="app">
+		<template v-if="authenticated">
 			<Sidebar></Sidebar>
 
 			<div class="site-content">
@@ -12,14 +12,15 @@
 			</div>
 		</template>
 
-		<Login v-if="authenticated == false"></Login>
+		<template v-if="!authenticated">
+			<router-view :key="$route.path" />
+		</template>
 	</div>
 </template>
 
 <script>
-	import Login from './Login.vue'
-	import Sidebar from './Sidebar.vue'
-	import Header from './Header.vue'
+	import Sidebar from './components/Sidebar.vue'
+	import Header from './components/Header.vue'
 
     export default {
         data() {
@@ -41,24 +42,24 @@
 			checkMe() {
 				axios.post('/api/me').then(response => {
 					this.user = response.data
-					if(this.user.name && this.user.name.length) {
+
+					if(this.user) {
 						this.authenticated = true
                         this.views.loading = false
-					} else {
-						this.authenticated = false
-                        this.views.loading = false
-						setTimeout(() => {
-							if(this.$refs.email) {
-								this.$refs.email.focus()
-							}
-						}, 100);
-						
+						return
+					}
+					
+					if(!this.user) {
+						this.views.loading = false
+
+						if(this.$route.name != 'Login' && this.$route.name != 'Registration') {
+							this.$router.push({name: 'Login'})
+						}
 					}
 				})
 			},
 		},
 		components: {
-			Login,
 			Sidebar,
 			Header
 		}

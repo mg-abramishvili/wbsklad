@@ -11,6 +11,13 @@
 					<i class="fa fa-angle-right"></i>
 				</router-link>
 			</li>
+			<li>
+				<router-link :to="{name: 'Settings'}">
+					<span>•</span>
+					Настройки
+					<i class="fa fa-angle-right"></i>
+				</router-link>
+			</li>
 		</ul>
 	</nav>
 </template>

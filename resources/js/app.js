@@ -16,6 +16,10 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import {routes} from './routes';
 
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({

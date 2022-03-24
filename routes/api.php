@@ -19,3 +19,4 @@ Route::put('/user/{uid}/update', [UserController::class, 'update']);
 // PRODUCTS
 Route::get('user/{uid}/products', [ProductController::class, 'index']);
 Route::get('user/{uid}/products/wildberries/load', [ProductController::class, 'wildberriesLoad']);
+Route::get('user/{uid}/products/wildberries/loadlist', [ProductController::class, 'wildberriesLoadList']);

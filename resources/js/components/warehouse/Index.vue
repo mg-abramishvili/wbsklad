@@ -17,6 +17,7 @@
                 <thead>
                     <tr>
                         <th></th>
+                        <th></th>
                         <th>Код WB</th>
                         <th>Предмет</th>
                         <th>Категория</th>
@@ -37,6 +38,9 @@
                     <tr v-for="(product, index) in products" :key="product.barcode">
                         <td>
                             {{ index + 1 }}
+                        </td>
+                        <td>
+                            <img v-if="productImage(product.nm_id)" :src="productImage(product.nm_id)" style="width: 50px; height: auto;" />
                         </td>
                         <td>
                             {{ product.nm_id }}
@@ -86,6 +90,7 @@
         </div>
     </div>
 </template>
+
 <script>
     import Loader from '../Loader.vue'
 
@@ -139,6 +144,12 @@
                         icon: 'error',
                     })
                 })
+            },
+            productImage(nm) {
+                let nmImageCategory = nm.slice(0,4) + '0000'
+                let nmImageName = nm + '-1.avif'
+                
+                return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName
             },
         },
         components: {

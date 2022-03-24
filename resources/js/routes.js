@@ -5,6 +5,8 @@ import Registration from './components/auth/Registration.vue';
 
 import Settings from './components/settings/Index.vue';
 
+import Catalog from './components/catalog/Index.vue';
+
 import Warehouse from './components/warehouse/Index.vue';
 
 export const routes = [
@@ -22,6 +24,11 @@ export const routes = [
         path: '/registration',
         name: 'Registration',
         component: Registration
+    },
+    {
+        path: '/catalog',
+        name: 'Catalog',
+        component: Catalog
     },
     {
         path: '/warehouse',

@@ -58,4 +58,37 @@ class ProductController extends Controller
             );
         }
     }
+
+    public function wildberriesLoadList($uid)
+    {
+        $user = User::where('uid', $uid)->with('settings')->first();
+
+        $url = "https://content-suppliers.wildberries.ru/card/list";
+
+        $headers = array(
+            "Accept: application/json",
+        );
+
+        $postData = [
+            'id' => 1,
+            'jsonrpc' => "2.0",
+            'supplierID' => "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            'withError' => true
+        ];
+
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($postData));
+
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+        $response = curl_exec($curl); curl_close($curl);
+        
+        $wbProducts = json_decode($response);
+
+        return $wbProducts;
+    }
 }

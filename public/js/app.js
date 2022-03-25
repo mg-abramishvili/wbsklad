@@ -26509,7 +26509,7 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(product.techSize) +
+                          _vm._s(product.tech_size) +
                           "\n                    "
                       ),
                     ]),

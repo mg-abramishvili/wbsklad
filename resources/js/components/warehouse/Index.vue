@@ -62,7 +62,7 @@
                             {{ product.price }} руб
                         </td>
                         <td>
-                            {{ product.techSize }}
+                            {{ product.tech_size }}
                         </td>
                         <td>
                             {{ product.barcode }}

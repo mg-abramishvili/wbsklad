@@ -26355,7 +26355,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "field-name" }, [
-                _vm._v("\n                API-ключ\n            "),
+                _vm._v("\n                API-ключ (x64)\n            "),
               ]),
               _vm._v(" "),
               _c("input", {

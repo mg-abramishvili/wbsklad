@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="field-name">
-                    API-ключ
+                    API-ключ (x64)
                 </div>
                 <input v-model="wbApiKey" type="text">
             </div>

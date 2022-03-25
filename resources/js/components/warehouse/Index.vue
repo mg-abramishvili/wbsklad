@@ -148,7 +148,7 @@
                 })
             },
             productImage(nm) {
-                let nmImageCategory = nm.slice(0,4) + '0000'
+                let nmImageCategory = nm.toString().slice(0,4) + '0000'
                 let nmImageName = nm + '-1.avif'
                 
                 return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName

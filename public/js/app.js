@@ -2736,7 +2736,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     productImage: function productImage(nm) {
-      var nmImageCategory = nm.slice(0, 4) + '0000';
+      var nmImageCategory = nm.toString().slice(0, 4) + '0000';
       var nmImageName = nm + '-1.avif';
       return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName;
     }

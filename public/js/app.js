@@ -25776,7 +25776,7 @@ var render = function () {
         [
           _c("router-link", { attrs: { to: { name: "Warehouse" } } }, [
             _c("span", [_vm._v("•")]),
-            _vm._v("\n\t\t\t\t\tСклад\n\t\t\t\t\t"),
+            _vm._v("\n\t\t\t\t\tТовары\n\t\t\t\t\t"),
             _c("i", { staticClass: "fa fa-angle-right" }),
           ]),
         ],

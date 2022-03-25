@@ -7,7 +7,7 @@
 			<li>
 				<router-link :to="{name: 'Warehouse'}">
 					<span>•</span>
-					Склад
+					Товары
 					<i class="fa fa-angle-right"></i>
 				</router-link>
 			</li>

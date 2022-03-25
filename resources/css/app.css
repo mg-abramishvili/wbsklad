@@ -170,7 +170,7 @@ th,
 td {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   color: #151515;
   min-width: 50px;
   text-align: left;
@@ -299,7 +299,7 @@ main {
   display: block;
   text-decoration: none;
   padding: 20px 0;
-  font-size: 16px;
+  font-size: 15px;
   color: #a6b0cf;
 }
 .left-menu ul li a.active,
@@ -378,7 +378,7 @@ main {
 .header .user-block .user {
   display: inline-block;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   color: #555b6d;
 }
 .header .user-block .user img {
@@ -390,12 +390,12 @@ main {
 h1 {
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
   margin-bottom: 20px;
 }
 .navi {
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 20px;
   color: #75818c;
   background: #fff;
@@ -419,7 +419,7 @@ h1 {
   margin-top: 10px;
 }
 .sites-list .top-buttons .buttons button {
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
   padding: 10px 18px;
   border-radius: 4px;
@@ -465,7 +465,7 @@ h1 {
   color: #495057;
 }
 .sites-list .site-item .info .phone {
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 20px;
   margin-top: 3px;
 }
@@ -489,7 +489,7 @@ h1 {
 }
 .sites-list .site-item .info .data .data-item {
   color: #74788d;
-  font-size: 16px;
+  font-size: 15px;
   display: inline-block;
   vertical-align: top;
   margin-right: 75px;
@@ -505,7 +505,7 @@ h1 {
   margin-top: 8px;
 }
 .sites-list .site-item .info .status {
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 15px;
   height: 32px;
   margin-top: 10px;
@@ -566,7 +566,7 @@ h1 {
   display: inline-block;
   text-decoration: none;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 15px;
   width: 32px;
   height: 32px;
   line-height: 32px;
@@ -587,7 +587,7 @@ h1 {
 .footer {
   background: #fff;
   padding: 20px 0;
-  font-size: 16px;
+  font-size: 15px;
   color: #7e8299;
   text-align: right;
   margin-top: -60px;
@@ -628,7 +628,7 @@ h1 {
 }
 .add-site-form.login-form .buttons a {
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 4px;
   padding: 8px 10px;
   background: #fff;
@@ -647,7 +647,7 @@ h1 {
   margin-top: 10px;
 }
 .add-site-form .top-block button {
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
   padding: 10px 20px;
   border-radius: 4px;
@@ -692,7 +692,7 @@ h1 {
   font-weight: 300;
 }
 .add-site-form form .field-name {
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 10px;
   color: #3f4254;
 }
@@ -710,7 +710,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 0 10px;
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 .add-site-form form input[type='text'].mail,
@@ -727,7 +727,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 0 10px;
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 15px;
 }
 .add-site-form form input[type='password'].bg {
@@ -742,7 +742,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 0 10px;
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 15px;
   color: #9aa3b5;
   -webkit-appearance: none;
@@ -758,7 +758,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 15px;
   margin-bottom: 50px;
 }
 .add-site-form form textarea:focus {
@@ -794,7 +794,7 @@ h1 {
   margin-bottom: 15px;
   color: #fff;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 4px;
   background: #1bc5bd;
   height: 36px;
@@ -806,7 +806,7 @@ h1 {
 .add-site-form form .checkbox + label {
   display: block;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   background: url('/img/checkbox.png') no-repeat 0 2px;
   color: #484848;
   margin-bottom: 15px;
@@ -827,7 +827,7 @@ h1 {
   width: 65%;
 }
 .add-site-form form button {
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px 40px;
   border-radius: 4px;
   color: #fff;
@@ -874,7 +874,7 @@ h1 {
   display: block;
   cursor: pointer;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   border-radius: 4px;
   border: 1px solid #ced4da;
   padding: 7px 10px;
@@ -907,7 +907,7 @@ h1 {
   padding: 60px 20px 20px 20px;
   text-align: center;
   background: url('/img/upload.png') no-repeat top 20px left 50%;
-  font-size: 16px;
+  font-size: 15px;
   color: #9aa3b5;
   margin-bottom: 30px;
 }
@@ -921,7 +921,7 @@ h1 {
 }
 .add-site-form form .show-on-map {
   display: block;
-  font-size: 16px;
+  font-size: 15px;
   text-decoration: none;
   margin-bottom: 15px;
   color: #3699ff;
@@ -934,7 +934,7 @@ h1 {
   text-align: center;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   color: #3699ff;
   background: #e1f0ff;
 }
@@ -959,7 +959,7 @@ h1 {
   text-align: center;
   border-radius: 4px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 15px;
   color: #3699ff;
   background: #e1f0ff;
   border: 2px solid #e1f0ff;
@@ -1022,7 +1022,7 @@ h1 {
   margin-top: 5px;
 }
 .orders-list .sort .filter {
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
 }
 .orders-list .sort .filter select {
@@ -1031,7 +1031,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 2px;
   padding: 0 30px 0 10px;
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 15px;
   color: #9aa3b5;
   -webkit-appearance: none;
@@ -1042,7 +1042,7 @@ h1 {
   border: 1px solid #999;
 }
 .orders-list .sort .filter button {
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
   padding: 0 18px;
   height: 36px;
@@ -1069,7 +1069,7 @@ h1 {
 }
 .orders-list .order-item .info .item {
   color: #b5b5c3;
-  font-size: 16px;
+  font-size: 15px;
   width: 15%;
   margin-bottom: 20px;
 }
@@ -1098,7 +1098,7 @@ h1 {
 .orders-list .order-item .info .item span .status {
   display: inline-block;
   font-style: normal;
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 15px;
   height: 32px;
   line-height: 32px;
@@ -1143,7 +1143,7 @@ h1 {
 .orders-list .order-item .bottom-info {
   padding-top: 20px;
   border-top: 1px solid #eff2f7;
-  font-size: 16px;
+  font-size: 15px;
   color: #b5b5c3;
 }
 .orders-list .order-item .bottom-info .site a {
@@ -1168,7 +1168,7 @@ h1 {
   display: inline-block;
   text-decoration: none;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 15px;
   width: 32px;
   height: 32px;
   line-height: 32px;
@@ -1199,7 +1199,7 @@ h1 {
   border-bottom: 1px solid #eff2f7;
 }
 .orders-list .order-info table thead tr td {
-  font-size: 16px;
+  font-size: 15px;
   color: #b5b5c3;
   padding: 20px 20px 20px 0;
   white-space: nowrap;
@@ -1215,7 +1215,7 @@ h1 {
   border-bottom: 0;
 }
 .orders-list .order-info table tbody tr td {
-  font-size: 16px;
+  font-size: 15px;
   padding: 20px 20px 20px 0;
 }
 .orders-list .order-info table tbody tr td:last-child {
@@ -1246,14 +1246,14 @@ h1 {
 }
 .orders-list .order-comment .name {
   padding: 20px 0;
-  font-size: 16px;
+  font-size: 15px;
   color: #b5b5c3;
   border-bottom: 1px solid #eff2f7;
   margin-bottom: 30px;
 }
 .orders-list .order-comment textarea {
   width: 100%;
-  font-size: 16px;
+  font-size: 15px;
 }
 .orders-list .order-form {
   width: 49%;
@@ -1265,7 +1265,7 @@ h1 {
 }
 .orders-list .order-form .name {
   padding: 20px 0;
-  font-size: 16px;
+  font-size: 15px;
   color: #b5b5c3;
   border-bottom: 1px solid #eff2f7;
   margin-bottom: 20px;
@@ -1289,7 +1289,7 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
   left: 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 .orders-list .order-form .field input[type='text'] {
   width: 48%;
@@ -1297,7 +1297,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 2px;
   padding: 0 15px;
-  font-size: 16px;
+  font-size: 15px;
   color: #3699ff;
 }
 .orders-list .order-form .field input[type='text'].other {
@@ -1312,7 +1312,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 2px;
   padding: 0 40px 0 15px;
-  font-size: 16px;
+  font-size: 15px;
   color: #9aa3b5;
   -webkit-appearance: none;
           appearance: none;
@@ -1344,7 +1344,7 @@ h1 {
   margin-right: 15px;
 }
 .prices-list .top-block .buttons form input[type='text'] {
-  font-size: 16px;
+  font-size: 15px;
   color: #74788d;
   width: 180px;
   height: 40px;
@@ -1362,7 +1362,7 @@ h1 {
   border: 1px solid #ced4da;
   border-radius: 4px;
   padding: 0 10px;
-  font-size: 16px;
+  font-size: 15px;
   margin-right: 15px;
   color: #9aa3b5;
   -webkit-appearance: none;
@@ -1373,7 +1373,7 @@ h1 {
   border: 1px solid #999;
 }
 .prices-list .top-block .buttons button {
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
   padding: 10px 20px;
   border-radius: 4px;
@@ -1401,7 +1401,7 @@ h1 {
 }
 .prices-list table thead tr td {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   padding: 15px 10px;
 }
 .prices-list table tbody tr {
@@ -1410,14 +1410,14 @@ h1 {
 .prices-list table tbody tr td {
   padding: 5px 10px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
 }
 .prices-list table tbody tr td .n {
   display: none;
 }
 .prices-list table tbody tr td .status {
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 15px;
   height: 32px;
   line-height: 32px;
@@ -1485,7 +1485,7 @@ h1 {
   display: inline-block;
   text-decoration: none;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 15px;
   width: 32px;
   height: 32px;
   line-height: 32px;
@@ -1520,7 +1520,7 @@ h1 {
   margin-top: 10px;
 }
 .shops-list .top-block .buttons button {
-  font-size: 16px;
+  font-size: 15px;
   color: #495057;
   padding: 10px 20px;
   border-radius: 4px;
@@ -1544,7 +1544,7 @@ h1 {
 }
 .shops-list table thead tr td {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px 30px;
 }
 .shops-list table tbody tr {
@@ -1553,7 +1553,7 @@ h1 {
 .shops-list table tbody tr td {
   padding: 12px 30px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
 }
 .shops-list table tbody tr td .n {
   display: none;
@@ -1573,7 +1573,7 @@ h1 {
 }
 .shops-list table tbody tr td .status {
   display: inline-block;
-  font-size: 16px;
+  font-size: 15px;
   padding: 0 15px;
   height: 32px;
   line-height: 32px;
@@ -1638,7 +1638,7 @@ h1 {
   display: inline-block;
   text-decoration: none;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 15px;
   width: 32px;
   height: 32px;
   line-height: 32px;
@@ -1795,7 +1795,7 @@ h1 {
     width: 100%;
   }
   .prices-list table tbody tr td {
-    font-size: 16px;
+    font-size: 15px;
   }
   .prices-list table.other thead {
     display: none;

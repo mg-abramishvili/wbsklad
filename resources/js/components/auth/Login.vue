@@ -12,7 +12,7 @@
             <div class="flex">
                 <div class="col">
                     <div class="field-name">
-                        Логин
+                        E-mail
                     </div>
                     <input type="email" v-model="formData.email">
                 </div>

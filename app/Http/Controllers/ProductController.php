@@ -37,7 +37,7 @@ class ProductController extends Controller
         
         $wbProducts = json_decode($response);
 
-        if(!$wbProducts) {
+        if(empty($wbProducts)) {
             return response('Ошибка получения данных по API', 500);
         }
 
@@ -54,9 +54,14 @@ class ProductController extends Controller
                     'subject' => $wbProduct->subject,
                     'category' => $wbProduct->category,
                     'brand' => $wbProduct->brand,
+                    'price' => $wbProduct->Price,
+                    'quantity' => $wbProduct->quantity,
+                    'tech_size' => $wbProduct->techSize,
                 ]
             );
         }
+
+        return response('Загрузка завершена', 200);
     }
 
     public function wildberriesLoadList($uid)

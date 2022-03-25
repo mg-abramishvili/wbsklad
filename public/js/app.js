@@ -2668,20 +2668,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2723,11 +2709,28 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
+      if (!user.settings.wb_api_key) {
+        return this.$swal({
+          text: 'Не установлен API-ключ',
+          icon: 'error'
+        });
+      }
+
+      this.views.loading = true;
       axios.get("/api/user/".concat(user.uid, "/products/wildberries/load")).then(function (response) {
-        return _this2.loadProducts();
+        if (response.data) {
+          _this2.loadProducts();
+
+          _this2.views.loading = false;
+
+          _this2.$swal({
+            text: 'Товары загружены!',
+            icon: 'success'
+          });
+        }
       })["catch"](function (error) {
         _this2.$swal({
-          text: error.response,
+          text: error.response.data,
           icon: 'error'
         });
       });
@@ -25860,7 +25863,7 @@ var render = function () {
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "col" }, [
             _c("div", { staticClass: "field-name" }, [
-              _vm._v("\n                    Логин\n                "),
+              _vm._v("\n                    E-mail\n                "),
             ]),
             _vm._v(" "),
             _c("input", {
@@ -26438,7 +26441,7 @@ var render = function () {
                 "tbody",
                 _vm._l(_vm.products, function (product, index) {
                   return _c("tr", { key: product.barcode }, [
-                    _c("td", [
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
                       _vm._v(
                         "\n                        " +
                           _vm._s(index + 1) +
@@ -26474,6 +26477,14 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
+                          _vm._s(product.supplier_article) +
+                          "\n                    "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [
+                      _vm._v(
+                        "\n                        " +
                           _vm._s(product.category) +
                           "\n                    "
                       ),
@@ -26490,8 +26501,8 @@ var render = function () {
                     _c("td", [
                       _vm._v(
                         "\n                        " +
-                          _vm._s(product.supplier_article) +
-                          "\n                    "
+                          _vm._s(product.price) +
+                          " руб\n                    "
                       ),
                     ]),
                     _vm._v(" "),
@@ -26511,58 +26522,10 @@ var render = function () {
                       ),
                     ]),
                     _vm._v(" "),
-                    _c("td", [
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
                       _vm._v(
                         "\n                        " +
                           _vm._s(product.quantity) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(product.quantityFull) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(product.quantityNotInOrders) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(product.warehouseName) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(product.inWayToClient) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(product.inWayFromClient) +
-                          "\n                    "
-                      ),
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(product.daysOnSite) +
                           "\n                    "
                       ),
                     ]),
@@ -26600,29 +26563,21 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Предмет")]),
         _vm._v(" "),
+        _c("th", [_vm._v("Артикул")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Категория")]),
         _vm._v(" "),
         _c("th", [_vm._v("Бренд")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Артикул")]),
+        _c("th", [_vm._v("Цена")]),
         _vm._v(" "),
         _c("th", [_vm._v("Размер")]),
         _vm._v(" "),
         _c("th", [_vm._v("Штрихкод")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Кол-во для продажи")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Кол-во полное")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Кол-во не в заказе")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Название склада")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("В пути к клиенту")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("В пути от клиента")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Дней на сайте")]),
+        _c("th", { staticStyle: { "text-align": "center" } }, [
+          _vm._v("Кол-во для продажи"),
+        ]),
       ]),
     ])
   },

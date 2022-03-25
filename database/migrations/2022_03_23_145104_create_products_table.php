@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('brand')->nullable();
             $table->string('tech_size')->nullable();
             $table->string('barcode');
+            $table->integer('price');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }

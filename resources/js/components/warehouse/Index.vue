@@ -20,23 +20,24 @@
                         <th></th>
                         <th>Код WB</th>
                         <th>Предмет</th>
+                        <th>Артикул</th>
                         <th>Категория</th>
                         <th>Бренд</th>
-                        <th>Артикул</th>
+                        <th>Цена</th>
                         <th>Размер</th>
                         <th>Штрихкод</th>
-                        <th>Кол-во для продажи</th>
-                        <th>Кол-во полное</th>
+                        <th style="text-align: center;">Кол-во для продажи</th>
+                        <!-- <th>Кол-во полное</th>
                         <th>Кол-во не в заказе</th>
                         <th>Название склада</th>
                         <th>В пути к клиенту</th>
                         <th>В пути от клиента</th>
-                        <th>Дней на сайте</th>
+                        <th>Дней на сайте</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(product, index) in products" :key="product.barcode">
-                        <td>
+                        <td style="text-align: center;">
                             {{ index + 1 }}
                         </td>
                         <td>
@@ -49,13 +50,16 @@
                             {{ product.subject }}
                         </td>
                         <td>
+                            {{ product.supplier_article }}
+                        </td>
+                        <td>
                             {{ product.category }}
                         </td>
                         <td>
                             {{ product.brand }}
                         </td>
                         <td>
-                            {{ product.supplier_article }}
+                            {{ product.price }} руб
                         </td>
                         <td>
                             {{ product.techSize }}
@@ -63,26 +67,8 @@
                         <td>
                             {{ product.barcode }}
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {{ product.quantity }}
-                        </td>
-                        <td>
-                            {{ product.quantityFull }}
-                        </td>
-                        <td>
-                            {{ product.quantityNotInOrders }}
-                        </td>
-                        <td>
-                            {{ product.warehouseName }}
-                        </td>
-                        <td>
-                            {{ product.inWayToClient }}
-                        </td>
-                        <td>
-                            {{ product.inWayFromClient }}
-                        </td>
-                        <td>
-                            {{ product.daysOnSite }}
                         </td>
                     </tr>
                 </tbody>
@@ -133,14 +119,30 @@
                 if(!user) {
                     return
                 }
+                if(!user.settings.wb_api_key) {
+                    return this.$swal({
+                        text: 'Не установлен API-ключ',
+                        icon: 'error',
+                    })
+                }
+
+                this.views.loading = true
 
                 axios.get(`/api/user/${user.uid}/products/wildberries/load`)
-                .then(response => (
-                    this.loadProducts()
-                ))
+                .then((response => {
+                    if(response.data) {
+                        this.loadProducts()
+                        this.views.loading = false
+
+                        this.$swal({
+                            text: 'Товары загружены!',
+                            icon: 'success',
+                        })
+                    }
+                }))
                 .catch(error => {
                     this.$swal({
-                        text: error.response,
+                        text: error.response.data,
                         icon: 'error',
                     })
                 })

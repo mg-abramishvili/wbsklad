@@ -17,5 +17,8 @@ class Product extends Model
         'barcode',
         'category',
         'brand',
+        'price',
+        'quantity',
+        'tech_size',
     ];
 }

@@ -14,7 +14,7 @@
   font-weight: 500;
 }
 .sb {
-  font-weight: 600;
+  font-weight: 500;
 }
 .bold {
   font-weight: 700;
@@ -217,7 +217,6 @@ select {
   box-sizing: border-box;
   font-size: 14px;
   border: 0;
-  font-weight: 600;
 }
 button,
 input[type='submit'] {
@@ -390,7 +389,7 @@ main {
 }
 h1 {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
   color: #495057;
   margin-bottom: 20px;
@@ -415,7 +414,7 @@ h1 {
   padding: 15px 30px;
 }
 .sites-list .top-buttons p {
-  font-size: 18px;
+  font-size: 15px;
   color: #495057;
   margin-top: 10px;
 }
@@ -458,7 +457,7 @@ h1 {
   width: 140px;
 }
 .sites-list .site-item .info .name a {
-  font-size: 18px;
+  font-size: 15px;
   text-decoration: none;
   color: #3699ff;
 }
@@ -500,8 +499,8 @@ h1 {
 }
 .sites-list .site-item .info .data .data-item span {
   display: block;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 15px;
   color: #495057;
   margin-top: 8px;
 }
@@ -575,7 +574,7 @@ h1 {
 .sites-list .pages a.active,
 .sites-list .pages a:hover {
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   background: #556ee6;
 }
 .sites-list .pages a.active .fa,
@@ -642,8 +641,8 @@ h1 {
   margin-bottom: 30px;
 }
 .add-site-form .top-block p {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 15px;
   color: #495057;
   margin-top: 10px;
 }
@@ -685,8 +684,7 @@ h1 {
   background: #eff2f7;
 }
 .add-site-form form .top-text {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
   margin-bottom: 25px;
 }
 .add-site-form form .top-text span {
@@ -1018,8 +1016,8 @@ h1 {
   padding: 20px 30px;
 }
 .orders-list .sort p {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 15px;
   color: #495057;
   margin-top: 5px;
 }
@@ -1179,7 +1177,7 @@ h1 {
 .orders-list .pages a.active,
 .orders-list .pages a:hover {
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   background: #556ee6;
 }
 .orders-list .pages a.active .fa,
@@ -1337,8 +1335,8 @@ h1 {
   padding: 20px 0;
 }
 .prices-list .top-block p {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 15px;
   color: #495057;
   margin-top: 10px;
 }
@@ -1408,7 +1406,7 @@ h1 {
   font-weight: 700;
 }
 .prices-list table thead tr td {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 14px;
   padding: 15px 10px;
 }
@@ -1501,7 +1499,7 @@ h1 {
 .prices-list .pages a.active,
 .prices-list .pages a:hover {
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   background: #556ee6;
 }
 .prices-list .pages a.active .fa,
@@ -1522,8 +1520,8 @@ h1 {
   margin-bottom: 10px;
 }
 .shops-list .top-block p {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 15px;
   color: #495057;
   margin-top: 10px;
 }
@@ -1551,7 +1549,7 @@ h1 {
   background: #fff;
 }
 .shops-list table thead tr td {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
   padding: 10px 30px;
 }
@@ -1575,7 +1573,7 @@ h1 {
 }
 .shops-list table tbody tr td .name span {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
   margin-bottom: 3px;
 }
@@ -1654,7 +1652,7 @@ h1 {
 .shops-list .pages a.active,
 .shops-list .pages a:hover {
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
   background: #556ee6;
 }
 .shops-list .pages a.active .fa,

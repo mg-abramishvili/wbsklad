@@ -26452,7 +26452,7 @@ var render = function () {
                     _c("td", [
                       _vm.productImage(product.nm_id)
                         ? _c("img", {
-                            staticStyle: { width: "50px", height: "auto" },
+                            staticStyle: { width: "30px", height: "auto" },
                             attrs: { src: _vm.productImage(product.nm_id) },
                           })
                         : _vm._e(),

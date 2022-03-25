@@ -41,7 +41,7 @@
                             {{ index + 1 }}
                         </td>
                         <td>
-                            <img v-if="productImage(product.nm_id)" :src="productImage(product.nm_id)" style="width: 50px; height: auto;" />
+                            <img v-if="productImage(product.nm_id)" :src="productImage(product.nm_id)" style="width: 30px; height: auto;" />
                         </td>
                         <td>
                             {{ product.nm_id }}

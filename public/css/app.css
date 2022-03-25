@@ -1402,8 +1402,8 @@ h1 {
   border-top: 1px solid #eff2f7;
   border-bottom: 1px solid #eff2f7;
 }
-.prices-list table thead tr {
-  font-weight: 700;
+.prices-list table thead tr th {
+  font-weight: 500;
 }
 .prices-list table thead tr td {
   font-weight: 500;
@@ -1416,7 +1416,7 @@ h1 {
 .prices-list table tbody tr td {
   padding: 5px 10px;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
 }
 .prices-list table tbody tr td .n {
   display: none;

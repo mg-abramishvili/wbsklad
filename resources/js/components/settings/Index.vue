@@ -38,8 +38,9 @@
                     Подключение к Wildberries
                 </div>
 
-                <div class="field-name">
-                    API-ключ (x64)
+                <div class="field-name" style="display: flex; justify-content: space-between">
+                    <div>API-ключ (x64)</div>
+                    <a @click="openKeyHelpModal()" style="color: #3699ff; font-weight: bold">Где найти мой API-ключ?</a>
                 </div>
                 <input v-model="wbApiKey" type="text">
             </div>
@@ -64,6 +65,9 @@
                     loading: true,
 					submitButton: true,
                     success: false,
+                    modals: {
+                        keyHelp: false,
+                    },
                 }				
             }
         },
@@ -113,6 +117,18 @@
                         icon: 'error',
                     })
                 })
+            },
+            openKeyHelpModal() {
+                this.views.modals.keyHelp = true
+
+                this.$swal({
+                    position: 'top-center',
+                    imageUrl: '/img/keyHelp.png',
+                    customClass: 'swal-wide',
+                })
+            },
+            closeKeyHelpModal() {
+                this.views.modals.keyHelp = false
             },
 		},
         components: {

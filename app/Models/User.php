@@ -16,6 +16,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'email_verified_at'
     ];
 
     protected $hidden = [
@@ -30,5 +31,10 @@ class User extends Authenticatable
     public function settings()
     {
         return $this->hasOne(Setting::class);
+    }
+
+    public function catalogTableColumns()
+    {
+        return $this->belongsToMany(CatalogTableColumn::class)->withPivot(['width', 'order']);
     }
 }

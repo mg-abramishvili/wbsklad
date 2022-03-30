@@ -9,6 +9,8 @@ import Catalog from './components/catalog/Index.vue';
 
 import Warehouse from './components/warehouse/Index.vue';
 
+import UserVerify from './components/users/Verify.vue';
+
 export const routes = [
     {
         path: '/',
@@ -39,5 +41,10 @@ export const routes = [
         path: '/settings',
         name: 'Settings',
         component: Settings
+    },
+    {
+        path: '/user-verify/:key',
+        name: 'UserVerify',
+        component: UserVerify
     },
 ];

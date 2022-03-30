@@ -20,7 +20,10 @@
     },
     "dependencies": {
         "-": "^0.0.1",
+        "ag-grid-community": "^27.1.0",
+        "ag-grid-vue": "^27.1.0",
         "moment": "^2.29.1",
+        "vue-property-decorator": "^8.0.0",
         "vue-router": "^3.5.1",
         "vue-sweetalert2": "^5.0.2"
     }

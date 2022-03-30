@@ -5,7 +5,7 @@
 		</div>
 		<ul>
 			<li>
-				<router-link :to="{name: 'Warehouse'}">
+				<router-link :to="{name: 'Catalog'}">
 					<span>•</span>
 					Товары
 					<i class="fa fa-angle-right"></i>

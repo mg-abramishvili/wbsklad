@@ -52,7 +52,7 @@
 					if(!this.user) {
 						this.views.loading = false
 
-						if(this.$route.name != 'Login' && this.$route.name != 'Registration') {
+						if(this.$route.name != 'Login' && this.$route.name != 'Registration' && this.$route.name != 'UserVerify') {
 							this.$router.push({name: 'Login'})
 						}
 					}

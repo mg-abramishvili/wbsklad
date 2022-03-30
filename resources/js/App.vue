@@ -36,7 +36,9 @@
             }
         },
         created() {
-			this.checkMe()
+			if(this.$route.name != 'Login' && this.$route.name != 'Registration' && this.$route.name != 'UserVerify') {
+				this.checkMe()
+			}
         },
 		methods: {
 			checkMe() {
@@ -52,9 +54,7 @@
 					if(!this.user) {
 						this.views.loading = false
 
-						if(this.$route.name != 'Login' && this.$route.name != 'Registration' && this.$route.name != 'UserVerify') {
-							this.$router.push({name: 'Login'})
-						}
+						this.$router.push({name: 'Login'})
 					}
 				})
 			},

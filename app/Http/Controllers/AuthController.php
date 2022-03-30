@@ -55,7 +55,7 @@ class AuthController extends Controller
         $newUserSettings->user_id = $newUser->id;
         $newUserSettings->save();
 
-        $user->catalogTableColumns()->sync([1,2,3,4,5,6,7,8,9]);
+        $newUser->catalogTableColumns()->sync([1,2,3,4,5,6,7,8,9]);
 
         $verifyKey = $newUser->verify_key;
 

@@ -38,6 +38,8 @@
         created() {
 			if(this.$route.name != 'Login' && this.$route.name != 'Registration' && this.$route.name != 'UserVerify') {
 				this.checkMe()
+			} else {
+				this.views.loading = false
 			}
         },
 		methods: {

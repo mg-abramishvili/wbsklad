@@ -54093,7 +54093,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -54118,6 +54117,15 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
     };
+  },
+  computed: {
+    userColumns: function userColumns() {
+      if (this.table.userColumns && this.table.userColumns.length) {
+        return this.table.userColumns.filter(function (c) {
+          return c.isActive == true;
+        });
+      }
+    }
   },
   created: function created() {
     this.loadProducts();
@@ -54194,17 +54202,19 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    reloadTable: function reloadTable() {// let userColumns = this.table.userColumns
-      // this.table.userColumns = []
-      // setTimeout(() => { this.table.userColumns = userColumns }, 200)
-    },
     columnsEdit: function columnsEdit(param) {
+      var _this4 = this;
+
       this.table.defaultColDef.resizable = param;
       this.table.defaultColDef.suppressMovable = !param;
-      this.reloadTable();
+      var tempData = this.table.userColumns;
+      this.table.userColumns = [];
+      setTimeout(function () {
+        _this4.table.userColumns = tempData;
+      }, 50);
     },
     onColumnEdited: function onColumnEdited(event) {
-      this.userColumnsParams = event.api.columnModel.gridColumns.map(function (item, index) {
+      this.table.userColumnsParams = event.api.columnModel.gridColumns.map(function (item, index) {
         return {
           'id': item.colDef['id'],
           'field': item['colId'],
@@ -54227,11 +54237,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     saveTableSettings: function saveTableSettings() {
-      var _this4 = this;
+      var _this5 = this;
 
-      var data = [];
+      var data = '';
 
-      if (this.table.userColumnsParams.length) {
+      if (this.table.userColumnsParams && this.table.userColumnsParams.length) {
         data = this.table.userColumnsParams;
       } else {
         data = this.table.userColumns;
@@ -54241,11 +54251,9 @@ __webpack_require__.r(__webpack_exports__);
         uid: this.$parent.user.uid,
         columns_params: data
       }).then(function (response) {
-        _this4.table.userColumns = _this4.userColumnsParams;
-
-        _this4.reloadTable();
+        _this5.table.userColumns = data;
       })["catch"](function (error) {
-        _this4.$swal({
+        _this5.$swal({
           text: error.response.data,
           icon: 'error'
         });
@@ -78615,9 +78623,6 @@ var render = function () {
             "div",
             { staticClass: "table-wrapper" },
             [
-              _vm._v(
-                "\n        " + _vm._s(_vm.table.userColumns) + "\n        "
-              ),
               _vm.views.table.settings
                 ? _c("div", { staticClass: "table-view-parameters" }, [
                     _c(
@@ -78735,7 +78740,7 @@ var render = function () {
                 staticClass: "ag-theme-alpine catalog-table",
                 attrs: {
                   defaultColDef: _vm.table.defaultColDef,
-                  columnDefs: _vm.table.userColumns,
+                  columnDefs: _vm.userColumns,
                   rowData: _vm.table.data,
                 },
                 on: {

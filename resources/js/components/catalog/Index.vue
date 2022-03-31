@@ -14,7 +14,6 @@
         <Loader v-if="views.loading" />
 
         <div v-if="!views.loading" class="table-wrapper">
-            {{table.userColumns}}
             <div v-if="views.table.settings" class="table-view-parameters">
                 <ul>
                     <li v-for="column in table.userColumns" :key="column.id">
@@ -28,7 +27,7 @@
             <ag-grid-vue
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
-                :columnDefs="table.userColumns"
+                :columnDefs="userColumns"
                 :rowData="table.data"
                 @column-resized="onColumnEdited"
                 @column-moved="onColumnEdited"
@@ -67,6 +66,13 @@
                     },
                 }
             }
+        },
+        computed: {
+            userColumns() {
+                if(this.table.userColumns && this.table.userColumns.length) {
+                    return this.table.userColumns.filter(c => c.isActive == true)
+                }
+            },
         },
         created() {
             this.loadProducts()
@@ -147,21 +153,19 @@
                 })
 
             },
-            reloadTable() {
-                // let userColumns = this.table.userColumns
-
-                // this.table.userColumns = []
-                
-                // setTimeout(() => { this.table.userColumns = userColumns }, 200)
-            },
             columnsEdit(param) {
                 this.table.defaultColDef.resizable = param
                 this.table.defaultColDef.suppressMovable = !param
 
-                this.reloadTable()
+                let tempData = this.table.userColumns
+                this.table.userColumns = []
+
+                setTimeout(() => {
+                    this.table.userColumns = tempData
+                }, 50)
             },
             onColumnEdited(event) {
-                this.userColumnsParams = event.api.columnModel.gridColumns.map(function(item, index) { return {'id': item.colDef['id'], 'field': item['colId'], 'headerName': item.colDef['headerName'], 'width': item['actualWidth'], 'order': index + 1, 'isActive': item.colDef['isActive']} })
+                this.table.userColumnsParams = event.api.columnModel.gridColumns.map(function(item, index) { return {'id': item.colDef['id'], 'field': item['colId'], 'headerName': item.colDef['headerName'], 'width': item['actualWidth'], 'order': index + 1, 'isActive': item.colDef['isActive']} })
             },
             toggleTableSettings() {
                 if(this.views.table.settings) {
@@ -176,9 +180,9 @@
                 }
             },
             saveTableSettings() {
-                let data = []
+                let data = ''
 
-                if(this.table.userColumnsParams.length) {
+                if(this.table.userColumnsParams && this.table.userColumnsParams.length) {
                     data = this.table.userColumnsParams
                 } else {
                     data = this.table.userColumns
@@ -189,8 +193,7 @@
                     columns_params: data
                 })
                 .then((response => {
-                    this.table.userColumns = this.userColumnsParams
-                    this.reloadTable()
+                    this.table.userColumns = data
                 }))
                 .catch(error => {
                     this.$swal({

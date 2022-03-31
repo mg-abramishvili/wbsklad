@@ -6,7 +6,7 @@
                 <form>
                     <input type="text" placeholder="Поиск">
                 </form>
-                <button @click="tableColumnsSettingsToggle()">Вид</button>
+                <button @click="toggleTableSettings()">Вид</button>
                 <button @click="loadFromWildberries()">Обновить</button>
             </div>
         </div>
@@ -14,21 +14,24 @@
         <Loader v-if="views.loading" />
 
         <div v-if="!views.loading" class="table-wrapper">
-            <div v-if="views.tableColumnsSettings" class="table-view-parameters">
+            {{table.userColumns}}
+            <div v-if="views.table.settings" class="table-view-parameters">
                 <ul>
-                    <li v-for="column in table.allColumns">
-                        <input v-model="table.userColumns" type="checkbox" :value="column.id" :id="'col_v_' + column.field">
+                    <li v-for="column in table.userColumns" :key="column.id">
+                        <input v-model="table.userColumns.find(c => c.id == column.id).isActive" type="checkbox" :value="column.isActive" :id="'col_v_' + column.field">
                         <label :for="'col_v_' + column.field">{{ column.headerName }}</label>
                     </li>
                 </ul>
-                <button @click="saveTableColumnsSettings()">Сохранить</button>
+                <button @click="saveTableSettings()">Сохранить</button>
             </div>
 
             <ag-grid-vue
                 class="ag-theme-alpine catalog-table"
-                :columnDefs="table.selectedColumns"
+                :defaultColDef="table.defaultColDef"
+                :columnDefs="table.userColumns"
                 :rowData="table.data"
-                @column-resized="onColumnResized"
+                @column-resized="onColumnEdited"
+                @column-moved="onColumnEdited"
             >
             </ag-grid-vue>
         </div>
@@ -49,14 +52,19 @@
 
                 table: {
                     data: [],
-                    allColumns: [],
                     userColumns: [],
-                    selectedColumns: [],
+                    userColumnsParams: [],
+                    defaultColDef: {
+                        movable: false,
+                        suppressMovable: true,
+                    },
                 },
 
                 views: {
                     loading: true,
-                    tableColumnsSettings: false,
+                    table: {
+                        settings: false
+                    },
                 }
             }
         },
@@ -125,13 +133,9 @@
                 return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName
             },
             loadTable() {
-                axios.get(`/api/catalog-table-columns`)
-                .then((response => {
-                    this.table.allColumns = response.data
-
-                    this.table.userColumns = this.$parent.user.catalog_table_columns.map(column => column.id)
-                    
-                    this.table.selectedColumns = this.table.allColumns.filter(column => this.table.userColumns.includes(column.id))
+                axios.get(`/api/user-catalog-table-columns/${this.$parent.user.uid}`)
+                .then((response => {                    
+                    this.table.userColumns = response.data.data
                     
                     this.table.data = this.products
                 }))
@@ -143,24 +147,50 @@
                 })
 
             },
-            onColumnResized(event) {
-                console.log(event)
+            reloadTable() {
+                // let userColumns = this.table.userColumns
+
+                // this.table.userColumns = []
+                
+                // setTimeout(() => { this.table.userColumns = userColumns }, 200)
             },
-            tableColumnsSettingsToggle() {
-                if(this.views.tableColumnsSettings) {
-                    return this.views.tableColumnsSettings = false
+            columnsEdit(param) {
+                this.table.defaultColDef.resizable = param
+                this.table.defaultColDef.suppressMovable = !param
+
+                this.reloadTable()
+            },
+            onColumnEdited(event) {
+                this.userColumnsParams = event.api.columnModel.gridColumns.map(function(item, index) { return {'id': item.colDef['id'], 'field': item['colId'], 'headerName': item.colDef['headerName'], 'width': item['actualWidth'], 'order': index + 1, 'isActive': item.colDef['isActive']} })
+            },
+            toggleTableSettings() {
+                if(this.views.table.settings) {
+                    this.columnsEdit(false)
+
+                    return this.views.table.settings = false
                 }
-                if(!this.views.tableColumnsSettings) {
-                    return this.views.tableColumnsSettings = true
+                if(!this.views.table.settings) {
+                    this.columnsEdit(true)
+
+                    return this.views.table.settings = true
                 }
             },
-            saveTableColumnsSettings() {
-                axios.put(`/api/catalog-table-columns`, {
+            saveTableSettings() {
+                let data = []
+
+                if(this.table.userColumnsParams.length) {
+                    data = this.table.userColumnsParams
+                } else {
+                    data = this.table.userColumns
+                }
+
+                axios.put(`/api/user-catalog-table-columns`, {
                     uid: this.$parent.user.uid,
-                    columns: this.table.userColumns
+                    columns_params: data
                 })
                 .then((response => {
-                    this.table.selectedColumns = this.table.allColumns.filter(column => this.table.userColumns.includes(column.id))
+                    this.table.userColumns = this.userColumnsParams
+                    this.reloadTable()
                 }))
                 .catch(error => {
                     this.$swal({
@@ -168,8 +198,7 @@
                         icon: 'error',
                     })
                 })
-                
-                this.views.tableColumnsSettings = false
+                this.toggleTableSettings()
             }
         },
         components: {

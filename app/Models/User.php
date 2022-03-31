@@ -35,6 +35,6 @@ class User extends Authenticatable
 
     public function catalogTableColumns()
     {
-        return $this->belongsToMany(CatalogTableColumn::class)->withPivot(['width', 'order']);
+        return $this->hasMany(CatalogTableColumn::class);
     }
 }

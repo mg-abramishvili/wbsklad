@@ -12,15 +12,4 @@ class CatalogTableColumnController extends Controller
     {
         return CatalogTableColumn::all();
     }
-
-    public function update(Request $request)
-    {
-        $user = User::where('uid', $request->uid)->first();
-
-        if(!$user) {
-            return;
-        }
-
-        $user->catalogTableColumns()->sync($request->columns);
-    }
 }

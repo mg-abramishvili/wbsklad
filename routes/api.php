@@ -3,7 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CatalogTableColumnController;
+use App\Http\Controllers\UserCatalogTableColumnController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,8 +19,8 @@ Route::get('/user/{uid}', [UserController::class, 'user']);
 Route::put('/user/{uid}/update', [UserController::class, 'update']);
 
 // CATALOG
-Route::get('catalog-table-columns', [CatalogTableColumnController::class, 'index']);
-Route::put('catalog-table-columns', [CatalogTableColumnController::class, 'update']);
+Route::get('user-catalog-table-columns/{uid}', [UserCatalogTableColumnController::class, 'index']);
+Route::put('user-catalog-table-columns', [UserCatalogTableColumnController::class, 'update']);
 
 // PRODUCTS
 Route::get('user/{uid}/products', [ProductController::class, 'index']);

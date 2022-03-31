@@ -12,8 +12,6 @@ class CreateCatalogTableColumnsTable extends Migration
             $table->id();
             $table->string('field');
             $table->string('headerName');
-            $table->boolean('sortable');
-            $table->boolean('resizable');
         });
     }
 

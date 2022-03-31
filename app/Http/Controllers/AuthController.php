@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Setting;
+use App\Models\CatalogTableColumn;
+use App\Models\UserCatalogTableColumn;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +57,15 @@ class AuthController extends Controller
         $newUserSettings->user_id = $newUser->id;
         $newUserSettings->save();
 
-        $newUser->catalogTableColumns()->sync([1,2,3,4,5,6,7,8,9]);
+        $catalogTableColumns = CatalogTableColumn::all();
+
+        foreach($catalogTableColumns as $catalogTableColumn)
+        {
+            $userCatalogTableColumn = new UserCatalogTableColumn();
+            $userCatalogTableColumn->user_id = $newUser->id;
+            $userCatalogTableColumn->catalog_table_column_id = $catalogTableColumn->id;
+            $userCatalogTableColumn->save();
+        }
 
         $verifyKey = $newUser->verify_key;
 
@@ -65,7 +75,7 @@ class AuthController extends Controller
     public function me(Request $request)
     {
         if($request->user()) {
-            return $request->user()->load('settings', 'catalogTableColumns');
+            return $request->user()->load('settings');
         }
     }
 

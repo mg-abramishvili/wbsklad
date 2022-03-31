@@ -16,6 +16,11 @@ class CatalogTableColumn extends Model
         'resizable' => 'boolean',
     ];
 
+    protected $hidden = [
+        'sortable',
+        'resizable'
+    ];
+
     public function users()
     {
         return $this->belongsToMany(User::class)->withPivot(['width', 'order']);

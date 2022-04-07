@@ -1,13 +1,13 @@
 <template>
     <div class="prices-list warehouse-page">
         <div class="top-block flex">
-            <p>Список товаров</p>
+            <p>Номенклатура</p>
             <div class="buttons other">
                 <form>
                     <input type="text" placeholder="Поиск">
                 </form>
-                <button @click="toggleTableSettings()">Вид</button>
-                <button @click="loadFromWildberries()">Обновить</button>
+                <button>Вид</button>
+                <button>Обновить</button>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
     export default {
         data() {
             return {
-                products: [],
+                nomenclatures: [],
 
                 table: {
                     data: [],
@@ -77,19 +77,19 @@
             },
         },
         created() {
-            this.loadProducts()
+            this.loadNomenclatures()
         },
         methods: {
-            loadProducts() {
+            loadNomenclatures() {
                 let user = this.$parent.user
 
                 if(!user) {
                     return
                 }
 
-                axios.get(`/api/user/${user.uid}/products`)
+                axios.get(`/api/user/${user.uid}/nomenclatures`)
                 .then(response => (
-                    this.products = response.data,
+                    this.nomenclatures = response.data,
                     this.views.loading = false,
                     this.loadTable()
                 ))
@@ -106,16 +106,10 @@
                 if(!user) {
                     return
                 }
-                if(!user.settings.wb_api_key) {
-                    return this.$swal({
-                        text: 'Не установлен API-ключ',
-                        icon: 'error',
-                    })
-                }
 
                 this.views.loading = true
 
-                axios.get(`/api/user/${user.uid}/products/wildberries/load`)
+                axios.get(`/api/user/${user.uid}/nomenclatures/load`)
                 .then((response => {
                     if(response.data) {
                         this.loadProducts()
@@ -133,12 +127,6 @@
                         icon: 'error',
                     })
                 })
-            },
-            productImage(nm) {
-                let nmImageCategory = nm.toString().slice(0,4) + '0000'
-                let nmImageName = nm + '-1.avif'
-                
-                return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName
             },
             loadTable() {
                 axios.get(`/api/user-catalog-table-columns/${this.$parent.user.uid}`)

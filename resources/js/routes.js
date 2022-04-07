@@ -7,7 +7,9 @@ import Settings from './components/settings/Index.vue';
 
 import Catalog from './components/catalog/Index.vue';
 
-import Warehouse from './components/warehouse/Index.vue';
+import Nomenclatures from './components/nomenclatures/Index.vue';
+
+import Contractors from './components/contractors/Index.vue';
 
 import UserVerify from './components/users/Verify.vue';
 
@@ -33,9 +35,14 @@ export const routes = [
         component: Catalog
     },
     {
-        path: '/warehouse',
-        name: 'Warehouse',
-        component: Warehouse
+        path: '/nomenclatures',
+        name: 'Nomenclatures',
+        component: Nomenclatures
+    },
+    {
+        path: '/contractors',
+        name: 'Contractors',
+        component: Contractors
     },
     {
         path: '/settings',

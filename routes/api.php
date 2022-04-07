@@ -4,6 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserCatalogTableColumnController;
+use App\Http\Controllers\ContractorController;
+use App\Http\Controllers\NomenclatureController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,3 +28,9 @@ Route::put('user-catalog-table-columns', [UserCatalogTableColumnController::clas
 Route::get('user/{uid}/products', [ProductController::class, 'index']);
 Route::get('user/{uid}/products/wildberries/load', [ProductController::class, 'wildberriesLoad']);
 Route::get('user/{uid}/products/wildberries/loadlist', [ProductController::class, 'wildberriesLoadList']);
+
+// CONTRACTORS
+Route::get('user/{uid}/contractors', [ContractorController::class, 'index']);
+
+// NOMENCLATURES
+Route::get('user/{uid}/nomenclatures', [NomenclatureController::class, 'index']);

@@ -121,6 +121,9 @@
                     })
                 }
 
+                console.log(user)
+                console.log(this.selected.products.map(product => product.id))
+
                 axios.post(`/api/nomenclatures/import`, {
                     user: user.uid,
                     products: this.selected.products.map(product => product.id)

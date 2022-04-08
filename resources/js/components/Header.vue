@@ -13,7 +13,7 @@
                 <div class="alerts">
                     <a href="#" class="notifications"><span>10</span></a>
                 </div>
-                <a href="#" class="user"><img src="img/avatar.png"> Максим <i class="fa fa-angle-down"></i></a>
+                <a href="#" class="user"><img src="/img/avatar.png"> Максим <i class="fa fa-angle-down"></i></a>
             </div>
         </div>
     </header>

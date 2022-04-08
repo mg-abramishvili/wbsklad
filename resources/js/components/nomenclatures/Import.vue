@@ -2,34 +2,26 @@
     <div class="prices-list warehouse-page">
         <div class="top-block flex">
             <p>
-                Номенклатура
+                <router-link :to="{name: 'Nomenclatures'}">&larr; Назад</router-link>
+                Импорт из каталога WB
             </p>
             <div class="buttons other">
-                <form>
-                    <input type="text" placeholder="Поиск">
-                </form>
-                <router-link :to="{name: 'NomenclatureCreate'}">Добавить вручную</router-link>
-                <router-link :to="{name: 'NomenclaturesImport'}">Добавить из каталога WB</router-link>
+                <button @click="save()">Начать импорт</button>
             </div>
         </div>
 
         <Loader v-if="views.loading" />
 
         <div v-if="!views.loading" class="table-wrapper">
-            <ag-grid-vue v-if="nomenclatures.length"
+            <ag-grid-vue v-if="products.length"
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
                 :columnDefs="userColumns"
                 :rowData="table.data"
                 rowSelection="multiple"
                 @selection-changed="onSelectionChanged"
-                @row-double-clicked="onRowClicked"
             >
             </ag-grid-vue>
-
-            <p v-else>Нет номенклатуры.</p>
-            
-            <button @click="toArchive()" v-if="selected.nomenclatures.length">В архив</button>
         </div>
     </div>
 </template>
@@ -44,7 +36,7 @@
     export default {
         data() {
             return {
-                nomenclatures: [],
+                products: [],
 
                 table: {
                     data: [],
@@ -57,7 +49,7 @@
                 },
 
                 selected: {
-                    nomenclatures: [],
+                    products: [],
                 },
 
                 views: {
@@ -73,19 +65,19 @@
             },
         },
         created() {
-            this.loadNomenclatures()
+            this.loadProducts()
         },
         methods: {
-            loadNomenclatures() {
+            loadProducts() {
                 let user = this.$parent.user
 
                 if(!user) {
                     return
                 }
 
-                axios.get(`/api/nomenclatures`, { params: { user: user.uid } })
+                axios.get(`/api/products`, { params: { user: user.uid } })
                 .then(response => (
-                    this.nomenclatures = response.data,
+                    this.products = response.data,
                     this.views.loading = false,
                     this.loadTable()
                 ))
@@ -98,42 +90,50 @@
             },
             loadTable() {
                 this.table.userColumns = [
-                    // { field: '', checkboxSelection: true, width: 50, },
-                    { field: "type", headerName: 'Тип', valueFormatter: this.typeFormatter },
-                    { field: "artnumber", headerName: 'Артикул'  },
-                    { field: "name", headerName: 'Тип' },
-                    { field: "brand", headerName: 'Производитель' },
-                    { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
-                    { field: "quantity", headerName: 'Кол-во' },
+                    { field: '', checkboxSelection: true, width: 50 },
+                    { field: "nm_id", headerName: 'Код WB' },
+                    { field: "supplier_article", headerName: 'Артикул' },
+                    { field: "subject", headerName: 'Предмет' },
+                    { field: "brand", headerName: 'Бренд' },
+                    { field: "category", headerName: 'Категория' },
+                    { field: "price", headerName: 'Цена' },
                 ]
                     
-                this.table.data = this.nomenclatures
-            },
-            typeFormatter(params) {
-                if(params.value == 'tovar') {
-                    return 'товар'
-                }
-                if(params.value == 'usluga') {
-                    return 'услуга'
-                }
-                if(params.value == 'raskhodnik') {
-                    return 'расходник'
-                }
-            },
-            currencyFormatter(params) {
-                return this.$options.filters.currency(params.value);
-            },
-            onRowSelected(event) {
-                //
+                this.table.data = this.products
             },
             onSelectionChanged(event) {
                 let selectedNodes = event.api.getSelectedNodes()
                 let selectedData = selectedNodes.map(node => node.data)
 
-                this.selected.nomenclatures = selectedData
+                this.selected.products = selectedData
             },
-            onRowClicked(event) {
-                this.$router.push({name: 'Nomenclature', params: {uid: event.data.uid}})
+            save() {
+                let user = this.$parent.user
+
+                if(!user) {
+                    return
+                }
+
+                if(!this.selected.products.length) {
+                    return this.$swal({
+                        text: 'Выберите хотя бы один товар',
+                        icon: 'error',
+                    })
+                }
+
+                axios.post(`/api/nomenclatures/import`, {
+                    user: user.uid,
+                    products: this.selected.products.map(product => product.id)
+                })
+                .then(response => {
+                    this.$router.push({name: 'Nomenclatures'})
+                })
+                .catch(error => {
+                    this.$swal({
+                        text: error,
+                        icon: 'error',
+                    })
+                })
             },
         },
         components: {

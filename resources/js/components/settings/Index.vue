@@ -103,7 +103,8 @@
 
 				this.views.submitButton = false
                 
-                axios.put(`/api/user/${user.uid}/update`, {
+                axios.put(`/api/user/update`, {
+                    user: user.uid,
                     name: this.name,
                     email: this.email,
                     wb_api_key: this.wbApiKey,

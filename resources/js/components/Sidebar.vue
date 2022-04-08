@@ -1,7 +1,7 @@
 <template>
     <nav class="left-menu">
 		<div class="logo">
-			<a href="/"><img src="img/logo.png"></a>
+			<a href="/"><img src="/img/logo.png"></a>
 		</div>
 		<ul>
 			<li>

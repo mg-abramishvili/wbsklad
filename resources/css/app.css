@@ -698,10 +698,12 @@ h1 {
   color: red;
 }
 .add-site-form form input[type='text']:disabled,
+.add-site-form form input[type='number']:disabled,
 .add-site-form form input[type='email']:disabled {
   background: #f1f5f8 url('/img/disabled.png') no-repeat right 10px top 50%;
 }
 .add-site-form form input[type='text'],
+.add-site-form form input[type='number'],
 .add-site-form form input[type='email'] {
   width: 100%;
   height: 36px;
@@ -712,6 +714,7 @@ h1 {
   margin-bottom: 15px;
 }
 .add-site-form form input[type='text'].mail,
+.add-site-form form input[type='number'].mail,
 .add-site-form form input[type='email'].mail {
   background: url('/img/inp1.png') no-repeat right 10px top 50%;
 }

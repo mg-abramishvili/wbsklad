@@ -56,6 +56,7 @@
                     userColumns: [],
                     userColumnsParams: [],
                     defaultColDef: {
+                        sortable: true,
                         movable: false,
                         suppressMovable: true,
                     },
@@ -87,7 +88,7 @@
                     return
                 }
 
-                axios.get(`/api/user/${user.uid}/products`)
+                axios.get(`/api/products`, { params: { user: user.uid } })
                 .then(response => (
                     this.products = response.data,
                     this.views.loading = false,
@@ -115,7 +116,7 @@
 
                 this.views.loading = true
 
-                axios.get(`/api/user/${user.uid}/products/wildberries/load`)
+                axios.get(`/api/products/wildberries/load`, { params: { user: user.uid } })
                 .then((response => {
                     if(response.data) {
                         this.loadProducts()
@@ -141,7 +142,12 @@
                 return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName
             },
             loadTable() {
-                axios.get(`/api/user-catalog-table-columns/${this.$parent.user.uid}`)
+                let user = this.$parent.user
+
+                if(!user) {
+                    return
+                }
+                axios.get(`/api/user-catalog-table-columns`, { params: { user: user.uid } })
                 .then((response => {                    
                     this.table.userColumns = response.data.data
                     
@@ -191,7 +197,7 @@
                 }
 
                 axios.put(`/api/user-catalog-table-columns`, {
-                    uid: this.$parent.user.uid,
+                    user: this.$parent.user.uid,
                     columns_params: data
                 })
                 .then((response => {

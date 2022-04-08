@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function update($uid, Request $request)
+    public function update(Request $request)
     {
-        $user = User::where('uid', $uid)->first();
+        $user = User::where('uid', $request->user)->first();
 
         $user->name = $request->name;
         $user->email = $request->email;

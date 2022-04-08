@@ -8,6 +8,9 @@ import Settings from './components/settings/Index.vue';
 import Catalog from './components/catalog/Index.vue';
 
 import Nomenclatures from './components/nomenclatures/Index.vue';
+import Nomenclature from './components/nomenclatures/Nomenclature.vue';
+import NomenclatureCreate from './components/nomenclatures/Create.vue';
+import NomenclaturesImport from './components/nomenclatures/Import.vue';
 
 import Contractors from './components/contractors/Index.vue';
 
@@ -38,6 +41,21 @@ export const routes = [
         path: '/nomenclatures',
         name: 'Nomenclatures',
         component: Nomenclatures
+    },
+    {
+        path: '/nomenclature/:uid',
+        name: 'Nomenclature',
+        component: Nomenclature
+    },
+    {
+        path: '/nomenclatures/create',
+        name: 'NomenclatureCreate',
+        component: NomenclatureCreate
+    },
+    {
+        path: '/nomenclatures/import',
+        name: 'NomenclaturesImport',
+        component: NomenclaturesImport
     },
     {
         path: '/contractors',

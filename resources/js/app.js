@@ -22,6 +22,11 @@ Vue.use(VueSweetalert2);
 
 Vue.use(VueRouter);
 
+Vue.filter('currency', function (value) {
+    if (!value) return '0'
+    return parseInt(value).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽' 
+})
+
 const router = new VueRouter({
     mode: 'history',
     routes: routes,

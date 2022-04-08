@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class UserCatalogTableColumnController extends Controller
 {
-    public function index($uid)
+    public function index(Request $request)
     {
-        $user = User::where('uid', $uid)->first();
+        $user = User::where('uid', $request->user)->first();
 
         if(!$user) {
             return;
@@ -24,7 +24,7 @@ class UserCatalogTableColumnController extends Controller
 
     public function update(Request $request)
     {
-        $user = User::where('uid', $request->uid)->first();
+        $user = User::where('uid', $request->user)->first();
 
         if(!$user) {
             return;

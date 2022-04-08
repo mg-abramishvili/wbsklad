@@ -54525,6 +54525,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -80167,6 +80168,7 @@ var render = function () {
                       columnDefs: _vm.userColumns,
                       rowData: _vm.table.data,
                       rowSelection: "multiple",
+                      rowMultiSelectWithClick: "true",
                     },
                     on: { "selection-changed": _vm.onSelectionChanged },
                   })

@@ -19,6 +19,7 @@
                 :columnDefs="userColumns"
                 :rowData="table.data"
                 rowSelection="multiple"
+                rowMultiSelectWithClick="true"
                 @selection-changed="onSelectionChanged"
             >
             </ag-grid-vue>

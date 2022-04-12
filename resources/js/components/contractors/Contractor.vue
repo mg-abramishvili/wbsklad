@@ -65,6 +65,8 @@
                 <input v-model="bik" type="text">
 
                 <button type="submit" :disabled="views.submitButton == false" class="other">Сохранить</button>
+                
+                <span @click="delConfirm()">Удалить контрагента</span>
             </div>
             <div class="vline"></div>
             <div class="block">
@@ -165,6 +167,47 @@
 				this.views.saveButton = false
                 
                 axios.put(`/api/contractor/${this.$route.params.uid}/update`, {
+                    name: this.name,
+                    tel: this.tel,
+                    email: this.email,
+                    kont_litso: this.kont_litso,
+                    yur_address: this.yur_address,
+                    pocht_address: this.pocht_address,
+                    fakt_address: this.fakt_address,
+                    inn: this.inn,
+                    kpp: this.kpp,
+                    ogrn: this.ogrn,
+                    ras_schet: this.ras_schet,
+                    korr_schet: this.korr_schet,
+                    bank: this.bank,
+                    bik: this.bik,
+                })
+                .then(response => {
+                    this.$router.push({name: 'Contractors'})
+                })
+                .catch(error => {
+                    this.$swal({
+                        text: 'Ошибка',
+                        icon: 'error',
+                    })
+                })
+            },
+            delConfirm() {
+                this.$swal({
+                    text: 'Точно удалить контрагента?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Да',
+                    cancelButtonText: 'Отмена',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.del()
+                    } else if (result.isDenied) {
+                        return
+                    }
+                })
+            },
+            del() {
+                axios.delete(`/api/contractor/${this.$route.params.uid}/delete`, {
                     name: this.name,
                     tel: this.tel,
                     email: this.email,

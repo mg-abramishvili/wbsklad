@@ -54391,6 +54391,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -54486,6 +54488,51 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         _this2.$swal({
+          text: 'Ошибка',
+          icon: 'error'
+        });
+      });
+    },
+    delConfirm: function delConfirm() {
+      var _this3 = this;
+
+      this.$swal({
+        text: 'Точно удалить контрагента?',
+        showCancelButton: true,
+        confirmButtonText: 'Да',
+        cancelButtonText: 'Отмена'
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          _this3.del();
+        } else if (result.isDenied) {
+          return;
+        }
+      });
+    },
+    del: function del() {
+      var _this4 = this;
+
+      axios["delete"]("/api/contractor/".concat(this.$route.params.uid, "/delete"), {
+        name: this.name,
+        tel: this.tel,
+        email: this.email,
+        kont_litso: this.kont_litso,
+        yur_address: this.yur_address,
+        pocht_address: this.pocht_address,
+        fakt_address: this.fakt_address,
+        inn: this.inn,
+        kpp: this.kpp,
+        ogrn: this.ogrn,
+        ras_schet: this.ras_schet,
+        korr_schet: this.korr_schet,
+        bank: this.bank,
+        bik: this.bik
+      }).then(function (response) {
+        _this4.$router.push({
+          name: 'Contractors'
+        });
+      })["catch"](function (error) {
+        _this4.$swal({
           text: 'Ошибка',
           icon: 'error'
         });
@@ -80743,6 +80790,18 @@ var render = function () {
                   },
                 },
                 [_vm._v("Сохранить")]
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  on: {
+                    click: function ($event) {
+                      return _vm.delConfirm()
+                    },
+                  },
+                },
+                [_vm._v("Удалить контрагента")]
               ),
             ]),
             _vm._v(" "),

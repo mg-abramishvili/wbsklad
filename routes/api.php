@@ -33,6 +33,7 @@ Route::get('contractors', [ContractorController::class, 'index']);
 Route::get('contractor/{uid}', [ContractorController::class, 'contractor']);
 Route::post('contractors', [ContractorController::class, 'store']);
 Route::put('contractor/{uid}/update', [ContractorController::class, 'update']);
+Route::delete('contractor/{uid}/delete', [ContractorController::class, 'delete']);
 
 // NOMENCLATURES
 Route::get('nomenclatures', [NomenclatureController::class, 'index']);

@@ -69,4 +69,11 @@ class ContractorController extends Controller
 
         $contractor->save();
     }
+
+    public function delete($uid)
+    {
+        $contractor = Contractor::where('uid', $uid)->first();
+
+        $contractor->delete();
+    }
 }

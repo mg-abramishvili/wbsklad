@@ -11,6 +11,7 @@ class CreateContractorsTable extends Migration
         Schema::create('contractors', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->string('uid');
             $table->string('name');
             $table->string('tel')->nullable();
             $table->string('email')->nullable();

@@ -13,6 +13,8 @@ import NomenclatureCreate from './components/nomenclatures/Create.vue';
 import NomenclaturesImport from './components/nomenclatures/Import.vue';
 
 import Contractors from './components/contractors/Index.vue';
+import ContractorCreate from './components/contractors/Create.vue';
+import Contractor from './components/contractors/Contractor.vue';
 
 import UserVerify from './components/users/Verify.vue';
 
@@ -61,6 +63,16 @@ export const routes = [
         path: '/contractors',
         name: 'Contractors',
         component: Contractors
+    },
+    {
+        path: '/contractors/create',
+        name: 'ContractorCreate',
+        component: ContractorCreate
+    },
+    {
+        path: '/contractor/:id',
+        name: 'Contractor',
+        component: Contractor
     },
     {
         path: '/settings',

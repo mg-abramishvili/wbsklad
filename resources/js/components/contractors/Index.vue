@@ -4,7 +4,7 @@
             <div class="top-block flex">
                 <p>Контрагенты</p>
                 <div class="buttons">
-                    <button>Добавить</button>
+                    <router-link :to="{name: 'ContractorCreate'}">Добавить</router-link>
                 </div>
             </div>
 
@@ -16,7 +16,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr v-for="contractor in contractors">
                             <td>{{ contractor.name }}</td>
                         </tr>
                     </tbody>
@@ -44,7 +44,13 @@ export default {
     },
     methods: {
         loadContractors() {
-            axios.get(`/api/user/${this.$parent.user.uid}/contractors`)
+            let user = this.$parent.user
+
+            if(!user) {
+                return
+            }
+
+            axios.get(`/api/contractors`, { params: { user: user.uid } })
             .then(response => {
                 this.contractors = response.data
             })

@@ -16,6 +16,11 @@ class ContractorController extends Controller
         return Contractor::where('user_id', $user->id)->get();
     }
 
+    public function contractor($uid)
+    {
+        return Contractor::where('uid', $uid)->first();
+    }
+
     public function store(Request $request)
     {
         $user = User::where('uid', $request->user)->first();
@@ -45,7 +50,7 @@ class ContractorController extends Controller
 
     public function update($uid, Request $request)
     {
-        $contractor = Contractor::find($uid);
+        $contractor = Contractor::where('uid', $uid)->first();
         
         $contractor->name = $request->name;
         $contractor->tel = $request->tel;

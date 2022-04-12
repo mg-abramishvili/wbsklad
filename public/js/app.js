@@ -54290,6 +54290,215 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Contractor.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Contractor.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Loader */ "./resources/js/components/Loader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      name: '',
+      tel: '',
+      email: '',
+      kont_litso: '',
+      yur_address: '',
+      pocht_address: '',
+      fakt_address: '',
+      inn: '',
+      kpp: '',
+      ogrn: '',
+      ras_schet: '',
+      korr_schet: '',
+      bank: '',
+      bik: '',
+      views: {
+        loading: true,
+        saveButton: true
+      }
+    };
+  },
+  created: function created() {
+    this.loadContractor();
+  },
+  methods: {
+    loadContractor: function loadContractor() {
+      var _this = this;
+
+      axios.get("/api/contractor/".concat(this.$route.params.uid)).then(function (response) {
+        _this.name = response.data.name;
+        _this.tel = response.data.tel;
+        _this.email = response.data.email;
+        _this.kont_litso = response.data.kont_litso;
+        _this.yur_address = response.data.yur_address;
+        _this.pocht_address = response.data.pocht_address;
+        _this.fakt_address = response.data.fakt_address;
+        _this.inn = response.data.inn;
+        _this.kpp = response.data.kpp;
+        _this.ogrn = response.data.ogrn;
+        _this.ras_schet = response.data.ras_schet;
+        _this.korr_schet = response.data.korr_schet;
+        _this.bank = response.data.bank;
+        _this.bik = response.data.bik;
+        _this.views.loading = false;
+      })["catch"](function (errors) {
+        _this.$swal({
+          text: 'Ошибка',
+          icon: 'error'
+        });
+      });
+    },
+    save: function save() {
+      var _this2 = this;
+
+      var user = this.$parent.user;
+
+      if (!user) {
+        return this.$swal({
+          text: 'Пользователь не найден',
+          icon: 'error'
+        });
+      }
+
+      if (!this.name) {
+        return this.$swal({
+          text: 'Укажите контрагента',
+          icon: 'error'
+        });
+      }
+
+      this.views.saveButton = false;
+      axios.put("/api/contractor/".concat(this.$route.params.uid, "/update"), {
+        name: this.name,
+        tel: this.tel,
+        email: this.email,
+        kont_litso: this.kont_litso,
+        yur_address: this.yur_address,
+        pocht_address: this.pocht_address,
+        fakt_address: this.fakt_address,
+        inn: this.inn,
+        kpp: this.kpp,
+        ogrn: this.ogrn,
+        ras_schet: this.ras_schet,
+        korr_schet: this.korr_schet,
+        bank: this.bank,
+        bik: this.bik
+      }).then(function (response) {
+        _this2.$router.push({
+          name: 'Contractors'
+        });
+      })["catch"](function (error) {
+        _this2.$swal({
+          text: 'Ошибка',
+          icon: 'error'
+        });
+      });
+    }
+  },
+  components: {
+    Loader: _Loader__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Create.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Create.vue?vue&type=script&lang=js& ***!
@@ -54475,6 +54684,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Loader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Loader.vue */ "./resources/js/components/Loader.vue");
+/* harmony import */ var ag_grid_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ag-grid-vue */ "./node_modules/ag-grid-vue/main.js");
+/* harmony import */ var ag_grid_vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(ag_grid_vue__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var ag_grid_community_dist_styles_ag_grid_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ag-grid-community/dist/styles/ag-grid.css */ "./node_modules/ag-grid-community/dist/styles/ag-grid.css");
+/* harmony import */ var ag_grid_community_dist_styles_ag_theme_alpine_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ag-grid-community/dist/styles/ag-theme-alpine.css */ "./node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css");
 //
 //
 //
@@ -54503,16 +54717,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
+
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       contractors: [],
+      table: {
+        data: [],
+        userColumns: [],
+        defaultColDef: {
+          movable: false,
+          suppressMovable: true,
+          suppressRowClickSelection: true
+        }
+      },
       views: {
         loading: true
       }
     };
+  },
+  computed: {
+    userColumns: function userColumns() {
+      if (this.table.userColumns && this.table.userColumns.length) {
+        return this.table.userColumns;
+      }
+    }
   },
   created: function created() {
     this.loadContractors();
@@ -54533,8 +54765,43 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         _this.contractors = response.data;
+        _this.views.loading = false, _this.loadTable();
+      })["catch"](function (error) {
+        _this.$swal({
+          text: error,
+          icon: 'error'
+        });
+      });
+    },
+    loadTable: function loadTable() {
+      this.table.userColumns = [{
+        field: "name",
+        headerName: 'Название',
+        width: 500
+      }, {
+        field: "inn",
+        headerName: 'ИНН'
+      }, {
+        field: "tel",
+        headerName: 'Телефон'
+      }, {
+        field: "email",
+        headerName: 'E-mail'
+      }];
+      this.table.data = this.contractors;
+    },
+    onRowClicked: function onRowClicked(event) {
+      this.$router.push({
+        name: 'Contractor',
+        params: {
+          uid: event.data.uid
+        }
       });
     }
+  },
+  components: {
+    Loader: _Loader_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    AgGridVue: ag_grid_vue__WEBPACK_IMPORTED_MODULE_1__.AgGridVue
   }
 });
 
@@ -55514,7 +55781,7 @@ var routes = [{
   name: 'ContractorCreate',
   component: _components_contractors_Create_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
-  path: '/contractor/:id',
+  path: '/contractor/:uid',
   name: 'Contractor',
   component: _components_contractors_Contractor_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
 }, {
@@ -78450,17 +78717,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _Contractor_vue_vue_type_template_id_0696049e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Contractor.vue?vue&type=template&id=0696049e& */ "./resources/js/components/contractors/Contractor.vue?vue&type=template&id=0696049e&");
+/* harmony import */ var _Contractor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Contractor.vue?vue&type=script&lang=js& */ "./resources/js/components/contractors/Contractor.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Contractor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Contractor_vue_vue_type_template_id_0696049e___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Contractor_vue_vue_type_template_id_0696049e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -78468,6 +78738,8 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/contractors/Contractor.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
@@ -78869,6 +79141,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/contractors/Contractor.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/contractors/Contractor.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Contractor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Contractor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Contractor.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Contractor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/contractors/Create.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/contractors/Create.vue?vue&type=script&lang=js& ***!
@@ -79155,6 +79443,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0b21f5fe___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Index_vue_vue_type_template_id_0b21f5fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Index.vue?vue&type=template&id=0b21f5fe& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/catalog/Index.vue?vue&type=template&id=0b21f5fe&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/contractors/Contractor.vue?vue&type=template&id=0696049e&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/contractors/Contractor.vue?vue&type=template&id=0696049e& ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Contractor_vue_vue_type_template_id_0696049e___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Contractor_vue_vue_type_template_id_0696049e___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Contractor_vue_vue_type_template_id_0696049e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Contractor.vue?vue&type=template&id=0696049e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Contractor.vue?vue&type=template&id=0696049e&");
 
 
 /***/ }),
@@ -80109,6 +80414,427 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Contractor.vue?vue&type=template&id=0696049e&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Contractor.vue?vue&type=template&id=0696049e& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.views.loading
+    ? _c("Loader")
+    : _c("div", { staticClass: "add-site-form" }, [
+        _c("div", { staticClass: "top-block flex" }, [
+          _c(
+            "p",
+            [
+              _c("router-link", { attrs: { to: { name: "Contractors" } } }, [
+                _vm._v("← Назад"),
+              ]),
+            ],
+            1
+          ),
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            staticClass: "very-big flex",
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.save.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "block" }, [
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Название\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.name,
+                    expression: "name",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.name },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.name = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                ИНН\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.inn,
+                    expression: "inn",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.inn },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.inn = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                КПП\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.kpp,
+                    expression: "kpp",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.kpp },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.kpp = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                ОГРН\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ogrn,
+                    expression: "ogrn",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.ogrn },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.ogrn = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Юридический адрес\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.yur_address,
+                    expression: "yur_address",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.yur_address },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.yur_address = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Почтовый адрес\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.pocht_address,
+                    expression: "pocht_address",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.pocht_address },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.pocht_address = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Фактический адрес\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.fakt_address,
+                    expression: "fakt_address",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.fakt_address },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.fakt_address = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Расчетный счет\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.ras_schet,
+                    expression: "ras_schet",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.ras_schet },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.ras_schet = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Корр.счет\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.korr_schet,
+                    expression: "korr_schet",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.korr_schet },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.korr_schet = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Банк\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.bank,
+                    expression: "bank",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.bank },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.bank = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                БИК\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.bik,
+                    expression: "bik",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.bik },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.bik = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "other",
+                  attrs: {
+                    type: "submit",
+                    disabled: _vm.views.submitButton == false,
+                  },
+                },
+                [_vm._v("Сохранить")]
+              ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "vline" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "block" }, [
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Телефон\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.tel,
+                    expression: "tel",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.tel },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.tel = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                E-mail\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  },
+                },
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "field-name" }, [
+                _vm._v("\n                Контактное лицо\n            "),
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.kont_litso,
+                    expression: "kont_litso",
+                  },
+                ],
+                attrs: { type: "text" },
+                domProps: { value: _vm.kont_litso },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.kont_litso = $event.target.value
+                  },
+                },
+              }),
+            ]),
+          ]
+        ),
+      ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Create.vue?vue&type=template&id=598012b8&":
 /*!******************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/contractors/Create.vue?vue&type=template&id=598012b8& ***!
@@ -80546,48 +81272,55 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "prices-list" }, [
-      _c("div", { staticClass: "top-block flex" }, [
-        _c("p", [_vm._v("Контрагенты")]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "buttons" },
-          [
-            _c("router-link", { attrs: { to: { name: "ContractorCreate" } } }, [
-              _vm._v("Добавить"),
-            ]),
-          ],
-          1
-        ),
-      ]),
-      _vm._v(" "),
-      _vm.contractors.length
-        ? _c("div", { staticClass: "table-wrapper" }, [
-            _c("table", { staticClass: "other" }, [
-              _vm._m(0),
-              _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "prices-list" },
+      [
+        _c("div", { staticClass: "top-block flex" }, [
+          _c("p", [_vm._v("Контрагенты")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "buttons" },
+            [
               _c(
-                "tbody",
-                _vm._l(_vm.contractors, function (contractor) {
-                  return _c("tr", [_c("td", [_vm._v(_vm._s(contractor.name))])])
-                }),
-                0
+                "router-link",
+                { attrs: { to: { name: "ContractorCreate" } } },
+                [_vm._v("Добавить")]
               ),
-            ]),
-          ])
-        : _c("p", [_vm._v("Нет контрагентов.")]),
-    ]),
+            ],
+            1
+          ),
+        ]),
+        _vm._v(" "),
+        _vm.views.loading ? _c("Loader") : _vm._e(),
+        _vm._v(" "),
+        !_vm.views.loading
+          ? _c(
+              "div",
+              { staticClass: "table-wrapper" },
+              [
+                _vm.contractors.length
+                  ? _c("ag-grid-vue", {
+                      staticClass: "ag-theme-alpine contractors-table",
+                      attrs: {
+                        defaultColDef: _vm.table.defaultColDef,
+                        columnDefs: _vm.userColumns,
+                        rowData: _vm.table.data,
+                      },
+                      on: { "row-double-clicked": _vm.onRowClicked },
+                    })
+                  : _c("p", [_vm._v("Нет контрагентов.")]),
+              ],
+              1
+            )
+          : _vm._e(),
+      ],
+      1
+    ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [_c("tr", [_c("td", [_vm._v("ФИО / ИП / ООО")])])])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

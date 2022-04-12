@@ -70,7 +70,7 @@ export const routes = [
         component: ContractorCreate
     },
     {
-        path: '/contractor/:id',
+        path: '/contractor/:uid',
         name: 'Contractor',
         component: Contractor
     },

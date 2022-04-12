@@ -30,6 +30,7 @@ Route::get('products/wildberries/load', [ProductController::class, 'wildberriesL
 
 // CONTRACTORS
 Route::get('contractors', [ContractorController::class, 'index']);
+Route::get('contractor/{uid}', [ContractorController::class, 'contractor']);
 Route::post('contractors', [ContractorController::class, 'store']);
 Route::put('contractor/{uid}/update', [ContractorController::class, 'update']);
 

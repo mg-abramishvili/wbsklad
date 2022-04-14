@@ -44,14 +44,13 @@
                         <div class="col-12 col-lg-2">
                             <div class="mb-3">
                                 <label>Себестоимость</label>
-                                <input v-model="costPrice" type="number" min="0" class="form-control">
-                                <small>{{ nomenclature.stock_balances.length }}</small>
+                                <input v-model="costPrice" type="number" min="0" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-lg-2">
                             <div class="mb-3">
                                 <label>Кол-во</label>
-                                <input v-model="quantity" type="number" min="0" class="form-control">
+                                <input v-model="quantity" type="number" min="0" class="form-control" disabled>
                             </div>
                         </div>
                     </div>

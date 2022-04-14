@@ -237,22 +237,7 @@
                 })
             },
             del() {
-                axios.delete(`/api/contractor/${this.$route.params.uid}/delete`, {
-                    name: this.name,
-                    tel: this.tel,
-                    email: this.email,
-                    kont_litso: this.kont_litso,
-                    yur_address: this.yur_address,
-                    pocht_address: this.pocht_address,
-                    fakt_address: this.fakt_address,
-                    inn: this.inn,
-                    kpp: this.kpp,
-                    ogrn: this.ogrn,
-                    ras_schet: this.ras_schet,
-                    korr_schet: this.korr_schet,
-                    bank: this.bank,
-                    bik: this.bik,
-                })
+                axios.delete(`/api/contractor/${this.$route.params.uid}/delete`)
                 .then(response => {
                     this.$router.push({name: 'Contractors'})
                 })

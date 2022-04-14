@@ -115,6 +115,19 @@ body {
 }
 /* TABLE */
 
+.list-group-item-action,
+.list-group-item:first-child { 
+    color: #151515;
+    margin: 5px 0;
+    border: 2px solid #efd9ff !important;
+    border-radius: 5px;
+    width: calc(100% - 5px);
+}
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+    background-color: #f9f2ff;
+}
+
 /* SWAL */
 .swal-wide {
     width: 75vw !important;

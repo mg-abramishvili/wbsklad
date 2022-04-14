@@ -34,7 +34,7 @@
 			</router-link>
 		</li>
 		<li class="nav-item">
-			<router-link :to="{name: 'Contractors'}" class="nav-link">
+			<router-link :to="{name: 'StockBalances'}" class="nav-link">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
 				<span>Поступления</span>
 			</router-link>

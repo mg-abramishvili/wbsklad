@@ -19,7 +19,7 @@ class NomenclatureController extends Controller
 
     public function nomenclature($uid)
     {
-        return Nomenclature::where('uid', $uid)->first();
+        return Nomenclature::where('uid', $uid)->with('stockBalances')->first();
     }
 
     public function store(Request $request)

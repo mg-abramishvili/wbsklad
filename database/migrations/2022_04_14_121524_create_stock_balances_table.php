@@ -10,6 +10,9 @@ class CreateStockBalancesTable extends Migration
     {
         Schema::create('stock_balances', function (Blueprint $table) {
             $table->id();
+            $table->string('uid');
+            $table->integer('user_id');
+            $table->integer('nomenclature_id');
             $table->integer('quantity');
             $table->integer('price');
             $table->date('date');

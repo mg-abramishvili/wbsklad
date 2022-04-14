@@ -45,6 +45,7 @@
                             <div class="mb-3">
                                 <label>Себестоимость</label>
                                 <input v-model="costPrice" type="number" min="0" class="form-control">
+                                <small>{{ nomenclature.stock_balances.length }}</small>
                             </div>
                         </div>
                         <div class="col-12 col-lg-2">
@@ -68,6 +69,8 @@
     export default {
         data() {
             return {
+                nomenclature: {},
+                
                 uid: '',
                 artnumber: '',
 				name: '',
@@ -93,6 +96,8 @@
             loadNomenclature() {
                 axios.get(`/api/nomenclature/${this.$route.params.uid}`)
                 .then(response => {
+                    this.nomenclature = response.data
+
                     this.uid = response.data.uid
                     this.artnumber = response.data.artnumber
 				    this.name = response.data.name

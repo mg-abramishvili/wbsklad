@@ -26,6 +26,10 @@ Vue.filter('currency', function (value) {
     if (!value) return '0'
     return parseInt(value).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽' 
 })
+Vue.filter('date', function (value) {
+    if (!value) return ''
+    return moment.utc(value).utcOffset(3).format('DD.MM.YYYY')
+})
 
 const router = new VueRouter({
     mode: 'history',

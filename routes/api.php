@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserCatalogTableColumnController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\NomenclatureController;
+use App\Http\Controllers\StockBalanceController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,10 @@ Route::get('nomenclature/{uid}', [NomenclatureController::class, 'nomenclature']
 Route::post('nomenclatures', [NomenclatureController::class, 'store']);
 Route::post('nomenclatures/import', [NomenclatureController::class, 'import']);
 Route::put('nomenclature/{uid}/update', [NomenclatureController::class, 'update']);
+
+// CONTRACTORS
+Route::get('stockbalances', [StockBalanceController::class, 'index']);
+Route::get('stockbalance/{uid}', [StockBalanceController::class, 'stockBalance']);
+Route::post('stockbalances', [StockBalanceController::class, 'store']);
+Route::put('stockbalance/{uid}/update', [StockBalanceController::class, 'update']);
+Route::delete('stockbalance/{uid}/delete', [StockBalanceController::class, 'delete']);

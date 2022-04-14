@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class StockBalance extends Model
 {
     use HasFactory;
+
+    public function nomenclature()
+    {
+        return $this->belongsTo(Nomenclature::class);
+    }
 }

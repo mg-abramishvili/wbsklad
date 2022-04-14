@@ -70,7 +70,8 @@ body {
 /* TABLE */
 .catalog-table,
 .contractors-table,
-.nomenclatures-table {
+.nomenclatures-table,
+.stockbalances-table {
     width: 100%;
     height: 500px;
 }

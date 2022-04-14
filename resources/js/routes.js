@@ -16,6 +16,10 @@ import Contractors from './components/contractors/Index.vue';
 import ContractorCreate from './components/contractors/Create.vue';
 import Contractor from './components/contractors/Contractor.vue';
 
+import StockBalances from './components/stockbalances/Index.vue';
+import StockBalanceCreate from './components/stockbalances/Create.vue';
+import StockBalance from './components/stockbalances/StockBalance.vue';
+
 import UserVerify from './components/users/Verify.vue';
 
 export const routes = [
@@ -73,6 +77,21 @@ export const routes = [
         path: '/contractor/:uid',
         name: 'Contractor',
         component: Contractor
+    },
+    {
+        path: '/stockbalances',
+        name: 'StockBalances',
+        component: StockBalances
+    },
+    {
+        path: '/stockbalances/create',
+        name: 'StockBalanceCreate',
+        component: StockBalanceCreate
+    },
+    {
+        path: '/stockbalance/:uid',
+        name: 'StockBalance',
+        component: StockBalance
     },
     {
         path: '/settings',

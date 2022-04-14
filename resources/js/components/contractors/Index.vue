@@ -1,27 +1,30 @@
 <template>
-    <div>
-        <div class="prices-list">
-            <div class="top-block flex">
-                <p>Контрагенты</p>
-                <div class="buttons">
-                    <router-link :to="{name: 'ContractorCreate'}">Добавить</router-link>
+    <div class="contractors-page">
+        <div class="row mb-4 align-items-center">
+            <div class="col-12 col-lg-5">
+                <input type="text" placeholder="Поиск по контрагентам" class="form-control">
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="text-right">
+                    <router-link :to="{name: 'ContractorCreate'}" class="btn btn-primary">Добавить</router-link>
                 </div>
             </div>
+        </div>
 
-            <Loader v-if="views.loading" />
+        <Loader v-if="views.loading" />
 
-            <div v-if="!views.loading" class="table-wrapper">
-                <ag-grid-vue v-if="contractors.length"
-                    class="ag-theme-alpine contractors-table"
-                    :defaultColDef="table.defaultColDef"
-                    :columnDefs="userColumns"
-                    :rowData="table.data"
-                    @row-double-clicked="onRowClicked"
-                >
-                </ag-grid-vue>
+        <div v-if="!views.loading" class="table-wrapper">
+            <ag-grid-vue v-if="contractors.length"
+                class="ag-theme-alpine contractors-table"
+                :defaultColDef="table.defaultColDef"
+                :columnDefs="table.columns"
+                @grid-ready="onGridReady"
+                :rowData="table.data"
+                @row-double-clicked="onRowClicked"
+            >
+            </ag-grid-vue>
 
-                <p v-else>Нет контрагентов.</p>
-            </div>
+            <p v-else>Нет контрагентов.</p>
         </div>
     </div>
 </template>
@@ -40,7 +43,12 @@ export default {
 
             table: {
                 data: [],
-                userColumns: [],
+                columns: [
+                    { field: "name", headerName: 'Название', width: 500 },
+                    { field: "inn", headerName: 'ИНН' },
+                    { field: "tel", headerName: 'Телефон' },
+                    { field: "email", headerName: 'E-mail' },
+                ],
                 defaultColDef: {
                     movable: false,
                     suppressMovable: true,
@@ -53,14 +61,9 @@ export default {
             },
         }
     },
-    computed: {
-        userColumns() {
-            if(this.table.userColumns && this.table.userColumns.length) {
-                return this.table.userColumns
-            }
-        },
-    },
     created() {
+        this.$parent.views.title = 'Контрагенты'
+
         this.loadContractors()
     },
     methods: {
@@ -74,8 +77,8 @@ export default {
             axios.get(`/api/contractors`, { params: { user: user.uid } })
             .then(response => {
                 this.contractors = response.data
-                this.views.loading = false,
-                this.loadTable()
+                this.table.data = this.contractors
+                this.views.loading = false
             })
             .catch(error => {
                 this.$swal({
@@ -84,15 +87,11 @@ export default {
                 })
             })
         },
-        loadTable() {
-            this.table.userColumns = [
-                { field: "name", headerName: 'Название', width: 500 },
-                { field: "inn", headerName: 'ИНН' },
-                { field: "tel", headerName: 'Телефон' },
-                { field: "email", headerName: 'E-mail' },
-            ]
-                
-            this.table.data = this.contractors
+        onGridReady(params) {
+            this.gridApi = params.api
+            this.gridColumnApi = params.gridColumnApi
+            
+            this.gridApi.sizeColumnsToFit()
         },
         onRowClicked(event) {
             this.$router.push({name: 'Contractor', params: {uid: event.data.uid}})

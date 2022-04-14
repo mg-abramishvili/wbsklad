@@ -1,13 +1,14 @@
 <template>
-    <div class="prices-list warehouse-page">
-        <div class="top-block flex">
-            <p>Список товаров</p>
-            <div class="buttons other">
-                <form>
-                    <input type="text" placeholder="Поиск">
-                </form>
-                <button @click="toggleTableSettings()">Вид</button>
-                <button @click="loadFromWildberries()">Обновить</button>
+    <div class="catalog-page">
+        <div class="row mb-4 align-items-center">
+            <div class="col-12 col-lg-5">
+                <input type="text" placeholder="Поиск по товарам" class="form-control">
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="text-right">
+                    <button @click="toggleTableSettings()" class="btn btn-outline-primary">Вид</button>
+                    <button @click="loadFromWildberries()" class="btn btn-primary">Обновить</button>
+                </div>
             </div>
         </div>
 
@@ -78,6 +79,8 @@
             },
         },
         created() {
+            this.$parent.views.title = 'Каталог WB'
+
             this.loadProducts()
         },
         methods: {

@@ -1,14 +1,24 @@
 <template>
-	<div v-if="!views.loading" class="app">
+	<div v-if="!views.loading" id="wrapper">
 		<template v-if="authenticated">
 			<Sidebar></Sidebar>
 
-			<div class="site-content">
-				<Header></Header>
-				
-				<div class="wrap">
-					<router-view :key="$route.path" />
+			<div id="content-wrapper" class="d-flex flex-column">
+				<div id="content">
+					<Header :title="views.title"></Header>
+
+					<div class="container-fluid">
+						<router-view :key="$route.path" />
+					</div>
 				</div>
+
+				<footer class="sticky-footer bg-white">
+					<div class="container my-auto">
+						<div class="copyright text-center my-auto">
+							<span>2022 © WBSKLAD.RU</span>
+						</div>
+					</div>
+				</footer>
 			</div>
 		</template>
 
@@ -30,7 +40,7 @@
                 authenticated: false,
 
                 views: {
-                    sidebar: true,
+					title: '',
                     loading: true,
                 }				
             }

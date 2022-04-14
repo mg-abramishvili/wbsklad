@@ -36,7 +36,7 @@ const router = new VueRouter({
 });
 
 const app = new Vue({
-    el: '#app',
+    el: '#wrapper',
     router: router,
     render: h => h(App),
 });

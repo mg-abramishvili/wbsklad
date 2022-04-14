@@ -1,3 +1,5 @@
 <template>
-    <div class="spinner"></div>
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Загрузка...</span>
+    </div>
 </template>

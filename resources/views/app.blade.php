@@ -10,10 +10,11 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+        <link href="{{ asset('css/fontawesome-free/css/all.css') }}" type="text/css" rel="stylesheet"/>
         <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet"/>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="wrapper"></div>
     
         <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
     </body>

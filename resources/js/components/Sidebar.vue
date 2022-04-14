@@ -1,37 +1,87 @@
 <template>
-    <nav class="left-menu">
-		<div class="logo">
-			<a href="/"><img src="/img/logo.png"></a>
+	<ul id="accordionSidebar" class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" :class="{ 'toggled': isToggled }">
+
+		<router-link :to="{name: 'Home'}" class="sidebar-brand d-flex align-items-center justify-content-center">
+			<div class="sidebar-brand-icon rotate-n-15">
+				<i class="fas fa-laugh-wink"></i>
+			</div>
+			<div class="sidebar-brand-text mx-3">WBSKLAD.RU</div>
+		</router-link>
+
+		<hr class="sidebar-divider my-0">
+
+		<li class="nav-item">
+			<router-link :to="{name: 'Catalog'}" class="nav-link">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Товары WB</span>
+			</router-link>
+		</li>
+		<li class="nav-item">
+			<router-link :to="{name: 'Nomenclatures'}" class="nav-link">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Номенклатура</span>
+			</router-link>
+		</li>
+		<li class="nav-item">
+			<router-link :to="{name: 'Contractors'}" class="nav-link">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Контрагенты</span>
+			</router-link>
+		</li>
+		<li class="nav-item">
+			<router-link :to="{name: 'Settings'}" class="nav-link">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Настройки</span>
+			</router-link>
+		</li>
+
+		<!-- <hr class="sidebar-divider">
+
+		<div class="sidebar-heading">
+			Addons
 		</div>
-		<ul>
-			<li>
-				<router-link :to="{name: 'Catalog'}">
-					<span>•</span>
-					Товары WB
-					<i class="fa fa-angle-right"></i>
-				</router-link>
-			</li>
-			<li>
-				<router-link :to="{name: 'Nomenclatures'}">
-					<span>•</span>
-					Номенклатура
-					<i class="fa fa-angle-right"></i>
-				</router-link>
-			</li>
-			<li>
-				<router-link :to="{name: 'Contractors'}">
-					<span>•</span>
-					Контрагенты
-					<i class="fa fa-angle-right"></i>
-				</router-link>
-			</li>
-			<li>
-				<router-link :to="{name: 'Settings'}">
-					<span>•</span>
-					Настройки
-					<i class="fa fa-angle-right"></i>
-				</router-link>
-			</li>
-		</ul>
-	</nav>
+
+		<li class="nav-item">
+			<a class="nav-link" href="charts.html">
+				<i class="fas fa-fw fa-chart-area"></i>
+				<span>Charts</span></a>
+		</li>
+
+		<li class="nav-item active">
+			<a class="nav-link" href="tables.html">
+				<i class="fas fa-fw fa-table"></i>
+				<span>Tables</span></a>
+		</li> -->
+
+		<hr class="sidebar-divider d-none d-md-block">
+
+		<div class="text-center d-none d-md-inline">
+			<button @click="toggle()" class="rounded-circle border-0" id="sidebarToggle"></button>
+		</div>
+
+	</ul>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			isToggled: false,
+		}
+	},
+	methods: {
+		toggle() {
+			if(this.isToggled == true) {
+				this.isToggled = false
+				document.body.classList.remove('sidebar-toggled')
+				return 
+			}
+			if(this.isToggled == false) {
+				this.isToggled = true
+				document.body.classList.add('sidebar-toggled')
+				return
+			}
+		}
+	}
+}
+</script>

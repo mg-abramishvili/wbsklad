@@ -78,6 +78,7 @@
         data() {
             return {
                 nomenclatures: [],
+                contractors: [],
 
                 quantity: 1,
                 price: 0,

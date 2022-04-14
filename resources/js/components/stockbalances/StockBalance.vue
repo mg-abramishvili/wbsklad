@@ -53,6 +53,8 @@
     export default {
         data() {
             return {
+                contractors: [],
+                
                 quantity: 1,
                 price: 0,
                 date: moment().format('YYYY-MM-DD'),

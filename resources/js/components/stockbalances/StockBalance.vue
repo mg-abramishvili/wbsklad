@@ -31,6 +31,14 @@
                         <input v-model="price" type="number" min="0" class="form-control">
                     </div>
                 </div>
+                <div class="row mb-4">
+                    <div class="col-12 col-lg-5">
+                        <label>Контрагент</label>
+                        <select v-model="selected.contractor" class="form-control">
+                            <option v-for="contractor in contractors" :value="contractor.id">{{ contractor.name }}</option>
+                        </select>
+                    </div>
+                </div>
 
                 <button @click="save()" :disabled="views.submitButton == false" class="btn btn-primary">Сохранить</button>
                 <button @click="delConfirm()" class="btn btn-outline-danger">Удалить</button>
@@ -51,6 +59,7 @@
 
                 selected: {
                     nomenclature: {},
+                    contractor: '',
                 },
 
                 views: {
@@ -60,6 +69,7 @@
             }
         },
         created() {
+            this.loadContractors()
             this.loadStockBalance()
         },
 		methods: {
@@ -67,6 +77,7 @@
                 axios.get(`/api/stockbalance/${this.$route.params.uid}`)
                 .then(response => {
                     this.selected.nomenclature = response.data.nomenclature
+                    this.selected.contractor = response.data.contractor.id
                     this.quantity = response.data.quantity
                     this.price = response.data.price
                     this.date = response.data.date
@@ -82,6 +93,24 @@
                     })
                 })
             },
+            loadContractors() {
+                let user = this.$parent.user
+
+                if(!user) {
+                    return
+                }
+
+                axios.get(`/api/contractors`, { params: { user: user.uid } })
+                .then(response => {
+                    this.contractors = response.data
+                })
+                .catch(error => {
+                    this.$swal({
+                        text: error,
+                        icon: 'error',
+                    })
+                })
+            },
             save() {
                 if(!this.quantity) {
                     return this.$swal({
@@ -90,9 +119,17 @@
                     })
                 }
 
+                if(!this.selected.contractor) {
+                    return this.$swal({
+                        text: 'Укажите контрагента',
+                        icon: 'error',
+                    })
+                }
+
 				this.views.saveButton = false
 
                 axios.put(`/api/stockbalance/${this.$route.params.uid}/update`, {
+                    contractor_id: this.selected.contractor,
                     quantity: this.quantity,
                     price: this.price,
                     date: this.date

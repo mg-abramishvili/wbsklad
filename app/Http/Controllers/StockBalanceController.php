@@ -14,12 +14,12 @@ class StockBalanceController extends Controller
     {
         $user = User::where('uid', $request->user)->first();
 
-        return StockBalance::where('user_id', $user->id)->with('nomenclature')->orderBy('date', 'desc')->get();
+        return StockBalance::where('user_id', $user->id)->with('nomenclature', 'contractor')->orderBy('date', 'desc')->get();
     }
 
     public function stockBalance($uid)
     {
-        return StockBalance::where('uid', $uid)->with('nomenclature')->first();
+        return StockBalance::where('uid', $uid)->with('nomenclature', 'contractor')->first();
     }
 
     public function store(Request $request)
@@ -32,6 +32,7 @@ class StockBalanceController extends Controller
         
         $stockbalance->uid = Str::random(24);
         $stockbalance->nomenclature_id = $request->nomenclature_id;
+        $stockbalance->contractor_id = $request->contractor_id;
         $stockbalance->quantity = $request->quantity;
         $stockbalance->price = $request->price;
         $stockbalance->date = $request->date;
@@ -45,6 +46,7 @@ class StockBalanceController extends Controller
     {
         $stockbalance = StockBalance::where('uid', $uid)->first();
         
+        $stockbalance->contractor_id = $request->contractor_id;
         $stockbalance->quantity = $request->quantity;
         $stockbalance->price = $request->price;
         $stockbalance->date = $request->date;

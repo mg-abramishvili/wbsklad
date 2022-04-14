@@ -13,4 +13,9 @@ class StockBalance extends Model
     {
         return $this->belongsTo(Nomenclature::class);
     }
+
+    public function contractor()
+    {
+        return $this->belongsTo(Contractor::class);
+    }
 }

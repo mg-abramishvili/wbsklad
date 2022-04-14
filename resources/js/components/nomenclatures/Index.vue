@@ -52,8 +52,8 @@
                         { field: "artnumber", headerName: 'Артикул'  },
                         { field: "name", headerName: 'Тип' },
                         { field: "brand", headerName: 'Производитель' },
-                        { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
                         { field: "quantity", headerName: 'Кол-во' },
+                        { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
                     ],
                     defaultColDef: {
                         movable: false,

@@ -21,7 +21,7 @@
             >
             </ag-grid-vue>
 
-            <p v-else>Нет контрагентов.</p>
+            <p v-else>Нет поступлений.</p>
         </div>
     </div>
 </template>
@@ -43,6 +43,7 @@ export default {
                 columns: [
                     { field: "date", headerName: 'Дата поступления', valueFormatter: this.dateFormatter },
                     { field: 'name', valueGetter: (params) => { return params.data.nomenclature.name + ' (' + params.data.nomenclature.artnumber + ')' }, headerName: 'Наименование', width: 500 },
+                    { field: "contractor", valueGetter: (params) => { return params.data.contractor.name }, headerName: 'Контрагент' },
                     { field: "quantity", headerName: 'Количество' },
                     { field: "price", headerName: 'Стоимость', valueFormatter: this.currencyFormatter },
                 ],

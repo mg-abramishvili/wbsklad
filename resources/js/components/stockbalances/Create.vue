@@ -56,6 +56,14 @@
                         <input v-model="price" type="number" min="0" class="form-control">
                     </div>
                 </div>
+                <div class="row mb-4">
+                    <div class="col-12 col-lg-5">
+                        <label>Контрагент</label>
+                        <select v-model="selected.contractor" class="form-control">
+                            <option v-for="contractor in contractors" :value="contractor.id">{{ contractor.name }}</option>
+                        </select>
+                    </div>
+                </div>
 
                 <button @click="save()" :disabled="views.submitButton == false" class="btn btn-primary">Сохранить</button>
             </div>
@@ -79,6 +87,7 @@
 
                 selected: {
                     nomenclature: '',
+                    contractor: '',
                 },
 
                 views: {
@@ -98,6 +107,7 @@
             this.$parent.views.title = 'Новое поступление'
 
             this.loadNomenclatures()
+            this.loadContractors()
         },
 		methods: {
             loadNomenclatures() {
@@ -109,9 +119,27 @@
 
                 axios.get(`/api/nomenclatures`, { params: { user: user.uid } })
                 .then(response => (
-                    this.nomenclatures = response.data,
-                    this.views.loading = false
+                    this.nomenclatures = response.data
                 ))
+                .catch(error => {
+                    this.$swal({
+                        text: error,
+                        icon: 'error',
+                    })
+                })
+            },
+            loadContractors() {
+                let user = this.$parent.user
+
+                if(!user) {
+                    return
+                }
+
+                axios.get(`/api/contractors`, { params: { user: user.uid } })
+                .then(response => {
+                    this.contractors = response.data
+                    this.views.loading = false
+                })
                 .catch(error => {
                     this.$swal({
                         text: error,
@@ -139,11 +167,19 @@
                     })
                 }
 
+                if(!this.selected.contractor) {
+                    return this.$swal({
+                        text: 'Укажите контрагента',
+                        icon: 'error',
+                    })
+                }
+
 				this.views.saveButton = false
 
                 axios.post(`/api/stockbalances`, {
                     user: user.uid,
                     nomenclature_id: this.selected.nomenclature.id,
+                    contractor_id: this.selected.contractor,
                     quantity: this.quantity,
                     price: this.price,
                     date: this.date

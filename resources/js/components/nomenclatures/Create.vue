@@ -1,51 +1,61 @@
 <template>
-    <div class="add-site-form">
-        <div class="top-block flex">
-            <p>
-                <router-link :to="{name: 'Nomenclatures'}">&larr; Назад</router-link>
-                Новая позиция в номенклатуру
-            </p>
+    <div class="nomenclatures-pages">
+        <div class="mb-4">
+            <router-link :to="{name: 'Nomenclatures'}" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Назад к списку номенклатуры
+            </router-link>
         </div>
-        <form @submit.prevent="save" class="very-big flex">
-            <div class="block">
-                <div class="field-name">
-                    Тип
-                </div>
-                <select v-model="selected.type">
-                    <option value="tovar">Товар</option>
-                    <option value="usluga">Услуга</option>
-                    <option value="raskhodnik">Расходник</option>
-                </select>
 
-                <div class="field-name">
-                    Наименование
+        <form @submit.prevent="update" class="very-big flex">
+            <div class="card border-bottom-primary shadow py-2 mb-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-4">
+                            <div class="mb-3">
+                                <label>Тип</label>
+                                <select v-model="selected.type" class="form-control">
+                                    <option value="tovar">Товар</option>
+                                    <option value="usluga">Услуга</option>
+                                    <option value="raskhodnik">Расходник</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <div class="mb-3">
+                                <label>Наименование</label>
+                                <input v-model="name" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="mb-3">
+                                <label>Артикул</label>
+                                <input v-model="artnumber" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="mb-3">
+                                <label>Производитель</label>
+                                <input v-model="brand" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-2">
+                            <div class="mb-3">
+                                <label>Себестоимость</label>
+                                <input v-model="costPrice" type="number" min="0" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-2">
+                            <div class="mb-3">
+                                <label>Кол-во</label>
+                                <input v-model="quantity" type="number" min="0" class="form-control">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <input v-model="name" type="text">
-
-                <div class="field-name">
-                    Артикул
-                </div>
-                <input v-model="artnumber" type="text">
-
-                <div class="field-name">
-                    Производитель
-                </div>
-                <input v-model="brand" type="text">
-
-                <button type="submit" :disabled="views.submitButton == false" class="other">Сохранить</button>
             </div>
-            <div class="vline"></div>
-            <div class="block">
-                <div class="field-name">
-                    Себестоимость
-                </div>
-                <input v-model="costPrice" type="number" min="0">
 
-                <div class="field-name">
-                    Количество
-                </div>
-                <input v-model="quantity" type="number" min="0">
-            </div>
+            <button type="submit" :disabled="views.submitButton == false" class="btn btn-lg btn-primary">Сохранить</button>
         </form>
     </div>
 </template>
@@ -72,6 +82,9 @@
 					saveButton: true,
                 }				
             }
+        },
+        created() {
+            this.$parent.views.title = 'Новая номенклатура'
         },
 		methods: {
 			save() {

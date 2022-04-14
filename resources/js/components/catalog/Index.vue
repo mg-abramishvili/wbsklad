@@ -7,7 +7,7 @@
             <div class="col-12 col-lg-7">
                 <div class="text-right">
                     <button @click="toggleTableSettings()" class="btn btn-outline-primary">Вид</button>
-                    <button @click="loadFromWildberries()" class="btn btn-primary">Обновить</button>
+                    <button @click="loadFromWildberries()" class="btn btn-primary" :disabled="!views.loadButton">Обновить</button>
                 </div>
             </div>
         </div>
@@ -15,14 +15,16 @@
         <Loader v-if="views.loading" />
 
         <div v-if="!views.loading" class="table-wrapper">
-            <div v-if="views.table.settings" class="table-view-parameters">
-                <ul>
-                    <li v-for="column in table.userColumns" :key="column.id">
-                        <input v-model="table.userColumns.find(c => c.id == column.id).isActive" type="checkbox" :value="column.isActive" :id="'col_v_' + column.field">
-                        <label :for="'col_v_' + column.field">{{ column.headerName }}</label>
-                    </li>
-                </ul>
-                <button @click="saveTableSettings()">Сохранить</button>
+            <div v-if="views.table.settings" class="card border-bottom-primary shadow py-2 mb-4 table-view-parameters">
+                <div class="card-body">
+                    <ul>
+                        <li v-for="column in table.userColumns" :key="column.id">
+                            <input v-model="table.userColumns.find(c => c.id == column.id).isActive" type="checkbox" :value="column.isActive" :id="'col_v_' + column.field">
+                            <label :for="'col_v_' + column.field">{{ column.headerName }}</label>
+                        </li>
+                    </ul>
+                    <button @click="saveTableSettings()" class="btn btn-primary">Сохранить</button>
+                </div>
             </div>
 
             <ag-grid-vue v-if="products.length"
@@ -68,6 +70,7 @@
                     table: {
                         settings: false
                     },
+                    loadButton: true,
                 }
             }
         },
@@ -117,6 +120,7 @@
                     })
                 }
 
+                this.views.loadButton = false
                 this.views.loading = true
 
                 axios.get(`/api/products/wildberries/load`, { params: { user: user.uid } })
@@ -124,6 +128,7 @@
                     if(response.data) {
                         this.loadProducts()
                         this.views.loading = false
+                        this.views.loadButton = true
 
                         this.$swal({
                             text: 'Товары загружены!',

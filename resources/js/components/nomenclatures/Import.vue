@@ -1,12 +1,14 @@
 <template>
-    <div class="prices-list warehouse-page">
-        <div class="top-block flex">
-            <p>
-                <router-link :to="{name: 'Nomenclatures'}">&larr; Назад</router-link>
-                Импорт из каталога WB
-            </p>
-            <div class="buttons other">
-                <button @click="save()">Начать импорт</button>
+    <div class="nomenclatures-page">
+        <div class="row mb-4 align-items-center">
+            <div class="col-12 col-lg-6">
+                <router-link :to="{name: 'Nomenclatures'}" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Назад к списку номенклатуры
+                </router-link>
+            </div>
+            <div class="col-12 col-lg-6 text-right">
+                <button @click="save()" class="btn btn-primary">Начать импорт</button>
             </div>
         </div>
 
@@ -16,8 +18,9 @@
             <ag-grid-vue v-if="products.length"
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
-                :columnDefs="userColumns"
+                :columnDefs="table.columns"
                 :rowData="table.data"
+                @grid-ready="onGridReady"
                 rowSelection="multiple"
                 rowMultiSelectWithClick="true"
                 @selection-changed="onSelectionChanged"
@@ -41,7 +44,15 @@
 
                 table: {
                     data: [],
-                    userColumns: [],
+                    columns: [
+                        { field: '', checkboxSelection: true, width: 50 },
+                        { field: "nm_id", headerName: 'Код WB' },
+                        { field: "supplier_article", headerName: 'Артикул' },
+                        { field: "subject", headerName: 'Предмет' },
+                        { field: "brand", headerName: 'Бренд' },
+                        { field: "category", headerName: 'Категория' },
+                        { field: "price", headerName: 'Цена' },
+                    ],
                     defaultColDef: {
                         movable: false,
                         suppressMovable: true,
@@ -66,6 +77,8 @@
             },
         },
         created() {
+            this.$parent.views.title = 'Импорт номенклатуры'
+
             this.loadProducts()
         },
         methods: {
@@ -79,8 +92,8 @@
                 axios.get(`/api/products`, { params: { user: user.uid } })
                 .then(response => (
                     this.products = response.data,
-                    this.views.loading = false,
-                    this.loadTable()
+                    this.table.data = this.products,
+                    this.views.loading = false
                 ))
                 .catch(error => {
                     this.$swal({
@@ -89,18 +102,11 @@
                     })
                 })
             },
-            loadTable() {
-                this.table.userColumns = [
-                    { field: '', checkboxSelection: true, width: 50 },
-                    { field: "nm_id", headerName: 'Код WB' },
-                    { field: "supplier_article", headerName: 'Артикул' },
-                    { field: "subject", headerName: 'Предмет' },
-                    { field: "brand", headerName: 'Бренд' },
-                    { field: "category", headerName: 'Категория' },
-                    { field: "price", headerName: 'Цена' },
-                ]
-                    
-                this.table.data = this.products
+            onGridReady(params) {
+                this.gridApi = params.api
+                this.gridColumnApi = params.gridColumnApi
+                
+                this.gridApi.sizeColumnsToFit()
             },
             onSelectionChanged(event) {
                 let selectedNodes = event.api.getSelectedNodes()

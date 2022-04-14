@@ -8,7 +8,11 @@
 			<div class="sidebar-brand-text mx-3">WBSKLAD.RU</div>
 		</router-link>
 
-		<hr class="sidebar-divider my-0">
+		<hr class="sidebar-divider">
+
+		<div class="sidebar-heading">
+			Продажи
+		</div>
 
 		<li class="nav-item">
 			<router-link :to="{name: 'Catalog'}" class="nav-link">
@@ -16,6 +20,13 @@
 				<span>Товары WB</span>
 			</router-link>
 		</li>
+
+		<hr class="sidebar-divider">
+
+		<div class="sidebar-heading">
+			Номенклатура
+		</div>
+
 		<li class="nav-item">
 			<router-link :to="{name: 'Nomenclatures'}" class="nav-link">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
@@ -25,9 +36,22 @@
 		<li class="nav-item">
 			<router-link :to="{name: 'Contractors'}" class="nav-link">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Поступления</span>
+			</router-link>
+		</li>
+		<li class="nav-item">
+			<router-link :to="{name: 'Contractors'}" class="nav-link">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
 				<span>Контрагенты</span>
 			</router-link>
 		</li>
+
+		<hr class="sidebar-divider">
+
+		<div class="sidebar-heading">
+			Настройки
+		</div>
+
 		<li class="nav-item">
 			<router-link :to="{name: 'Settings'}" class="nav-link">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
@@ -55,9 +79,7 @@
 
 		<hr class="sidebar-divider d-none d-md-block">
 
-		<div class="text-center d-none d-md-inline">
-			<button @click="toggle()" class="rounded-circle border-0" id="sidebarToggle"></button>
-		</div>
+		<button @click="toggle()" class="rounded-circle border-0" id="sidebarToggle"></button>
 
 	</ul>
 </template>

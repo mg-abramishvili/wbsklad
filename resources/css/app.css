@@ -40,9 +40,26 @@ body {
     color: #151515;
 }
 
+/* SIDEBAR */
 .sidebar {
     background: #5a198c;
+    position: relative;
 }
+.sidebar.toggled hr.sidebar-divider {
+    margin: 0;
+}
+@media (min-width: 768px) {
+    .sidebar.toggled .sidebar-heading {
+        display: none;
+    }
+}
+#sidebarToggle {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* SIDEBAR */
 
 .page-title {
     color: #151515;
@@ -52,7 +69,8 @@ body {
 
 /* TABLE */
 .catalog-table,
-.contractors-table {
+.contractors-table,
+.nomenclatures-table {
     width: 100%;
     height: 500px;
 }
@@ -72,4 +90,42 @@ body {
     text-transform: uppercase !important;
     color: #5e3e77 !important;
 }
+.table-view-parameters {
+    text-align: center;
+}
+.table-view-parameters ul {
+    width: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.table-view-parameters ul li {
+    display: flex;
+    line-height: 1;
+    align-items: center;
+    margin-right: 20px;
+}
+.table-view-parameters ul li label {
+    margin-left: 4px;
+    margin-bottom: 0;
+}
 /* TABLE */
+
+/* SWAL */
+.swal-wide {
+    width: 75vw !important;
+}
+/* SWAL */
+
+/* AUTH */
+form.user .form-control-user {
+    font-size: 15px;
+    border-radius: 6px;
+}
+form.user .btn-user {
+    border-radius: 6px;
+}
+/* AUTH */

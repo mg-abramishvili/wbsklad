@@ -1,6 +1,6 @@
 <template>
     <div class="home-page">
-        <h1>Добро пожаловать</h1>
+        <h5>Добро пожаловать</h5>
     </div>
 </template>
 <script>
@@ -9,6 +9,9 @@
             return {
                 //
             }
+        },
+        created() {
+            this.$parent.views.title = 'Главная страница WBSKLAD.RU'
         },
     }
 </script>

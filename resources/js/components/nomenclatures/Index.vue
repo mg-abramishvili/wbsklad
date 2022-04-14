@@ -1,15 +1,14 @@
 <template>
-    <div class="prices-list warehouse-page">
-        <div class="top-block flex">
-            <p>
-                Номенклатура
-            </p>
-            <div class="buttons other">
-                <form>
-                    <input type="text" placeholder="Поиск">
-                </form>
-                <router-link :to="{name: 'NomenclatureCreate'}">Добавить вручную</router-link>
-                <router-link :to="{name: 'NomenclaturesImport'}">Добавить из каталога WB</router-link>
+    <div class="nomenclatures-page">
+        <div class="row mb-4 align-items-center">
+            <div class="col-12 col-lg-5">
+                <input type="text" placeholder="Поиск по номенклатуре" class="form-control">
+            </div>
+            <div class="col-12 col-lg-7">
+                <div class="text-right">
+                    <router-link :to="{name: 'NomenclatureCreate'}" class="btn btn-outline-primary">Добавить вручную</router-link>
+                    <router-link :to="{name: 'NomenclaturesImport'}" class="btn btn-primary">Добавить из каталога WB</router-link>
+                </div>
             </div>
         </div>
 
@@ -19,10 +18,10 @@
             <ag-grid-vue v-if="nomenclatures.length"
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
-                :columnDefs="userColumns"
+                :columnDefs="table.columns"
                 :rowData="table.data"
+                @grid-ready="onGridReady"
                 rowSelection="multiple"
-                @selection-changed="onSelectionChanged"
                 @row-double-clicked="onRowClicked"
             >
             </ag-grid-vue>
@@ -48,7 +47,14 @@
 
                 table: {
                     data: [],
-                    userColumns: [],
+                    columns: [
+                        { field: "type", headerName: 'Тип', valueFormatter: this.typeFormatter },
+                        { field: "artnumber", headerName: 'Артикул'  },
+                        { field: "name", headerName: 'Тип' },
+                        { field: "brand", headerName: 'Производитель' },
+                        { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
+                        { field: "quantity", headerName: 'Кол-во' },
+                    ],
                     defaultColDef: {
                         movable: false,
                         suppressMovable: true,
@@ -73,6 +79,8 @@
             },
         },
         created() {
+            this.$parent.views.title = 'Номенклатура'
+
             this.loadNomenclatures()
         },
         methods: {
@@ -86,8 +94,8 @@
                 axios.get(`/api/nomenclatures`, { params: { user: user.uid } })
                 .then(response => (
                     this.nomenclatures = response.data,
-                    this.views.loading = false,
-                    this.loadTable()
+                    this.table.data = this.nomenclatures,
+                    this.views.loading = false
                 ))
                 .catch(error => {
                     this.$swal({
@@ -95,19 +103,6 @@
                         icon: 'error',
                     })
                 })
-            },
-            loadTable() {
-                this.table.userColumns = [
-                    // { field: '', checkboxSelection: true, width: 50, },
-                    { field: "type", headerName: 'Тип', valueFormatter: this.typeFormatter },
-                    { field: "artnumber", headerName: 'Артикул'  },
-                    { field: "name", headerName: 'Тип' },
-                    { field: "brand", headerName: 'Производитель' },
-                    { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
-                    { field: "quantity", headerName: 'Кол-во' },
-                ]
-                    
-                this.table.data = this.nomenclatures
             },
             typeFormatter(params) {
                 if(params.value == 'tovar') {
@@ -123,14 +118,11 @@
             currencyFormatter(params) {
                 return this.$options.filters.currency(params.value);
             },
-            onRowSelected(event) {
-                //
-            },
-            onSelectionChanged(event) {
-                let selectedNodes = event.api.getSelectedNodes()
-                let selectedData = selectedNodes.map(node => node.data)
-
-                this.selected.nomenclatures = selectedData
+            onGridReady(params) {
+                this.gridApi = params.api
+                this.gridColumnApi = params.gridColumnApi
+                
+                this.gridApi.sizeColumnsToFit()
             },
             onRowClicked(event) {
                 this.$router.push({name: 'Nomenclature', params: {uid: event.data.uid}})

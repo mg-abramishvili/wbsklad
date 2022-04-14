@@ -1,48 +1,49 @@
 <template>
     <Loader v-if="views.loading"></Loader>
 
-    <div v-else class="add-site-form">
-        <div class="top-block flex">
-            <p>Личная информация</p>
-            <div class="buttons other">
-                <button>Мой профиль</button>
-                <button>Уведомления</button>
-                <button>Настройки</button>
-            </div>
-        </div>
-        <form @submit.prevent="update" class="very-big flex">
-            <div class="block">
-                <div class="top-text">
-                    Контактная информация
+    <div v-else class="contractors-page">
+        <form @submit.prevent="update">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="card border-bottom-primary shadow py-2 mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label>Имя</label>
+                                        <input v-model="name" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <label>E-mail</label>
+                                        <input v-model="email" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="field-name">
-                    Имя
+                <div class="col-12 col-lg-6">
+                    <div class="card border-bottom-primary shadow py-2 mb-4">
+                        <div class="card-body">
+                            <div class="mb-0">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <label>API-ключ (x64)</label>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <label @click="openKeyHelpModal()" style="color: #3699ff; font-weight: 500; cursor: pointer;">Где найти мой API-ключ?</label>
+                                    </div>
+                                </div>
+                                <input v-model="wbApiKey" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <button type="submit" :disabled="views.submitButton == false" class="btn btn-lg btn-primary">Сохранить изменения</button>
+                    </div>
                 </div>
-                <input v-model="name" type="text">
-
-                <div class="field-name">
-                    E-mail
-                </div>
-                <input v-model="email" type="text">
-
-                <button type="submit" :disabled="views.submitButton == false" class="other">Сохранить изменения</button>
-
-                <div v-if="views.success" style="color: green; display: inline-block; vertical-align: middle; margin-left: 20px;">
-                    Профиль обновлен!
-                </div>
-            </div>
-            <div class="vline"></div>
-            <div class="block">
-                <div class="top-text">
-                    Подключение к Wildberries
-                </div>
-
-                <div class="field-name" style="display: flex; justify-content: space-between">
-                    <div>API-ключ (x64)</div>
-                    <a @click="openKeyHelpModal()" style="color: #3699ff; font-weight: bold">Где найти мой API-ключ?</a>
-                </div>
-                <input v-model="wbApiKey" type="text">
             </div>
         </form>
     </div>
@@ -72,6 +73,8 @@
             }
         },
         created() {
+            this.$parent.views.title = 'Настройки'
+
             this.loadUser()
         },
 		methods: {

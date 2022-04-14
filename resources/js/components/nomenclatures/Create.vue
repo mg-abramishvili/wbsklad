@@ -7,7 +7,7 @@
             </router-link>
         </div>
 
-        <form @submit.prevent="update" class="very-big flex">
+        <form @submit.prevent="save" class="very-big flex">
             <div class="card border-bottom-primary shadow py-2 mb-4">
                 <div class="card-body">
                     <div class="row">

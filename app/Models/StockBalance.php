@@ -18,4 +18,9 @@ class StockBalance extends Model
     {
         return $this->belongsTo(Contractor::class);
     }
+
+    public function stockBalanceItems()
+    {
+        return $this->hasMany(StockBalanceItem::class);
+    }
 }

@@ -9,65 +9,82 @@
             </router-link>
         </div>
 
-        <div v-if="!selected.nomenclature" class="row">
-            <div class="col-12 col-lg-5">
-                <div class="card border-bottom-primary shadow py-2 mb-4">
-                    <div class="card-body">
-                        <div class="mb-0">
-                            <label>Поиск по назанию или артикулу</label>
-                            <input v-model="search" type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-7">
-                <div class="card border-bottom-primary shadow py-2 mb-4">
-                    <div class="card-body">
-                        <h6 class="mb-4" style="font-weight: 500; color: #151515;">Выберите номенклатуру</h6>
-                        <div class="list-group" style="max-height: 500px; overflow-y: auto;">
-                            <a v-for="nomenclature in filteredNomenclatures" @click="selectNomenclature(nomenclature)" class="list-group-item list-group-item-action" style="cursor:pointer;">
-                                {{ nomenclature.name }} ({{ nomenclature.artnumber }})
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div v-if="selected.nomenclature" class="card border-bottom-primary shadow py-2 mb-4">
+        <div class="card border-bottom-primary shadow py-2 mb-4">
             <div class="card-body">
-                <div class="row mb-4">
-                    <div class="col-12 col-lg-5">
+                <div class="row">
+                    <div class="col-12 col-lg-4">
                         <div class="mb-0">
-                            <label>Номенклатура</label>
-                            <input type="text" class="form-control" :placeholder="selected.nomenclature.name + ' (' + selected.nomenclature.artnumber + ')'" disabled>
+                            <label>Контрагент</label>
+                            <select v-model="selected.contractor" class="form-control">
+                                <option v-for="contractor in contractors" :value="contractor.id">{{ contractor.name }}</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3">
-                        <label>Дата поступления</label>
-                        <input v-model="date" type="date" class="form-control">
-                    </div>
-                    <div class="col-12 col-lg-2">
-                        <label>Количество</label>
-                        <input v-model="quantity" type="number" min="1" class="form-control">
-                    </div>
-                    <div class="col-12 col-lg-2">
-                        <label>Стоимость</label>
-                        <input v-model="price" type="number" min="0" class="form-control">
+                    <div class="col-12 col-lg-4">
+                        <div class="mb-0">
+                            <label>Дата поступления</label>
+                            <input v-model="date" type="date" class="form-control">
+                        </div>
                     </div>
                 </div>
-                <div class="row mb-4">
-                    <div class="col-12 col-lg-5">
-                        <label>Контрагент</label>
-                        <select v-model="selected.contractor" class="form-control">
-                            <option v-for="contractor in contractors" :value="contractor.id">{{ contractor.name }}</option>
-                        </select>
-                    </div>
-                </div>
-
-                <button @click="save()" :disabled="views.submitButton == false" class="btn btn-primary">Сохранить</button>
             </div>
         </div>
+
+        <div class="card border-bottom-primary shadow py-2 mb-4">
+            <div class="card-body">
+                <button @click="addRow()" class="btn btn-sm btn-primary mb-4">Добавить строку</button>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>№</td>
+                            <td>Артикул</td>
+                            <td>Наименование</td>
+                            <td>Бренд</td>
+                            <td>Кол-во</td>
+                            <td>Стоимость</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(nomenclature, index) in selected.nomenclatures">
+                            <td style="width: 5%;">{{ index + 1 }}</td>
+                            <td style="width: 25%;">
+                                <input v-model="nomenclature.artnumber" @click="openSelectHelper('artnumber', index)" type="text" class="form-control">
+                                <ul v-if="views.selectHelpers.artnumber[index].visible && filteredArtnumbers(nomenclature.artnumber) && filteredArtnumbers(nomenclature.artnumber).length" class="select-helper shadow">
+                                    <li @click="selectNomenclature(index, n)" v-for="n in filteredArtnumbers(nomenclature.artnumber)" class="my-3" style="cursor:pointer;">
+                                        {{ n.artnumber }}
+                                    </li>
+                                </ul>
+                            </td>
+                            <td style="width: 25%;">
+                                <input v-model="nomenclature.name" @click="openSelectHelper('name', index)" type="text" class="form-control">
+                                <ul v-if="views.selectHelpers.name[index].visible && filteredNames(nomenclature.name) && filteredNames(nomenclature.name).length" class="select-helper shadow">
+                                    <li @click="selectNomenclature(index, n)" v-for="n in filteredNames(nomenclature.name)" class="my-3" style="cursor:pointer;">
+                                        {{ n.name }} <small class="text-muted">{{ n.artnumber }}</small>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td style="width: 20%;">
+                                <input v-model="nomenclature.brand" type="text" class="form-control">
+                            </td>
+                            <td style="width: 10%;">
+                                <input v-model="nomenclature.quantity" type="number" min="1" class="form-control">
+                            </td>
+                            <td style="width: 7.5%;">
+                                <input v-model="nomenclature.price" type="number" min="0" class="form-control">
+                            </td>
+                            <td style="width: 7.5%;" class="text-center">
+                                <button @click="deleteRow(index)" class="btn btn-sm btn-danger">
+                                    <i class="far fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <button @click="save()" class="btn btn-primary">Сохранить</button>
     </div>
 </template>
 
@@ -80,29 +97,22 @@
                 nomenclatures: [],
                 contractors: [],
 
-                quantity: 1,
-                price: 0,
                 date: moment().format('YYYY-MM-DD'),
 
-                search: '',
-
                 selected: {
-                    nomenclature: '',
                     contractor: '',
+                    nomenclatures: [],
                 },
 
                 views: {
                     loading: true,
                     saveButton: true,
+                    selectHelpers: {
+                        artnumber: [],
+                        name: [],
+                    }
                 }				
             }
-        },
-        computed: {
-            filteredNomenclatures() {
-                return this.nomenclatures.filter(nomenclature => {
-                    return nomenclature.name.toLowerCase().includes(this.search.toLowerCase()) || nomenclature.artnumber.toLowerCase().includes(this.search.toLowerCase())
-                })
-            },
         },
         created() {
             this.$parent.views.title = 'Новое поступление'
@@ -140,6 +150,7 @@
                 .then(response => {
                     this.contractors = response.data
                     this.views.loading = false
+                    this.addRow()
                 })
                 .catch(error => {
                     this.$swal({
@@ -148,8 +159,71 @@
                     })
                 })
             },
-            selectNomenclature(nomenclature) {
-                this.selected.nomenclature = nomenclature
+            addRow() {
+                this.selected.nomenclatures.push({
+                    id: '',
+                    name: '',
+                    artnumber: '',
+                    brand: '',
+                    quantity: 1,
+                    price: 0,
+                })
+
+                this.views.selectHelpers.artnumber = []
+                this.views.selectHelpers.name = []
+
+                this.selected.nomenclatures.forEach((n, index) => {
+                    this.views.selectHelpers.artnumber.push({
+                        index: index,
+                        visible: false,
+                    })
+                    this.views.selectHelpers.name.push({
+                        index: index,
+                        visible: false,
+                    })
+                })
+            },
+            deleteRow(index) {
+                if(this.selected.nomenclatures.length <= 1) {
+                    return
+                }
+
+                let row = this.selected.nomenclatures.indexOf(index)
+                
+                this.selected.nomenclatures.splice(row, 1)
+            },
+            filteredArtnumbers(input) {
+                if(!input) {
+                    return
+                }
+                return this.nomenclatures.filter(nomenclature => {
+                    return nomenclature.artnumber.toLowerCase().includes(input.toLowerCase())
+                })
+            },
+            filteredNames(input) {
+                if(!input) {
+                    return
+                }
+                return this.nomenclatures.filter(nomenclature => {
+                    return nomenclature.name.toLowerCase().includes(input.toLowerCase())
+                })
+            },
+            selectNomenclature(index, nomenclature) {
+                this.selected.nomenclatures[index].id = nomenclature.id
+                this.selected.nomenclatures[index].artnumber = nomenclature.artnumber
+                this.selected.nomenclatures[index].name = nomenclature.name
+                this.selected.nomenclatures[index].brand = nomenclature.brand
+
+                this.views.selectHelpers.artnumber.find(a => a.index == index).visible = false
+                this.views.selectHelpers.name.find(a => a.index == index).visible = false
+            },
+            openSelectHelper(column, index) {
+                if(column == 'artnumber') {
+                    this.views.selectHelpers.artnumber.find(a => a.index == index).visible = true
+                }
+                if(column == 'name') {
+                    this.views.selectHelpers.name.find(a => a.index == index).visible = true
+                }
             },
             save() {
                 let user = this.$parent.user
@@ -161,9 +235,9 @@
                     })
                 }
 
-                if(!this.quantity) {
+                if(!this.date) {
                     return this.$swal({
-                        text: 'Укажите количество',
+                        text: 'Укажите дату',
                         icon: 'error',
                     })
                 }
@@ -175,15 +249,20 @@
                     })
                 }
 
+                if(!this.selected.nomenclatures[0].artnumber) {
+                    return this.$swal({
+                        text: 'Укажите номенклатуру',
+                        icon: 'error',
+                    })
+                }
+
 				this.views.saveButton = false
 
                 axios.post(`/api/stockbalances`, {
                     user: user.uid,
-                    nomenclature_id: this.selected.nomenclature.id,
+                    date: this.date,
                     contractor_id: this.selected.contractor,
-                    quantity: this.quantity,
-                    price: this.price,
-                    date: this.date
+                    nomenclatures: this.selected.nomenclatures,
                 })
                 .then(response => {
                     this.$router.push({name: 'StockBalances'})

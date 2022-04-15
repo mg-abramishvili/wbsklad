@@ -12,10 +12,7 @@ class CreateStockBalancesTable extends Migration
             $table->id();
             $table->string('uid');
             $table->integer('user_id');
-            $table->integer('nomenclature_id');
             $table->integer('contractor_id');
-            $table->integer('quantity');
-            $table->integer('price');
             $table->date('date');
             $table->timestamps();
         });

@@ -42,10 +42,8 @@ export default {
                 data: [],
                 columns: [
                     { field: "date", headerName: 'Дата поступления', valueFormatter: this.dateFormatter },
-                    { field: 'name', valueGetter: (params) => { return params.data.nomenclature.name + ' (' + params.data.nomenclature.artnumber + ')' }, headerName: 'Наименование', width: 500 },
                     { field: "contractor", valueGetter: (params) => { return params.data.contractor.name }, headerName: 'Контрагент' },
-                    { field: "quantity", headerName: 'Количество' },
-                    { field: "price", headerName: 'Стоимость', valueFormatter: this.currencyFormatter },
+                    { field: "quantity", valueGetter: (params) => { return params.data.stock_balance_items_count }, headerName: 'Кол-во позиций' },
                 ],
                 defaultColDef: {
                     movable: false,

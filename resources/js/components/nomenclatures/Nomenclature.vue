@@ -59,6 +59,34 @@
 
             <button type="submit" :disabled="views.submitButton == false" class="btn btn-lg btn-primary">Сохранить</button>
         </form>
+
+        <div class="card border-bottom-primary shadow py-2 mt-4 mb-4">
+            <div class="card-body">
+                <h5>Поступления</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Дата</th>
+                            <th>Количество</th>
+                            <th>Стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="balanceItem in nomenclature.stock_balance_items">
+                            <td>
+                                {{ balanceItem.date | date }}
+                            </td>
+                            <td>
+                                {{ balanceItem.quantity }}
+                            </td>
+                            <td>
+                                {{ balanceItem.price | currency }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </template>
 

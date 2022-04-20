@@ -12,6 +12,7 @@ class NomenclatureProductTable extends Migration
             $table->id();
             $table->integer('nomenclature_id');
             $table->integer('product_id');
+            $table->integer('quantity')->nullable();
         });
     }
 

@@ -21,7 +21,7 @@
             >
             </ag-grid-vue>
 
-            <p v-else>Нет поступлений.</p>
+            <p v-else class="text-muted">Нет поступлений.</p>
         </div>
     </div>
 </template>

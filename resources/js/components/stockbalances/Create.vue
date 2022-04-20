@@ -313,7 +313,11 @@
                 service.nomenclatures.splice(index, 1)
             },
             selectAllNm(index) {
-                this.selected.services[index].nomenclatures = this.selected.nomenclatures
+                this.selected.services[index].nomenclatures = []
+
+                this.selected.nomenclatures.forEach(n => {
+                    this.selected.services[index].nomenclatures.push(n)
+                })
             },
             save() {
                 let user = this.$parent.user

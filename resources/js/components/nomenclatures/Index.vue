@@ -26,7 +26,7 @@
             >
             </ag-grid-vue>
 
-            <p v-else>Нет номенклатуры.</p>
+            <p v-else class="text-muted">Нет номенклатуры.</p>
             
             <button @click="toArchive()" v-if="selected.nomenclatures.length">В архив</button>
         </div>

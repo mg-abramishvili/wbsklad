@@ -24,7 +24,7 @@
             >
             </ag-grid-vue>
 
-            <p v-else>Нет контрагентов.</p>
+            <p v-else class="text-muted">Нет контрагентов.</p>
         </div>
     </div>
 </template>

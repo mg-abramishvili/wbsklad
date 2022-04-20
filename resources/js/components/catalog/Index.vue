@@ -31,7 +31,7 @@
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
                 :columnDefs="userColumns"
-                :rowData="table.data"
+                :rowData="products"
                 @column-resized="onColumnEdited"
                 @column-moved="onColumnEdited"
                 @row-double-clicked="onRowClicked"
@@ -96,11 +96,11 @@
                 }
 
                 axios.get(`/api/products`, { params: { user: user.uid } })
-                .then(response => (
-                    this.products = response.data,
-                    this.views.loading = false,
+                .then(response => {
+                    this.products = response.data
+                    this.views.loading = false
                     this.loadTable()
-                ))
+                })
                 .catch(error => {
                     this.$swal({
                         text: error,
@@ -159,8 +159,6 @@
                 axios.get(`/api/user-catalog-table-columns`, { params: { user: user.uid } })
                 .then((response => {                    
                     this.table.userColumns = response.data.data
-                    
-                    this.table.data = this.products
                 }))
                 .catch(error => {
                     this.$swal({

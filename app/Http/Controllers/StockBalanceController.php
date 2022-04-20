@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\StockBalance;
 use App\Models\StockBalanceItem;
 use App\Models\Nomenclature;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -87,5 +88,23 @@ class StockBalanceController extends Controller
         $nomenclature->cost_price = round($nomenclature->stock_balance_items_avg_price, 0);
 
         $nomenclature->save();
+
+        foreach($nomenclature->products as $product) {
+            $this->updateProductCostPrice($product->id);
+        }
+    }
+
+    public function updateProductCostPrice($id) {
+        $product = Product::find($id);
+
+        $cost_price = 0;
+
+        foreach($product->nomenclatures as $nomenclature) {
+            $cost_price += $nomenclature->cost_price * $nomenclature->pivot->quantity;
+        }
+
+        $product->cost_price = $cost_price;
+
+        $product->save();
     }
 }

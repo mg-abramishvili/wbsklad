@@ -178,6 +178,7 @@
             save() {
                 axios.put(`/api/product/${this.$route.params.id}/update`,
                 {
+                    cost_price: this.pricePreview,
                     nomenclatures: this.selected.nomenclaturesQty,
                 })
                 .then(response => (

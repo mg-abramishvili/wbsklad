@@ -44,16 +44,21 @@ class CatalogTableColumn extends Seeder
             ],
             [
                 'id' => 7,
+                'field' => 'cost_price',
+                'headerName' => 'Себестоимость',
+            ],
+            [
+                'id' => 8,
                 'field' => 'tech_size',
                 'headerName' => 'Размер',
             ],
             [
-                'id' => 8,
+                'id' => 9,
                 'field' => 'barcode',
                 'headerName' => 'Штрихкод',
             ],
             [
-                'id' => 9,
+                'id' => 10,
                 'field' => 'quantity',
                 'headerName' => 'Количество',
             ],

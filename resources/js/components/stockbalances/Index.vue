@@ -90,7 +90,7 @@ export default {
             this.gridApi.sizeColumnsToFit()
         },
         onRowClicked(event) {
-            this.$router.push({name: 'StockBalance', params: {uid: event.data.uid}})
+            // this.$router.push({name: 'StockBalance', params: {uid: event.data.uid}})
         },
         currencyFormatter(params) {
             return this.$options.filters.currency(params.value);

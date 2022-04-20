@@ -24,6 +24,6 @@ class Product extends Model
 
     public function nomenclatures()
     {
-        return $this->belongsToMany(Nomenclature::class);
+        return $this->belongsToMany(Nomenclature::class)->withPivot(['quantity']);
     }
 }

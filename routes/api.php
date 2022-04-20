@@ -28,6 +28,7 @@ Route::put('user-catalog-table-columns', [UserCatalogTableColumnController::clas
 // PRODUCTS
 Route::get('products', [ProductController::class, 'index']);
 Route::get('product/{id}', [ProductController::class, 'product']);
+Route::put('product/{id}/update', [ProductController::class, 'update']);
 Route::get('products/wildberries/load', [ProductController::class, 'wildberriesLoad']);
 
 // CONTRACTORS

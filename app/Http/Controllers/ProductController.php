@@ -20,6 +20,17 @@ class ProductController extends Controller
         return Product::where('id', $id)->with('nomenclatures')->first();
     }
 
+    public function update($id, Request $request)
+    {
+        $product = Product::find($id);
+
+        $nomenclatures = [];
+        foreach($request->nomenclatures as $nomenclature) {
+            $nomenclatures[$nomenclature['id']] = ['quantity' => $nomenclature['quantity']];
+        }
+        $product->nomenclatures()->sync($nomenclatures);
+    }
+
     public function wildberriesLoad(Request $request)
     {
         $user = User::where('uid', $request->user)->with('settings')->first();

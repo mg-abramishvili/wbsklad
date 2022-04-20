@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        {{selected.nomenclatures}}
+        
         <div class="card border-bottom-primary shadow py-2 mb-4">
             <div class="card-body">
                 <div class="row align-items-center mb-4">
@@ -100,9 +100,7 @@
                 </table>
             </div>
         </div>
-        <pre>
-        {{selected.services}}
-        </pre>
+        
         <div class="card border-bottom-primary shadow py-2 mb-4">
             <div class="card-body">
                 <div class="row align-items-center mb-4">

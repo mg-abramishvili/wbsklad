@@ -25,6 +25,13 @@ class StockBalanceController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'user' => 'required',
+            'date' => 'required',
+            'contractor_id' => 'required',
+            'nomenclatures' => 'required',
+        ]);
+
         $user = User::where('uid', $request->user)->first();
 
         $stockbalance = new StockBalance();
@@ -42,7 +49,7 @@ class StockBalanceController extends Controller
             $stockBalanceItem->nomenclature_id = $nomenclature['id'];
             $stockBalanceItem->stock_balance_id = $stockbalance->id;
             $stockBalanceItem->quantity = $nomenclature['quantity'];
-            $stockBalanceItem->price = $nomenclature['price'];
+            $stockBalanceItem->price = $nomenclature['total'];
             $stockBalanceItem->date = $request->date;
             $stockBalanceItem->save();
             

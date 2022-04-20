@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: #151515;
 }
 
 /* BUTTONS */
@@ -38,6 +39,10 @@ body {
 
 .form-control {
     color: #151515;
+}
+
+.text-muted {
+    color: #858796;
 }
 
 /* SIDEBAR */
@@ -115,6 +120,11 @@ body {
 }
 .table td, .table th {
     position: relative;
+    font-size: 14px;
+}
+.table td .form-control,
+.table th .form-control {
+    font-size: 14px;
 }
 /* TABLE */
 
@@ -148,19 +158,16 @@ form.user .btn-user {
 /* AUTH */
 
 /* SELECT */
-.select-helper {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-size: 14px;
-    color: #151515;
-    max-height: 200px;
-    width: calc(100% - 1.5rem);
-    overflow-y: auto;
-    position: absolute;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 6px;
-    z-index: 10;
+.multiselect__option--selected,
+.multiselect__option--highlight,
+.multiselect__option--selected.multiselect__option--highlight {
+    background: #fff !important;
+    color: #151515 !important;
+}
+
+.multiselect,
+.multiselect__input,
+.multiselect__single {
+    font-size: 14px !important;
 }
 /* SELECT */

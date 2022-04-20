@@ -15,6 +15,11 @@ class ProductController extends Controller
         return Product::where('user_id', $user->id)->get();
     }
 
+    public function product($id)
+    {
+        return Product::where('id', $id)->with('nomenclatures')->first();
+    }
+
     public function wildberriesLoad(Request $request)
     {
         $user = User::where('uid', $request->user)->with('settings')->first();

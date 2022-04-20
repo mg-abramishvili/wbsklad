@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('tech_size')->nullable();
             $table->string('barcode');
             $table->integer('price');
+            $table->integer('cost_price')->nullable();
             $table->integer('quantity');
             $table->timestamps();
         });

@@ -18,4 +18,9 @@ class Nomenclature extends Model
     {
         return $this->hasMany(StockBalanceItem::class);
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

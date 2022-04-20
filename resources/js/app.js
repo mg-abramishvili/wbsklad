@@ -22,6 +22,10 @@ Vue.use(VueSweetalert2);
 
 Vue.use(VueRouter);
 
+import Multiselect from 'vue-multiselect'
+import 'vue-multiselect/dist/vue-multiselect.min.css'
+Vue.component('multiselect', Multiselect)
+
 Vue.filter('currency', function (value) {
     if (!value) return '0'
     return parseInt(value).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + ' ₽' 

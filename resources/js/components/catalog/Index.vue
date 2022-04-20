@@ -34,6 +34,7 @@
                 :rowData="table.data"
                 @column-resized="onColumnEdited"
                 @column-moved="onColumnEdited"
+                @row-double-clicked="onRowClicked"
             >
             </ag-grid-vue>
 
@@ -218,7 +219,10 @@
                     })
                 })
                 this.toggleTableSettings()
-            }
+            },
+            onRowClicked(event) {
+                this.$router.push({name: 'Product', params: {id: event.data.id}})
+            },
         },
         components: {
             Loader,

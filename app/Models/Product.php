@@ -21,4 +21,9 @@ class Product extends Model
         'quantity',
         'tech_size',
     ];
+
+    public function nomenclatures()
+    {
+        return $this->belongsToMany(Nomenclature::class);
+    }
 }

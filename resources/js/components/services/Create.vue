@@ -92,7 +92,6 @@
                             </td>
                             <td style="width: 7.5%;">
                                 <input v-model="nomenclature.price" type="number" min="0" class="form-control" disabled>
-                                {{ nomenclature.total }}
                             </td>
                             <td style="width: 7.5%;" class="text-center">
                                 <button @click="deleteRow(index)" class="btn btn-sm btn-danger">
@@ -138,7 +137,7 @@
                 deep: true,
                 handler() {
                     this.selected.nomenclatures.forEach(nomenclature => {
-                        nomenclature.price = this.price / this.selected.nomenclatures.length
+                        nomenclature.price = (this.price / this.selected.nomenclatures.length).toFixed(0)
                     })
                 }
             }
@@ -159,7 +158,7 @@
 
                 axios.get(`/api/nomenclatures`, { params: { user: user.uid } })
                 .then(response => (
-                    this.nomenclatures = response.data.map(n => ({
+                    this.nomenclatures = response.data.data.map(n => ({
                         id: n.id,
                         name: n.name,
                         artnumber: n.artnumber,

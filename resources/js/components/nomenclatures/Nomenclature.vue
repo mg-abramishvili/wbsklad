@@ -123,16 +123,16 @@
             loadNomenclature() {
                 axios.get(`/api/nomenclature/${this.$route.params.uid}`)
                 .then(response => {
-                    this.nomenclature = response.data
+                    this.nomenclature = response.data.data
 
-                    this.uid = response.data.uid
-                    this.artnumber = response.data.artnumber
-				    this.name = response.data.name
-                    this.brand = response.data.brand
-                    this.costPrice = response.data.cost_price
-                    this.quantity = response.data.quantity
-                    this.isActive = response.data.is_active
-                    this.selected.type = response.data.type
+                    this.uid = response.data.data.uid
+                    this.artnumber = response.data.data.artnumber
+				    this.name = response.data.data.name
+                    this.brand = response.data.data.brand
+                    this.costPrice = response.data.data.cost_price
+                    this.quantity = response.data.data.quantity
+                    this.isActive = response.data.data.is_active
+                    this.selected.type = response.data.data.type
 
                     this.$parent.views.title = this.name
 

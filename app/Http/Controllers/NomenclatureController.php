@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Nomenclature;
 use App\Models\Product;
+use App\Http\Resources\NomenclatureResource;
+use App\Http\Resources\NomenclatureCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -14,12 +16,12 @@ class NomenclatureController extends Controller
     {
         $user = User::where('uid', $request->user)->first();
 
-        return Nomenclature::where('user_id', $user->id)->get();
+        return NomenclatureResource::collection(Nomenclature::where('user_id', $user->id)->get());
     }
 
     public function nomenclature($uid)
     {
-        return Nomenclature::where('uid', $uid)->with('stockBalanceItems')->first();
+        return new NomenclatureResource(Nomenclature::where('uid', $uid)->first());
     }
 
     public function store(Request $request)

@@ -19,9 +19,8 @@
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
                 :columnDefs="table.columns"
-                :rowData="table.data"
+                :rowData="nomenclatures"
                 @grid-ready="onGridReady"
-                rowSelection="multiple"
                 @row-double-clicked="onRowClicked"
             >
             </ag-grid-vue>
@@ -71,13 +70,6 @@
                 }
             }
         },
-        computed: {
-            userColumns() {
-                if(this.table.userColumns && this.table.userColumns.length) {
-                    return this.table.userColumns
-                }
-            },
-        },
         created() {
             this.$parent.views.title = 'Номенклатура'
 
@@ -92,11 +84,11 @@
                 }
 
                 axios.get(`/api/nomenclatures`, { params: { user: user.uid } })
-                .then(response => (
-                    this.nomenclatures = response.data,
-                    this.table.data = this.nomenclatures,
+                .then(response => {
+                    this.nomenclatures = response.data.data
+
                     this.views.loading = false
-                ))
+                })
                 .catch(error => {
                     this.$swal({
                         text: error,

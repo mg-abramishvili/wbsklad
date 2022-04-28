@@ -21,6 +21,10 @@ import StockBalances from './components/stockbalances/Index.vue';
 import StockBalanceCreate from './components/stockbalances/Create.vue';
 import StockBalance from './components/stockbalances/StockBalance.vue';
 
+import Services from './components/services/Index.vue';
+import ServiceCreate from './components/services/Create.vue';
+import Service from './components/services/Service.vue';
+
 import UserVerify from './components/users/Verify.vue';
 
 export const routes = [
@@ -98,6 +102,21 @@ export const routes = [
         path: '/stockbalance/:uid',
         name: 'StockBalance',
         component: StockBalance
+    },
+    {
+        path: '/services',
+        name: 'Services',
+        component: Services
+    },
+    {
+        path: '/services/create',
+        name: 'ServiceCreate',
+        component: ServiceCreate
+    },
+    {
+        path: '/service/:uid',
+        name: 'Service',
+        component: Service
     },
     {
         path: '/settings',

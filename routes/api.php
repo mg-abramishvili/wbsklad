@@ -7,6 +7,7 @@ use App\Http\Controllers\UserCatalogTableColumnController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\NomenclatureController;
 use App\Http\Controllers\StockBalanceController;
+use App\Http\Controllers\ServiceController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,10 @@ Route::get('stockbalance/{uid}', [StockBalanceController::class, 'stockBalance']
 Route::post('stockbalances', [StockBalanceController::class, 'store']);
 Route::put('stockbalance/{uid}/update', [StockBalanceController::class, 'update']);
 Route::delete('stockbalance/{uid}/delete', [StockBalanceController::class, 'delete']);
+
+// CONTRACTORS
+Route::get('services', [ServiceController::class, 'index']);
+Route::get('service/{uid}', [ServiceController::class, 'stockBalance']);
+Route::post('services', [ServiceController::class, 'store']);
+Route::put('service/{uid}/update', [ServiceController::class, 'update']);
+Route::delete('service/{uid}/delete', [ServiceController::class, 'delete']);

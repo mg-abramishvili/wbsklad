@@ -9,6 +9,7 @@ class NomenclaturesResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'uid' => $this->uid,
             'type' => $this->type,
             'artnumber' => $this->artnumber,

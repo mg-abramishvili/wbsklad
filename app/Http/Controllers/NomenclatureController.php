@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Nomenclature;
 use App\Models\Product;
 use App\Http\Resources\NomenclatureResource;
-use App\Http\Resources\NomenclatureCollection;
+use App\Http\Resources\NomenclaturesResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -16,7 +16,7 @@ class NomenclatureController extends Controller
     {
         $user = User::where('uid', $request->user)->first();
 
-        return NomenclatureResource::collection(Nomenclature::where('user_id', $user->id)->get());
+        return NomenclaturesResource::collection(Nomenclature::where('user_id', $user->id)->get());
     }
 
     public function nomenclature($uid)

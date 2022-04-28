@@ -158,7 +158,7 @@
 
                 axios.get(`/api/nomenclatures`, { params: { user: user.uid } })
                 .then(response => {
-                    this.nomenclatures = response.data
+                    this.nomenclatures = response.data.data
                     this.views.loading = false
                 })
                 .catch(error => {

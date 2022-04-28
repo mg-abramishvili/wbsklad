@@ -44,13 +44,13 @@
                         <div class="col-12 col-lg-2">
                             <div class="mb-3">
                                 <label>Себестоимость</label>
-                                <input v-model="costPrice" type="number" min="0" class="form-control">
+                                <input v-model="costPrice" type="number" min="0" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="col-12 col-lg-2">
                             <div class="mb-3">
                                 <label>Кол-во</label>
-                                <input v-model="quantity" type="number" min="0" class="form-control">
+                                <input v-model="quantity" type="number" min="0" class="form-control" disabled>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,6 @@
                 brand: '',
                 costPrice: 0,
                 quantity: 0,
-                isActive: true,
 
                 selected: {
                     type: 'tovar',
@@ -131,7 +130,6 @@
                     this.brand = response.data.data.brand
                     this.costPrice = response.data.data.cost_price
                     this.quantity = response.data.data.quantity
-                    this.isActive = response.data.data.is_active
                     this.selected.type = response.data.data.type
 
                     this.$parent.views.title = this.name
@@ -165,7 +163,6 @@
                     brand: this.brand,
                     cost_price: this.costPrice,
                     quantity: this.quantity,
-                    is_active: this.isActive,
                 })
                 .then(response => {
                     this.$router.push({name: 'Nomenclatures'})

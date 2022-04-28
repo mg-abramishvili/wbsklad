@@ -34,7 +34,6 @@ class NomenclatureController extends Controller
             'brand' => 'required',
             'cost_price' => 'required|numeric',
             'quantity' => 'required|numeric',
-            'is_active' => 'required',
         ]);
 
         $user = User::where('uid', $request->user)->first();
@@ -49,7 +48,6 @@ class NomenclatureController extends Controller
         $nomenclature->brand = $request->brand;
         $nomenclature->cost_price = $request->cost_price;
         $nomenclature->quantity = $request->quantity;
-        $nomenclature->is_active = $request->is_active;
 
         $nomenclature->save();
     }
@@ -63,7 +61,6 @@ class NomenclatureController extends Controller
             'brand' => 'required',
             'cost_price' => 'required|numeric',
             'quantity' => 'required|numeric',
-            'is_active' => 'required',
         ]);
 
         $nomenclature = Nomenclature::where('uid', $uid)->first();
@@ -74,7 +71,6 @@ class NomenclatureController extends Controller
         $nomenclature->brand = $request->brand;
         $nomenclature->cost_price = $request->cost_price;
         $nomenclature->quantity = $request->quantity;
-        $nomenclature->is_active = $request->is_active;
 
         $nomenclature->save();
     }
@@ -102,7 +98,6 @@ class NomenclatureController extends Controller
                 $nomenclature->brand = $product->brand;
                 $nomenclature->cost_price = $product->price;
                 $nomenclature->quantity = $product->quantity;
-                $nomenclature->is_active = true;
     
                 $nomenclature->save();
             }

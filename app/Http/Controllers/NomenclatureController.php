@@ -96,7 +96,7 @@ class NomenclatureController extends Controller
                 $nomenclature->artnumber = $product->supplier_article;
                 $nomenclature->name = $product->subject;
                 $nomenclature->brand = $product->brand;
-                $nomenclature->cost_price = $product->price;
+                $nomenclature->cost_price = 0;
                 $nomenclature->quantity = $product->quantity;
     
                 $nomenclature->save();

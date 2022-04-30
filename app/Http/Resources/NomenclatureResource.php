@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Http\Resources\StockItemsResource;
+use App\Http\Resources\ServiceItemsResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class NomenclatureResource extends JsonResource
@@ -18,6 +19,7 @@ class NomenclatureResource extends JsonResource
             'cost_price' => $this->cost_price,
             'quantity' => $this->quantity,
             'stock_balance_items' => StockItemsResource::collection($this->stockBalanceItems),
+            'service_items' => ServiceItemsResource::collection($this->serviceItems),
         ];
     }
 }

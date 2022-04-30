@@ -19,6 +19,16 @@ class Nomenclature extends Model
         return $this->hasMany(StockBalanceItem::class);
     }
 
+    public function services()
+    {
+        return $this->hasMany(Service::class);
+    }
+
+    public function serviceItems()
+    {
+        return $this->hasMany(ServiceItem::class);
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class)->withPivot(['quantity']);

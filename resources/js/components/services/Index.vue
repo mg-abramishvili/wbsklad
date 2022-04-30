@@ -42,7 +42,8 @@ export default {
                 data: [],
                 columns: [
                     { field: "date", headerName: 'Дата', valueFormatter: this.dateFormatter },
-                    { field: "contractor", valueGetter: (params) => { return params.data.contractor.name }, headerName: 'Контрагент' },
+                    { field: "name", headerName: 'Услуга' },
+                    { field: "contractor", headerName: 'Контрагент' },
                 ],
                 defaultColDef: {
                     movable: false,

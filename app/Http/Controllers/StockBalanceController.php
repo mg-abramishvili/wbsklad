@@ -7,11 +7,15 @@ use App\Models\StockBalance;
 use App\Models\StockBalanceItem;
 use App\Models\Nomenclature;
 use App\Models\Product;
+use App\Traits\updateMiddlePriceAndQuantity;
+use App\Traits\updateProductCostPrice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class StockBalanceController extends Controller
 {
+    use updateMiddlePriceAndQuantity, updateProductCostPrice;
+
     public function index(Request $request)
     {
         $user = User::where('uid', $request->user)->first();
@@ -42,6 +46,12 @@ class StockBalanceController extends Controller
         $stockbalance->uid = Str::random(24);
         $stockbalance->contractor_id = $request->contractor_id;
         $stockbalance->date = $request->date;
+
+        if($request->delivery)
+        {
+            $stockbalance->delivery_price = $request->delivery['price'];
+            $stockbalance->delivery_contractor_id = $request->delivery['contractor'];
+        }
 
         $stockbalance->save();
         
@@ -79,32 +89,5 @@ class StockBalanceController extends Controller
         $stockbalance->delete();
 
         $this->updateMiddlePriceAndQuantity($stockbalance->nomenclature_id);
-    }
-
-    public function updateMiddlePriceAndQuantity($nomenclature_id) {
-        $nomenclature = Nomenclature::withSum('stockBalanceItems', 'quantity')->withAvg('stockBalanceItems', 'price')->find($nomenclature_id);
-
-        $nomenclature->quantity = $nomenclature->stock_balance_items_sum_quantity;
-        $nomenclature->cost_price = round($nomenclature->stock_balance_items_avg_price, 0);
-
-        $nomenclature->save();
-
-        foreach($nomenclature->products as $product) {
-            $this->updateProductCostPrice($product->id);
-        }
-    }
-
-    public function updateProductCostPrice($id) {
-        $product = Product::find($id);
-
-        $cost_price = 0;
-
-        foreach($product->nomenclatures as $nomenclature) {
-            $cost_price += $nomenclature->cost_price * $nomenclature->pivot->quantity;
-        }
-
-        $product->cost_price = $cost_price;
-
-        $product->save();
     }
 }

@@ -11,10 +11,11 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->string('uid');
+            $table->integer('user_id');
             $table->string('name');
-            $table->integer('price');
             $table->integer('contractor_id');
             $table->date('date');
+            $table->integer('price');
             $table->timestamps();
         });
     }

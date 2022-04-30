@@ -14,6 +14,8 @@ class CreateStockBalancesTable extends Migration
             $table->integer('user_id');
             $table->integer('contractor_id');
             $table->date('date');
+            $table->integer('delivery_price')->nullable();
+            $table->integer('delivery_contractor_id')->nullable();
             $table->timestamps();
         });
     }

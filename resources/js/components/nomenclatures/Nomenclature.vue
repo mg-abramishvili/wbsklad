@@ -87,6 +87,34 @@
                 </table>
             </div>
         </div>
+
+        <div class="card border-bottom-primary shadow py-2 mt-4 mb-4">
+            <div class="card-body">
+                <h5>Услуги</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Дата</th>
+                            <th>Услуга</th>
+                            <th>Стоимость</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="serviceItem in nomenclature.service_items">
+                            <td>
+                                {{ serviceItem.date | date }}
+                            </td>
+                            <td>
+                                {{ serviceItem.name }}
+                            </td>
+                            <td>
+                                {{ serviceItem.price | currency }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </template>
 

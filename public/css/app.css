@@ -84,7 +84,8 @@ body {
 .catalog-table,
 .contractors-table,
 .nomenclatures-table,
-.stockbalances-table {
+.stockbalances-table,
+.services-table {
     width: 100%;
     height: 500px;
 }

@@ -263,6 +263,8 @@
                 axios.post(`/api/services`, {
                     user: user.uid,
                     date: this.date,
+                    name: this.name,
+                    price: this.price,
                     contractor_id: this.selected.contractor,
                     nomenclatures: this.selected.nomenclatures,
                 })

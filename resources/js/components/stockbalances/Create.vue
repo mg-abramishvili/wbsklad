@@ -174,7 +174,7 @@
                             nomenclature.price = 0
                         }
                         if(this.selected.delivery.price) {
-                            return nomenclature.total = parseInt(nomenclature.price) + (parseInt(this.selected.delivery.price) / this.selected.nomenclatures.length)
+                            return nomenclature.total = parseInt(nomenclature.price) + (parseInt(this.selected.delivery.price) / this.selected.nomenclatures.length / nomenclature.quantity)
                         }
                         if(!this.selected.delivery.price) {
                             return nomenclature.total = parseInt(nomenclature.price)

@@ -50,6 +50,7 @@
                         { field: "supplier_article", headerName: 'Артикул' },
                         { field: "subject", headerName: 'Предмет' },
                         { field: "brand", headerName: 'Бренд' },
+                        { field: "tech_size", headerName: 'Размер' },
                         { field: "category", headerName: 'Категория' },
                         { field: "price", headerName: 'Цена' },
                     ],

@@ -51,6 +51,7 @@
                         { field: "artnumber", headerName: 'Артикул'  },
                         { field: "name", headerName: 'Наименование' },
                         { field: "brand", headerName: 'Производитель' },
+                        { field: "tech_size", headerName: 'Размер' },
                         { field: "quantity", headerName: 'Кол-во' },
                         { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
                     ],

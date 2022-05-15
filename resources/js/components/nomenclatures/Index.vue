@@ -49,7 +49,7 @@
                     columns: [
                         { field: "type", headerName: 'Тип', valueFormatter: this.typeFormatter },
                         { field: "artnumber", headerName: 'Артикул'  },
-                        { field: "name", headerName: 'Тип' },
+                        { field: "name", headerName: 'Наименование' },
                         { field: "brand", headerName: 'Производитель' },
                         { field: "quantity", headerName: 'Кол-во' },
                         { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },

@@ -27,16 +27,22 @@
                                 <input v-model="name" type="text" class="form-control">
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-3">
                             <div class="mb-3">
                                 <label>Артикул</label>
                                 <input v-model="artnumber" type="text" class="form-control">
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-3">
                             <div class="mb-3">
                                 <label>Производитель</label>
                                 <input v-model="brand" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-2">
+                            <div class="mb-3">
+                                <label>Размер</label>
+                                <input v-model="tech_size" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="col-12 col-lg-2">
@@ -69,6 +75,7 @@
                 artnumber: '',
 				name: '',
                 brand: '',
+                tech_size: '',
                 costPrice: 0,
                 quantity: 0,
                 isActive: true,
@@ -105,6 +112,7 @@
                     artnumber: this.artnumber,
                     name: this.name,
                     brand: this.brand,
+                    tech_size: this.tech_size,
                     cost_price: this.costPrice,
                     quantity: this.quantity,
                     is_active: this.isActive,

@@ -46,6 +46,7 @@ class NomenclatureController extends Controller
         $nomenclature->artnumber = $request->artnumber;
         $nomenclature->name = $request->name;
         $nomenclature->brand = $request->brand;
+        $nomenclature->tech_size = $request->tech_size;
         $nomenclature->cost_price = $request->cost_price;
         $nomenclature->quantity = $request->quantity;
 
@@ -69,6 +70,7 @@ class NomenclatureController extends Controller
         $nomenclature->artnumber = $request->artnumber;
         $nomenclature->name = $request->name;
         $nomenclature->brand = $request->brand;
+        $nomenclature->tech_size = $request->tech_size;
         $nomenclature->cost_price = $request->cost_price;
         $nomenclature->quantity = $request->quantity;
 
@@ -96,6 +98,7 @@ class NomenclatureController extends Controller
                 $nomenclature->artnumber = $product->supplier_article;
                 $nomenclature->name = $product->subject;
                 $nomenclature->brand = $product->brand;
+                $nomenclature->tech_size = $product->tech_size;
                 $nomenclature->cost_price = 0;
                 $nomenclature->quantity = 0;
     

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -37,7 +39,10 @@ class ProductController extends Controller
     {
         $user = User::where('uid', $request->user)->with('settings')->first();
 
-        $url = "https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks?dateFrom=2022-03-20T21%3A00%3A00.000Z&key=";
+        $url = "https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks";
+        $url .= "?dateFrom=";
+        $url .= Carbon::now()->format('Y-m-d');
+        $url .= "&key=";
         $url .= $user->settings->wb_api_key;
 
         $curl = curl_init($url);
@@ -73,8 +78,8 @@ class ProductController extends Controller
                     'category' => $wbProduct->category,
                     'brand' => $wbProduct->brand,
                     'price' => $wbProduct->Price,
-                    'quantity' => $wbProduct->quantity,
                     'tech_size' => $wbProduct->techSize,
+                    'uid' => Str::random(24),
                 ]
             );
         }

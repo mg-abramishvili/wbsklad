@@ -19,6 +19,7 @@ class Product extends Model
         'brand',
         'price',
         'quantity',
+        'uid',
         'tech_size',
     ];
 

@@ -35,6 +35,8 @@
                 @column-resized="onColumnEdited"
                 @column-moved="onColumnEdited"
                 @row-double-clicked="onRowClicked"
+                enableCellTextSelection="true"
+                ensureDomOrder="true"
             >
             </ag-grid-vue>
 

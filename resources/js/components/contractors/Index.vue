@@ -21,6 +21,8 @@
                 @grid-ready="onGridReady"
                 :rowData="table.data"
                 @row-double-clicked="onRowClicked"
+                enableCellTextSelection="true"
+                ensureDomOrder="true"
             >
             </ag-grid-vue>
 

@@ -18,6 +18,8 @@
                 @grid-ready="onGridReady"
                 :rowData="services"
                 @row-double-clicked="onRowClicked"
+                enableCellTextSelection="true"
+                ensureDomOrder="true"
             >
             </ag-grid-vue>
 

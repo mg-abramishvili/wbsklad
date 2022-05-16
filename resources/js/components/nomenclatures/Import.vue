@@ -24,6 +24,8 @@
                 rowSelection="multiple"
                 rowMultiSelectWithClick="true"
                 @selection-changed="onSelectionChanged"
+                enableCellTextSelection="true"
+                ensureDomOrder="true"
             >
             </ag-grid-vue>
         </div>

@@ -9,19 +9,9 @@ class Nomenclature extends Model
 {
     use HasFactory;
 
-    public function stockBalances()
-    {
-        return $this->hasMany(StockBalance::class);
-    }
-
     public function stockBalanceItems()
     {
         return $this->hasMany(StockBalanceItem::class);
-    }
-
-    public function services()
-    {
-        return $this->hasMany(Service::class);
     }
 
     public function serviceItems()

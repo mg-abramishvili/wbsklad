@@ -106,4 +106,26 @@ class NomenclatureController extends Controller
             }
         }
     }
+
+    public function delete($uid)
+    {
+        $nomenclature = Nomenclature::where('uid', $uid)->first();
+
+        if(count($nomenclature->serviceItems))
+        {
+            return response('Номенклатуру нельзя удалить - у нее есть добавленные услуги', 500);
+        }
+
+        if(count($nomenclature->stockBalanceItems))
+        {
+            return response('Номенклатуру нельзя удалить - у нее есть поступления', 500);
+        }
+
+        if(count($nomenclature->products))
+        {
+            return response('Номенклатуру нельзя удалить - она связана с товаром WB', 500);
+        }
+
+        $nomenclature->delete();
+    }
 }

@@ -105,6 +105,9 @@ body {
     text-transform: uppercase !important;
     color: #5e3e77 !important;
 }
+.ag-theme-alpine .ag-ltr .ag-floating-filter-button {
+    display: none;
+}
 .table-view-parameters {
     text-align: center;
 }

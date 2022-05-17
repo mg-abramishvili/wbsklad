@@ -49,18 +49,50 @@
                 table: {
                     data: [],
                     columns: [
-                        { field: "type", headerName: 'Тип', valueFormatter: this.typeFormatter },
-                        { field: "artnumber", headerName: 'Артикул'  },
-                        { field: "name", headerName: 'Наименование' },
-                        { field: "brand", headerName: 'Производитель' },
-                        { field: "tech_size", headerName: 'Размер' },
-                        { field: "quantity", headerName: 'Кол-во' },
-                        { field: "cost_price", headerName: 'Себестоимость', valueFormatter: this.currencyFormatter },
+                        {
+                            field: "type",
+                            headerName: 'Тип',
+                            valueFormatter: this.typeFormatter,
+                            filter: true,
+                        },
+                        {
+                            field: "artnumber",
+                            headerName: 'Артикул',
+                            filter: true,
+                        },
+                        {
+                            field: "name",
+                            headerName: 'Наименование',
+                            filter: true,
+                        },
+                        {
+                            field: "brand",
+                            headerName: 'Производитель',
+                            filter: true,
+                        },
+                        {
+                            field: "tech_size",
+                            headerName: 'Размер',
+                            filter: true,
+                        },
+                        {
+                            field: "quantity",
+                            headerName: 'Кол-во',
+                            filter: true,
+                        },
+                        {
+                            field: "cost_price",
+                            headerName: 'Себестоимость',
+                            valueFormatter: this.currencyFormatter,
+                            filter: true,
+                        },
                     ],
                     defaultColDef: {
                         movable: false,
                         suppressMovable: true,
                         suppressRowClickSelection: true,
+                        floatingFilter: true,
+                        suppressMenu: true,
                     },
                 },
 

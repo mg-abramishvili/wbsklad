@@ -45,6 +45,7 @@ Route::get('nomenclature/{uid}', [NomenclatureController::class, 'nomenclature']
 Route::post('nomenclatures', [NomenclatureController::class, 'store']);
 Route::post('nomenclatures/import', [NomenclatureController::class, 'import']);
 Route::put('nomenclature/{uid}/update', [NomenclatureController::class, 'update']);
+Route::delete('nomenclature/{uid}/delete', [NomenclatureController::class, 'delete']);
 
 // CONTRACTORS
 Route::get('stockbalances', [StockBalanceController::class, 'index']);

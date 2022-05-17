@@ -58,6 +58,7 @@
             </div>
 
             <button type="submit" :disabled="views.submitButton == false" class="btn btn-lg btn-primary">Сохранить</button>
+            <button @click.prevent="delConfirm()" class="btn btn-lg btn-outline-danger">Удалить</button>
         </form>
 
         <div class="card border-bottom-primary shadow py-2 mt-4 mb-4">
@@ -198,6 +199,32 @@
                 .catch(error => {
                     this.$swal({
                         text: 'Ошибка',
+                        icon: 'error',
+                    })
+                })
+            },
+            delConfirm() {
+                this.$swal({
+                    text: 'Точно удалить номенклатуру?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Да',
+                    cancelButtonText: 'Отмена',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.del()
+                    } else if (result.isDenied) {
+                        return
+                    }
+                })
+            },
+            del() {
+                axios.delete(`/api/nomenclature/${this.$route.params.uid}/delete`)
+                .then(response => {
+                    this.$router.push({name: 'Nomenclatures'})
+                })
+                .catch(error => {
+                    this.$swal({
+                        text: error.response.data,
                         icon: 'error',
                     })
                 })

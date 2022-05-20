@@ -89,7 +89,7 @@ class NomenclatureController extends Controller
         foreach($request->products as $product) {
             $product = Product::find($product);
 
-            if(!Nomenclature::where('artnumber', $product->supplier_article)->where('user_id', $user->id)->first()) {
+            if(!Nomenclature::where('artnumber', $product->supplier_article)->where('tech_size', $product->tech_size)->where('user_id', $user->id)->first()) {
                 $nomenclature = new Nomenclature();
     
                 $nomenclature->user_id = $user->id;

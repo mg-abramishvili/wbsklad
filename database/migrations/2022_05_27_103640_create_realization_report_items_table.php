@@ -13,7 +13,7 @@ class CreateRealizationReportItemsTable extends Migration
             $table->integer('user_id');
             $table->integer('realizationreport_id');
             $table->string('suppliercontract_code')->nullable();
-            $table->integer('rrd_id');
+            $table->string('rrd_id');
             $table->integer('gi_id')->nullable();
             $table->string('subject_name');
             $table->integer('nm_id');

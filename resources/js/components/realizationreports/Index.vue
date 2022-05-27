@@ -6,7 +6,7 @@
             </div>
             <div class="col-12 col-lg-7">
                 <div class="text-right">
-                    <button @click="importReports()" class="btn btn-primary">Загрузить отчеты</button>
+                    <button @click="importReports()" class="btn btn-primary" :disabled="!views.loadButton">Загрузить отчеты</button>
                 </div>
             </div>
         </div>
@@ -59,6 +59,7 @@ export default {
 
             views: {
                 loading: true,
+                loadButton: true,
             },
         }
     },
@@ -102,10 +103,12 @@ export default {
             }
 
             this.views.loading = true
+            this.views.loadButton = false
 
             axios.get(`/api/realization-reports-import`, { params: { user: user.uid } })
             .then(response => {
                 this.loadRealizationReports()
+                this.views.loadButton = true
             })
             .catch(error => {
                 this.$swal({

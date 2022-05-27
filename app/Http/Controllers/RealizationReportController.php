@@ -99,7 +99,7 @@ class RealizationReportController extends Controller
                 $realizationReportItem->commission_percent = $item->commission_percent;
                 $realizationReportItem->office_name = $item->office_name;
                 $realizationReportItem->supplier_oper_name = $item->supplier_oper_name;
-                return $realizationReportItem->order_dt = Carbon::parse($item->order_dt)->toDateString();
+                $realizationReportItem->order_dt = Carbon::parse($item->order_dt)->toDateString();
                 $realizationReportItem->sale_dt = Carbon::parse($item->sale_dt)->toDateString();
                 $realizationReportItem->rr_dt = Carbon::parse($item->rr_dt)->toDateString();
                 $realizationReportItem->shk_id = $item->shk_id;

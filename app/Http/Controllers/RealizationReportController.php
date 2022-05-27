@@ -137,7 +137,8 @@ class RealizationReportController extends Controller
 
         foreach($reportIDs as $reportID)
         {
-            if(!RealizationReport::where('id', $reportID)->first()) {
+            if(!RealizationReport::where('id', $reportID)->first())
+            {
                 $realizationReport = new RealizationReport();
     
                 $realizationReport->id = $reportID;

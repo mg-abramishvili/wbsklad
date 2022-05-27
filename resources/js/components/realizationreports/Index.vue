@@ -6,7 +6,7 @@
             </div>
             <div class="col-12 col-lg-7">
                 <div class="text-right">
-                    <a @click="importReports()" class="btn btn-primary">Загрузить отчеты</a>
+                    <button @click="importReports()" class="btn btn-primary">Загрузить отчеты</button>
                 </div>
             </div>
         </div>

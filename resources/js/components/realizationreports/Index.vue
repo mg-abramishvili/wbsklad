@@ -101,7 +101,7 @@ export default {
                 })
             }
 
-            this.views.loading - true
+            this.views.loading = true
 
             axios.get(`/api/realization-reports-import`, { params: { user: user.uid } })
             .then(response => {

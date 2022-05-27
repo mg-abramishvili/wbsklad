@@ -40,7 +40,7 @@ class CreateRealizationReportItemsTable extends Migration
             $table->string('gi_box_type_name');
             $table->integer('product_discount_for_report');
             $table->integer('supplier_promo')->nullable();
-            $table->integer('rid');
+            $table->string('rid');
             $table->decimal('ppvz_spp_prc');
             $table->decimal('ppvz_kvw_prc_base');
             $table->decimal('ppvz_kvw_prc');

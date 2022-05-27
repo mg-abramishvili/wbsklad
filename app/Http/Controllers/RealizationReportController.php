@@ -33,7 +33,7 @@ class RealizationReportController extends Controller
 
         foreach($weeks as $week)
         {
-            return $this->importStart($user, $startOfCurrentWeek, $endOfCurrentWeek, $week);
+            $this->importStart($user, $startOfCurrentWeek, $endOfCurrentWeek, $week);
         }
     }
 
@@ -99,9 +99,9 @@ class RealizationReportController extends Controller
                 $realizationReportItem->commission_percent = $item->commission_percent;
                 $realizationReportItem->office_name = $item->office_name;
                 $realizationReportItem->supplier_oper_name = $item->supplier_oper_name;
-                $realizationReportItem->order_dt = $item->order_dt;
-                $realizationReportItem->sale_dt = $item->sale_dt;
-                $realizationReportItem->rr_dt = $item->rr_dt;
+                return $realizationReportItem->order_dt = Carbon::parse($item->order_dt)->toDateString();
+                $realizationReportItem->sale_dt = Carbon::parse($item->sale_dt)->toDateString();
+                $realizationReportItem->rr_dt = Carbon::parse($item->rr_dt)->toDateString();
                 $realizationReportItem->shk_id = $item->shk_id;
                 $realizationReportItem->retail_price_withdisc_rub = $item->retail_price_withdisc_rub;
                 $realizationReportItem->delivery_amount = $item->delivery_amount;
@@ -135,13 +135,15 @@ class RealizationReportController extends Controller
 
         foreach($reportIDs as $reportID)
         {
-            $realizationReport = new RealizationReport();
-
-            $realizationReport->id = $reportID;
-            $realizationReport->user_id = $user->id;
-            $realizationReport->start_date = $startOfCurrentWeek->copy()->subDays($week)->toDateString();
-            $realizationReport->end_date = $endOfCurrentWeek->copy()->subDays($week)->toDateString();
-            $realizationReport->save();
+            if(!RealizationReport::where('id', $reportID)->first()) {
+                $realizationReport = new RealizationReport();
+    
+                $realizationReport->id = $reportID;
+                $realizationReport->user_id = $user->id;
+                $realizationReport->start_date = $startOfCurrentWeek->copy()->subDays($week)->toDateString();
+                $realizationReport->end_date = $endOfCurrentWeek->copy()->subDays($week)->toDateString();
+                $realizationReport->save();
+            }
         }
     }
 }

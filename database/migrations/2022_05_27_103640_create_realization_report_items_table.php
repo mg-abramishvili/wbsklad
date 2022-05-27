@@ -29,9 +29,9 @@ class CreateRealizationReportItemsTable extends Migration
             $table->decimal('commission_percent');
             $table->string('office_name');
             $table->string('supplier_oper_name');
-            $table->datetime('order_dt');
-            $table->datetime('sale_dt');
-            $table->datetime('rr_dt');
+            $table->date('order_dt');
+            $table->date('sale_dt');
+            $table->date('rr_dt');
             $table->integer('shk_id');
             $table->decimal('retail_price_withdisc_rub');
             $table->integer('delivery_amount')->nullable();

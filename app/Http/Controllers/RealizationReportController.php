@@ -26,7 +26,7 @@ class RealizationReportController extends Controller
     {
         $user = User::where('uid', $request->user)->with('settings')->first();
 
-        $weeks = [7,14,21,28,35,42,49,56];
+        $weeks = [7,14,21,28];
 
         $startOfCurrentWeek = Carbon::now()->startOfWeek();
         $endOfCurrentWeek = Carbon::now()->endOfWeek();

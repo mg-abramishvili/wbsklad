@@ -32,7 +32,7 @@ class CreateRealizationReportItemsTable extends Migration
             $table->date('order_dt');
             $table->date('sale_dt');
             $table->date('rr_dt');
-            $table->integer('shk_id');
+            $table->string('shk_id');
             $table->decimal('retail_price_withdisc_rub');
             $table->integer('delivery_amount')->nullable();
             $table->integer('return_amount')->nullable();

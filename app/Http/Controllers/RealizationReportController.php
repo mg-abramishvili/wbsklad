@@ -14,7 +14,7 @@ class RealizationReportController extends Controller
     {
         $user = User::where('uid', $request->user)->first();
 
-        return RealizationReport::where('user_id', $user->id)->get();
+        return RealizationReport::where('user_id', $user->id)->orderBy('start_date', 'desc')->get();
     }
 
     public function report($id)

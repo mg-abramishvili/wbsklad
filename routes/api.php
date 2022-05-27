@@ -8,6 +8,7 @@ use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\NomenclatureController;
 use App\Http\Controllers\StockBalanceController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\RealizationReportController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -60,3 +61,8 @@ Route::get('service/{uid}', [ServiceController::class, 'stockBalance']);
 Route::post('services', [ServiceController::class, 'store']);
 Route::put('service/{uid}/update', [ServiceController::class, 'update']);
 Route::delete('service/{uid}/delete', [ServiceController::class, 'delete']);
+
+// REALIZATION REPORTS
+Route::get('realization-reports', [RealizationReportController::class, 'index']);
+Route::get('realization-reports-import', [RealizationReportController::class, 'import']);
+Route::get('realization-report/{id}', [RealizationReportController::class, 'report']);

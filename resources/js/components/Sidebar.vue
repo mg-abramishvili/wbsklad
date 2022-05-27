@@ -65,6 +65,19 @@
 			</router-link>
 		</li>
 
+		<hr class="sidebar-divider">
+
+		<div class="sidebar-heading">
+			Отчеты
+		</div>
+
+		<li class="nav-item">
+			<router-link :to="{name: 'RealizationReports'}" class="nav-link">
+				<i class="fas fa-fw fa-tachometer-alt"></i>
+				<span>Еженедельные</span>
+			</router-link>
+		</li>
+
 		<!-- <hr class="sidebar-divider">
 
 		<div class="sidebar-heading">

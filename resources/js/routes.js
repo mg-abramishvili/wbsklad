@@ -25,6 +25,9 @@ import Services from './components/services/Index.vue';
 import ServiceCreate from './components/services/Create.vue';
 import Service from './components/services/Service.vue';
 
+import RealizationReports from './components/realizationreports/Index.vue';
+import RealizationReport from './components/realizationreports/Report.vue';
+
 import UserVerify from './components/users/Verify.vue';
 
 export const routes = [
@@ -117,6 +120,16 @@ export const routes = [
         path: '/service/:uid',
         name: 'Service',
         component: Service
+    },
+    {
+        path: '/realization-reports',
+        name: 'RealizationReports',
+        component: RealizationReports
+    },
+    {
+        path: '/realization-report/:id',
+        name: 'RealizationReport',
+        component: RealizationReport
     },
     {
         path: '/settings',

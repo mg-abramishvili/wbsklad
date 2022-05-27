@@ -94,6 +94,12 @@ export default {
             if(!user) {
                 return
             }
+            if(!user.settings.wb_api_key) {
+                return this.$swal({
+                    text: 'Не установлен API-ключ',
+                    icon: 'error',
+                })
+            }
 
             this.views.loading - true
 

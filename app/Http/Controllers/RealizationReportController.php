@@ -35,6 +35,8 @@ class RealizationReportController extends Controller
         {
             $this->importStart($user, $startOfCurrentWeek, $endOfCurrentWeek, $week);
         }
+
+        return response('Загрузка завершена', 200);
     }
 
     public function importStart($user, $startOfCurrentWeek, $endOfCurrentWeek, $week)

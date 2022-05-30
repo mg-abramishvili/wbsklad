@@ -78,7 +78,7 @@ class RealizationReportController extends Controller
                 $reportIDs[] = $item->realizationreport_id;
             }
 
-            if(!RealizationReportItem::where('realizationreport_id', $item->realizationreport_id)->where('barcode', $item->barcode)->first())
+            if(!RealizationReportItem::where('realizationreport_id', $item->realizationreport_id)->where('barcode', $item->barcode)->where('user_id', $user->id)->first())
             {
                 $realizationReportItem = new RealizationReportItem();
     
@@ -137,7 +137,7 @@ class RealizationReportController extends Controller
 
         foreach($reportIDs as $reportID)
         {
-            if(!RealizationReport::where('id', $reportID)->first())
+            if(!RealizationReport::where('id', $reportID)->where('user_id', $user->id)->first())
             {
                 $realizationReport = new RealizationReport();
     

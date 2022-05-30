@@ -41,7 +41,7 @@ class ProductController extends Controller
 
         $url = "https://suppliers-stats.wildberries.ru/api/v1/supplier/stocks";
         $url .= "?dateFrom=";
-        $url .= Carbon::now()->format('Y-m-d');
+        $url .= Carbon::now()->subDays(1)->format('Y-m-d');
         $url .= "&key=";
         $url .= $user->settings->wb_api_key;
 

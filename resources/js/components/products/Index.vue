@@ -16,7 +16,7 @@
 
         <div v-if="!views.loading" class="table-wrapper">
             <div v-if="views.table.settings" class="card border-bottom-primary shadow py-2 mb-4 table-view-parameters">
-                <div class="card-body">
+                <div class="card-body">{{table.userColumns}}
                     <ul>
                         <li v-for="column in table.userColumns" :key="column.id">
                             <input v-model="table.userColumns.find(c => c.id == column.id).isActive" type="checkbox" :value="column.isActive" :id="'col_v_' + column.field">
@@ -30,7 +30,7 @@
             <ag-grid-vue v-if="products.length"
                 class="ag-theme-alpine catalog-table"
                 :defaultColDef="table.defaultColDef"
-                :columnDefs="table.userColumns"
+                :columnDefs="table.userColumns.filter(col => col.isActive == true)"
                 :rowData="products"
                 @column-resized="onColumnEdited"
                 @column-moved="onColumnEdited"
@@ -60,7 +60,6 @@
                 table: {
                     data: [],
                     userColumns: [],
-                    userColumnsParams: [],
                     defaultColDef: {
                         sortable: true,
                         movable: false,
@@ -102,6 +101,25 @@
                         icon: 'error',
                     })
                 })
+            },
+            loadTable() {
+                let user = this.$parent.user
+
+                if(!user) {
+                    return
+                }
+
+                axios.get(`/api/table-views`, { params: { user: user.uid } })
+                .then((response => {                    
+                    this.table.userColumns = response.data.find(tableView => tableView.table_name == 'products').columns
+                }))
+                .catch(error => {
+                    this.$swal({
+                        text: error.response.data,
+                        icon: 'error',
+                    })
+                })
+
             },
             loadFromWildberries() {
                 let user = this.$parent.user
@@ -145,24 +163,6 @@
                 
                 return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName
             },
-            loadTable() {
-                let user = this.$parent.user
-
-                if(!user) {
-                    return
-                }
-                axios.get(`/api/table-views`, { params: { user: user.uid } })
-                .then((response => {                    
-                    this.table.userColumns = response.data.find(tableView => tableView.table_name == 'products').columns
-                }))
-                .catch(error => {
-                    this.$swal({
-                        text: error.response.data,
-                        icon: 'error',
-                    })
-                })
-
-            },
             columnsEdit(param) {
                 this.table.defaultColDef.resizable = param
                 this.table.defaultColDef.suppressMovable = !param
@@ -175,7 +175,29 @@
                 }, 50)
             },
             onColumnEdited(event) {
-                this.table.userColumnsParams = event.api.columnModel.gridColumns.map(function(item, index) { return {'id': item.colDef['id'], 'field': item['colId'], 'headerName': item.colDef['headerName'], 'width': item['actualWidth'], 'order': index + 1, 'isActive': item.colDef['isActive']} })
+                let newColumnParams = event.api.columnModel.gridColumns.map((column, index) => {
+                    return {
+                        'id': column.colDef['id'],
+                        'field': column['colId'],
+                        'headerName': column.colDef['headerName'],
+                        'width': column['actualWidth'],
+                        'order': column + 1,
+                        'isActive': column.colDef['isActive']
+                    }
+                })
+
+                newColumnParams.forEach(column => {
+                    let col = this.table.userColumns.find(c => c.id === column.id)
+
+                    if(col) {
+                        col.id = column.id
+                        col.field = column.field
+                        col.headerName = column.headerName
+                        col.width = column.width
+                        col.order = column.order
+                        col.isActive = column.isActive
+                    }
+                })
             },
             toggleTableSettings() {
                 if(this.views.table.settings) {
@@ -190,20 +212,13 @@
                 }
             },
             saveTableSettings() {
-                let data = ''
-
-                if(this.table.userColumnsParams && this.table.userColumnsParams.length) {
-                    data = this.table.userColumnsParams
-                } else {
-                    data = this.table.userColumns
-                }
-
-                axios.put(`/api/user-catalog-table-columns`, {
+                axios.post(`/api/table-views`, {
                     user: this.$parent.user.uid,
-                    columns_params: data
+                    table_name: 'products',
+                    columns: this.table.userColumns
                 })
                 .then((response => {
-                    this.table.userColumns = data
+                    //
                 }))
                 .catch(error => {
                     this.$swal({
@@ -211,6 +226,7 @@
                         icon: 'error',
                     })
                 })
+
                 this.toggleTableSettings()
             },
             onRowClicked(event) {

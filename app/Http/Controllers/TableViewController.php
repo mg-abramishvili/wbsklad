@@ -11,4 +11,16 @@ class TableViewController extends Controller
     {
         return TableView::where('user_uid', $request->user)->get();
     }
+
+    public function update(Request $request)
+    {
+        $tableView = TableView::query()
+            ->where('user_uid', $request->user)
+            ->where('table_name', $request->table_name)
+            ->first();
+        
+        $tableView->columns = $request->columns;
+        
+        $tableView->save();
+    }
 }

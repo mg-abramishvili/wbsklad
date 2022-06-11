@@ -25,6 +25,7 @@ Route::put('user/update', [UserController::class, 'update']);
 
 // TABLE VIEWS
 Route::get('table-views', [TableViewController::class, 'index']);
+Route::post('table-views', [TableViewController::class, 'update']);
 
 // PRODUCTS
 Route::get('products', [ProductController::class, 'index']);

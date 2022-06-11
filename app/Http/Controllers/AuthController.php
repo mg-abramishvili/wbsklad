@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\TableView;
 use App\Models\Setting;
-use App\Models\CatalogTableColumn;
-use App\Models\UserCatalogTableColumn;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -14,9 +13,12 @@ use Illuminate\Support\Str;
 use App\Mail\UserVerifyEmail;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
+use App\Traits\createNewUserTableViews;
 
 class AuthController extends Controller
 {
+    use createNewUserTableViews;
+
     public function login(Request $request)
     {
         if (!Auth::attempt($request->only('email', 'password'))) {
@@ -57,15 +59,7 @@ class AuthController extends Controller
         $newUserSettings->user_id = $newUser->id;
         $newUserSettings->save();
 
-        $catalogTableColumns = CatalogTableColumn::all();
-
-        foreach($catalogTableColumns as $catalogTableColumn)
-        {
-            $userCatalogTableColumn = new UserCatalogTableColumn();
-            $userCatalogTableColumn->user_id = $newUser->id;
-            $userCatalogTableColumn->catalog_table_column_id = $catalogTableColumn->id;
-            $userCatalogTableColumn->save();
-        }
+        $this->createNewUserTableViews($newUser->uid);
 
         $verifyKey = $newUser->verify_key;
 

@@ -3,12 +3,12 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserCatalogTableColumnController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\NomenclatureController;
 use App\Http\Controllers\StockBalanceController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\RealizationReportController;
+use App\Http\Controllers\TableViewController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,13 +19,12 @@ Route::post('registration', [AuthController::class, 'registration']);
 Route::post('me', [AuthController::class, 'me']);
 Route::get('user-verify/{key}', [AuthController::class, 'verify']);
 
-// USER
+// USER SETTINGS
 Route::get('user', [UserController::class, 'user']);
 Route::put('user/update', [UserController::class, 'update']);
 
-// CATALOG
-Route::get('user-catalog-table-columns', [UserCatalogTableColumnController::class, 'index']);
-Route::put('user-catalog-table-columns', [UserCatalogTableColumnController::class, 'update']);
+// TABLE VIEWS
+Route::get('table-views', [TableViewController::class, 'index']);
 
 // PRODUCTS
 Route::get('products', [ProductController::class, 'index']);

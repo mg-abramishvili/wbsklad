@@ -35,6 +35,6 @@ class User extends Authenticatable
 
     public function catalogTableColumns()
     {
-        return $this->hasMany(CatalogTableColumn::class);
+        return $this->hasMany(TableView::class, 'user_uid');
     }
 }

@@ -12,7 +12,6 @@ class CreateSettingsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('wb_api_key')->nullable();
-            $table->timestamps();
         });
     }
     

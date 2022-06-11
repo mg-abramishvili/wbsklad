@@ -5,8 +5,8 @@ import Registration from './components/auth/Registration.vue';
 
 import Settings from './components/settings/Index.vue';
 
-import Catalog from './components/catalog/Index.vue';
-import Product from './components/catalog/Product.vue';
+import Products from './components/products/Index.vue';
+import Product from './components/products/Product.vue';
 
 import Nomenclatures from './components/nomenclatures/Index.vue';
 import Nomenclature from './components/nomenclatures/Nomenclature.vue';
@@ -47,9 +47,9 @@ export const routes = [
         component: Registration
     },
     {
-        path: '/catalog',
-        name: 'Catalog',
-        component: Catalog
+        path: '/products',
+        name: 'Products',
+        component: Products
     },
     {
         path: '/product/:id',

@@ -15,7 +15,7 @@
 		</div>
 
 		<li class="nav-item">
-			<router-link :to="{name: 'Catalog'}" class="nav-link">
+			<router-link :to="{name: 'Products'}" class="nav-link">
 				<i class="fas fa-fw fa-tachometer-alt"></i>
 				<span>Товары WB</span>
 			</router-link>

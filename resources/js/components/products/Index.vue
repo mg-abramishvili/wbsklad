@@ -16,7 +16,7 @@
 
         <div v-if="!views.loading" class="table-wrapper">
             <div v-if="views.table.settings" class="card border-bottom-primary shadow py-2 mb-4 table-view-parameters">
-                <div class="card-body">{{table.userColumns}}
+                <div class="card-body">
                     <ul>
                         <li v-for="column in table.userColumns" :key="column.id">
                             <input v-model="table.userColumns.find(c => c.id == column.id).isActive" type="checkbox" :value="column.isActive" :id="'col_v_' + column.field">
@@ -58,7 +58,6 @@
                 products: [],
 
                 table: {
-                    data: [],
                     userColumns: [],
                     defaultColDef: {
                         sortable: true,
@@ -70,7 +69,7 @@
                 views: {
                     loading: true,
                     table: {
-                        settings: false
+                        settings: false,
                     },
                     loadButton: true,
                 }
@@ -163,17 +162,6 @@
                 
                 return 'https://images.wbstatic.net/c246x328/new/' + nmImageCategory + '/' + nmImageName
             },
-            columnsEdit(param) {
-                this.table.defaultColDef.resizable = param
-                this.table.defaultColDef.suppressMovable = !param
-
-                let tempData = this.table.userColumns
-                this.table.userColumns = []
-
-                setTimeout(() => {
-                    this.table.userColumns = tempData
-                }, 50)
-            },
             onColumnEdited(event) {
                 let newColumnParams = event.api.columnModel.gridColumns.map((column, index) => {
                     return {
@@ -201,12 +189,14 @@
             },
             toggleTableSettings() {
                 if(this.views.table.settings) {
-                    this.columnsEdit(false)
+                    this.table.defaultColDef.resizable = false
+                    this.table.defaultColDef.suppressMovable = true
 
                     return this.views.table.settings = false
                 }
                 if(!this.views.table.settings) {
-                    this.columnsEdit(true)
+                    this.table.defaultColDef.resizable = true
+                    this.table.defaultColDef.suppressMovable = false
 
                     return this.views.table.settings = true
                 }

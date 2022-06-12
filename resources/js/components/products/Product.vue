@@ -3,7 +3,7 @@
 
     <div v-else class="catalog-page">
         <div class="mb-4">
-            <router-link :to="{name: 'Catalog'}" class="btn btn-outline-primary">
+            <router-link :to="{name: 'Products'}" class="btn btn-outline-primary">
                 <i class="fas fa-arrow-left mr-2"></i>
                 Назад к списку товаров
             </router-link>
@@ -182,7 +182,7 @@
                     nomenclatures: this.selected.nomenclaturesQty,
                 })
                 .then(response => (
-                    this.$router.push({name: 'Catalog'}) 
+                    this.$router.push({name: 'Products'}) 
                 ))
                 .catch((error) => {
                     if(error.response) {

@@ -17,6 +17,6 @@ class TableView extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_uid');
+        return $this->belongsTo(User::class, 'uid', 'user_uid');
     }
 }

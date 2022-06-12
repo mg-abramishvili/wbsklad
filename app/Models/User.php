@@ -30,11 +30,11 @@ class User extends Authenticatable
 
     public function settings()
     {
-        return $this->hasOne(Setting::class);
+        return $this->hasOne(Setting::class, 'user_uid', 'uid');
     }
 
-    public function catalogTableColumns()
+    public function table_views()
     {
-        return $this->hasMany(TableView::class, 'user_uid');
+        return $this->hasMany(TableView::class, 'user_uid', 'uid');
     }
 }

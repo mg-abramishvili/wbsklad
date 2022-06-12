@@ -10,7 +10,6 @@ class CreateRealizationReportItemsTable extends Migration
     {
         Schema::create('realization_report_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
             $table->integer('realizationreport_id');
             $table->string('suppliercontract_code')->nullable();
             $table->string('rrd_id');

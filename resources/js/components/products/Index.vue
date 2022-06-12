@@ -46,8 +46,8 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     import Loader from '../Loader.vue'
-
     import { AgGridVue } from "ag-grid-vue";
     import "ag-grid-community/dist/styles/ag-grid.css";
     import "ag-grid-community/dist/styles/ag-theme-alpine.css";
@@ -75,6 +75,9 @@
                 }
             }
         },
+        computed: {
+            ...mapGetters(['user']),
+        },
         created() {
             this.$parent.views.title = 'Каталог WB'
 
@@ -82,17 +85,17 @@
         },
         methods: {
             loadProducts() {
-                let user = this.$parent.user
-
-                if(!user) {
+                if(!this.user) {
                     return
                 }
 
-                axios.get(`/api/products`, { params: { user: user.uid } })
+                axios.get(`/api/products`, { params: { user_uid: this.user.uid } })
                 .then(response => {
-                    this.products = response.data
+                    if(response.data) {
+                        this.products = response.data
+                        this.loadTable()
+                    }
                     this.views.loading = false
-                    this.loadTable()
                 })
                 .catch(error => {
                     this.$swal({
@@ -102,31 +105,12 @@
                 })
             },
             loadTable() {
-                let user = this.$parent.user
-
-                if(!user) {
-                    return
-                }
-
-                axios.get(`/api/table-views`, { params: { user: user.uid } })
-                .then((response => {                    
-                    this.table.userColumns = response.data.find(tableView => tableView.table_name == 'products').columns
-                }))
-                .catch(error => {
-                    this.$swal({
-                        text: error.response.data,
-                        icon: 'error',
-                    })
-                })
-
+                setTimeout(() => {
+                    this.table.userColumns = this.user.table_views.find(table => table.table_name == 'products').columns
+                }, 100)
             },
             loadFromWildberries() {
-                let user = this.$parent.user
-
-                if(!user) {
-                    return
-                }
-                if(!user.settings.wb_api_key) {
+                if(!this.user.settings.wb_api_key) {
                     return this.$swal({
                         text: 'Не установлен API-ключ',
                         icon: 'error',
@@ -136,7 +120,7 @@
                 this.views.loadButton = false
                 this.views.loading = true
 
-                axios.get(`/api/products/wildberries/load`, { params: { user: user.uid } })
+                axios.get(`/api/products/wildberries/load`, { params: { user: this.user.uid } })
                 .then((response => {
                     if(response.data) {
                         this.loadProducts()
@@ -203,7 +187,7 @@
             },
             saveTableSettings() {
                 axios.post(`/api/table-views`, {
-                    user: this.$parent.user.uid,
+                    user: this.user.uid,
                     table_name: 'products',
                     columns: this.table.userColumns
                 })

@@ -56,7 +56,7 @@ class AuthController extends Controller
         $newUser->save();
 
         $newUserSettings = new Setting();
-        $newUserSettings->user_id = $newUser->id;
+        $newUserSettings->user_uid = $newUser->uid;
         $newUserSettings->save();
 
         $this->createNewUserTableViews($newUser->uid);
@@ -69,7 +69,7 @@ class AuthController extends Controller
     public function me(Request $request)
     {
         if($request->user()) {
-            return $request->user()->load('settings');
+            return $request->user()->load('settings', 'table_views');
         }
     }
 

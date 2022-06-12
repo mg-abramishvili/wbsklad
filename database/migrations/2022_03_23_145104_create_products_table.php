@@ -10,7 +10,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->string('user_uid');
             $table->string('barcode');
             $table->integer('nm_id');
             $table->string('uid');

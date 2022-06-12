@@ -10,9 +10,9 @@ class CreateRealizationReportsTable extends Migration
     {
         Schema::create('realization_reports', function (Blueprint $table) {
             $table->id();
+            $table->string('user_uid');
             $table->date('start_date');
             $table->date('end_date');
-            $table->integer('user_id');
         });
     }
 

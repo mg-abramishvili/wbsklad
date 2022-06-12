@@ -82,7 +82,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
                 <router-link :to="{name: 'Settings'}"  class="nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ $parent.user.name }}</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.name }}</span>
                     <img class="img-profile rounded-circle" src="/img/avatar.png">
                 </router-link>
                 <!-- Dropdown - User Information -->
@@ -113,12 +113,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     props: ['title'],
     data() {
         return {
             //
         }
+    },
+    computed: {
+        ...mapGetters(['user']),
     }
 }
 </script>

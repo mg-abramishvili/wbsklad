@@ -10,7 +10,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->string('user_uid');
             $table->string('wb_api_key')->nullable();
         });
     }

@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'user_uid',
         'nm_id',
         'supplier_article',
         'subject',
@@ -22,6 +22,11 @@ class Product extends Model
         'uid',
         'tech_size',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_uid');
+    }
 
     public function nomenclatures()
     {

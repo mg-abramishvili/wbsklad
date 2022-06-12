@@ -10,7 +10,7 @@ class CreateTableViewsTable extends Migration
     {
         Schema::create('table_views', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_uid');
+            $table->string('user_uid');
             $table->string('table_name');
             $table->longText('columns');
         });

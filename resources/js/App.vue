@@ -29,48 +29,50 @@
 </template>
 
 <script>
+	import { mapGetters, mapActions, mapMutations } from 'vuex'
 	import Sidebar from './components/Sidebar.vue'
 	import Header from './components/Header.vue'
 
     export default {
         data() {
-            return {                
-                user: {},
-
-                authenticated: false,
-
+            return {
+				authenticated: false,
+				
                 views: {
 					title: '',
-                    loading: true,
+					loading: true,
                 }				
             }
         },
-        created() {
+		computed: {
+			...mapGetters(['user']),
+		},
+		methods: {
+			...mapActions(['loadUser']),
+			...mapMutations(['setUser']),
+
+			checkMe() {
+				this.loadUser().then(response => {
+					if(response) {
+						this.setUser(response)
+						this.authenticated = true
+                        this.views.loading = false
+						return
+					}
+					if(!response) {
+						this.views.loading = false
+						this.$router.push({name: 'Login'})
+					}
+				})
+			}
+		},
+		created() {
 			if(this.$route.name != 'Login' && this.$route.name != 'Registration' && this.$route.name != 'UserVerify') {
 				this.checkMe()
 			} else {
 				this.views.loading = false
 			}
         },
-		methods: {
-			checkMe() {
-				axios.post('/api/me').then(response => {
-					this.user = response.data
-
-					if(this.user) {
-						this.authenticated = true
-                        this.views.loading = false
-						return
-					}
-					
-					if(!this.user) {
-						this.views.loading = false
-
-						this.$router.push({name: 'Login'})
-					}
-				})
-			},
-		},
 		components: {
 			Sidebar,
 			Header

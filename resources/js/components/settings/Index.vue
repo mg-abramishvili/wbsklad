@@ -50,6 +50,7 @@
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     import Loader from '../Loader.vue'
 
     export default {
@@ -72,42 +73,27 @@
                 }				
             }
         },
+        computed: {
+            ...mapGetters(['user']),
+        },
         created() {
             this.$parent.views.title = 'Настройки'
 
             this.loadUser()
         },
 		methods: {
-            loadUser() {
-                let user = this.$parent.user
-
-                if(!user) {
-                    return this.$swal({
-                        text: 'Пользователь не найден',
-                        icon: 'error',
-                    })
-                }
-                
-                this.name = user.name
-                this.email = user.email
-                this.wbApiKey = user.settings.wb_api_key
+            loadUser() {                
+                this.name = this.user.name
+                this.email = this.user.email
+                this.wbApiKey = this.user.settings.wb_api_key
 
                 this.views.loading = false
             },
 			update() {
-                let user = this.$parent.user
-
-                if(!user) {
-                    return this.$swal({
-                        text: 'Пользователь не найден',
-                        icon: 'error',
-                    })
-                }
-
-				this.views.submitButton = false
+                this.views.submitButton = false
                 
                 axios.put(`/api/user/update`, {
-                    user: user.uid,
+                    user: this.user.uid,
                     name: this.name,
                     email: this.email,
                     wb_api_key: this.wbApiKey,

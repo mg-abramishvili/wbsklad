@@ -11,7 +11,7 @@ class CreateNomenclaturesTable extends Migration
         Schema::create('nomenclatures', function (Blueprint $table) {
             $table->id();
             $table->string('uid');
-            $table->integer('user_id');
+            $table->string('user_uid');
             $table->string('type')->default('tovar');
             $table->string('artnumber');
             $table->string('name');

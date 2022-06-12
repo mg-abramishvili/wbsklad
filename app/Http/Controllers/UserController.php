@@ -15,7 +15,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         
-        $settings = Setting::where('user_id', $user->id)->first();
+        $settings = Setting::where('user_uid', $request->user)->first();
         $settings->wb_api_key = $request->wb_api_key;
         $settings->save();
 

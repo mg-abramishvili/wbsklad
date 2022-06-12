@@ -5,11 +5,26 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        count: 0
+        user: {}
+    },
+    getters: {
+        user(state) {
+            return state.user
+        }
     },
     mutations: {
-        increment (state) {
-            state.count++
+        setUser(state, user) {
+            state.user = user
+        }
+    },
+    actions: {
+        loadUser() {
+            return new Promise((resolve, reject) => {
+                axios.post('/api/me')
+                .then(response => {
+                    resolve(response.data)
+                })
+            })
         }
     }
 })

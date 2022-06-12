@@ -12,9 +12,7 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $user = User::where('uid', $request->user)->first();
-
-        return Product::where('user_id', $user->id)->get();
+        return Product::where('user_uid', $request->user_uid)->get();
     }
 
     public function product($id)
@@ -68,7 +66,7 @@ class ProductController extends Controller
         {
             $product = Product::updateOrCreate(
                 [
-                    'user_id' => $user->id,
+                    'user_uid' => $user->uid,
                     'barcode' => $wbProduct->barcode,
                 ],
                 [

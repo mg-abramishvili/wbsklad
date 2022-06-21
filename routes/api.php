@@ -64,4 +64,5 @@ Route::delete('service/{uid}/delete', [ServiceController::class, 'delete']);
 // REALIZATION REPORTS
 Route::get('realization-reports', [RealizationReportController::class, 'index']);
 Route::get('realization-reports-import', [RealizationReportController::class, 'import']);
+Route::get('realization-reports-downloader', [RealizationReportController::class, 'downloader']);
 Route::get('realization-report/{id}', [RealizationReportController::class, 'report']);
